@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-wrap: wrap; /* Permite que os cards se ajustem à tela */
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    width: calc(100% - 20px); /* Adapta a largura do card à tela */
+    max-width: 400px; /* Define uma largura máxima para os cards */
+}
+
+input {
+    display: block;
+    margin: 10px 0;
+    padding: 5px;
+    width: 100%;
+}
+
+@media (min-width: 800px) and (max-width: 1024px) {
+    .container {
+        max-width: 800px; /* Define uma largura máxima para a tela */
+    }
+}

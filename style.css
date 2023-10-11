@@ -1,36 +1,15 @@
+.col.disabled {
 
+    h2 {
+        color: #7F8690;
+    }
 
-.card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-wrap: wrap;
-}
-
-.card {
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 10px;
-    text-align: center;
-    width: calc(100% - 20px); 
-    max-width: 400px; 
-}
-
-@media screen and (max-width: 1024px) {
-    .card {
-        width: 45%;
+    .validated {
+        fill: #A6FF00;
     }
 }
 
-@media screen and (max-width: 800px) {
-    .card-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        width: 90%;
-    }
+.spinner-class{
+    margin-top: 38px;
+    margin-right: 10px;
 }

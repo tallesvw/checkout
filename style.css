@@ -6,7 +6,12 @@
     flex-wrap: wrap; /* Permite que os cards se ajustem à tela */
 }
 
+.names {
+    
+}
+
 .card {
+    border-radius: 10px;
     border: 1px solid #ccc;
     padding: 20px;
     margin: 10px;
@@ -21,9 +26,48 @@ input {
     padding: 5px;
     width: 100%;
 }
+/* 
+.payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 70%;
+}
+
+h2, h3 {
+    font-size: 18px;
+    text-decoration: underline;
+}
+
+form {
+    margin-top: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.credit-card, .debit-card {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+} */
 
 @media (min-width: 800px) and (max-width: 1024px) {
     .container {
-        max-width: 800px; /* Define uma largura máxima para a tela */
+        max-width: 800px; 
     }
 }

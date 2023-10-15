@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="styleteste.css">
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <script type="javascript" src="../src/pagamento/script.js"></script>
+        <script type="javascript" src="./script-check.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -143,7 +143,8 @@
                                     <div class="my-3 row">
                                         <div class="col">
                                             <div><label class="form-label">Número</label>
-                                                <input placeholder="10" enterkeyhint="next" name="bairro" type="text" id="numero" class="form-control" value=""  /></label><br />
+                                                <input placeholder="10" enterkeyhint="next" name="bairro" type="text"
+                                                    id="numero" class="form-control" value="" /></label><br />
                                                 <div class="invalid-feedback">Campo obrigatório</div>
                                             </div>
                                         </div>
@@ -200,8 +201,9 @@
                                     </div>
                                     <div class="accordion-card accordion">
                                         <div class="mb-3 accordion-item">
-                                            <h2 class="payment-accordion accordion-header"><button type="button"
-                                                    aria-expanded="false" class="accordion-button collapsed">
+                                            <h2 class="payment-accordion accordion-header">
+                                                <button type="button" aria-expanded="false"
+                                                    class="accordion-button collapsed">
                                                     <div id="cardPayment" class="card-payment-method-accordion"
                                                         style="border-color: rgb(196, 196, 196);"><svg width="33"
                                                             height="33" viewBox="0 0 33 33"
@@ -217,14 +219,16 @@
                                                                 d="M26.92 24.5018H21.275C20.9344 24.501 20.608 24.3654 20.3672 24.1246C20.1264 23.8837 19.9908 23.5574 19.99 23.2168V19.6248C19.991 19.2845 20.1268 18.9585 20.3676 18.718C20.6085 18.4776 20.9347 18.3423 21.275 18.3418H26.921C27.2599 18.3442 27.5841 18.4803 27.8231 18.7206C28.0621 18.9609 28.1965 19.2859 28.197 19.6248V23.2168C28.197 23.5569 28.0622 23.8831 27.822 24.124C27.5819 24.3649 27.2561 24.5007 26.916 24.5018H26.92ZM21.529 22.9628H26.662V19.8828H21.529V22.9628Z">
                                                             </path>
                                                         </svg>Cartão de crédito</div>
-                                                </button></h2>
+                                                </button>
+                                            </h2>
                                             <div class="accordion-collapse collapse">
                                                 <div class="accordion-body-card mb-3 accordion-body"></div>
                                             </div>
                                         </div>
                                         <div class="mb-3 accordion-item">
-                                            <h2 class="payment-accordion accordion-header"><button type="button"
-                                                    aria-expanded="false" class="accordion-button collapsed">
+                                            <h2 class="payment-accordion accordion-header">
+                                                <button type="button" aria-expanded="false"
+                                                    class="accordion-button collapsed">
                                                     <div id="cardPayment" class="card-payment-method-accordion"
                                                         style="border-color: rgb(196, 196, 196);"><svg width="33"
                                                             height="33" viewBox="0 0 33 33"
@@ -258,7 +262,8 @@
                                                                 d="M26.1619 8.11963C24.8299 8.11963 23.5278 8.51458 22.4203 9.2546C21.3128 9.99462 20.4496 11.0464 19.9398 12.277C19.4301 13.5076 19.2967 14.8618 19.5566 16.1682C19.8165 17.4746 20.4579 18.6746 21.3998 19.6165C22.3416 20.5583 23.5416 21.1998 24.848 21.4597C26.1544 21.7195 27.5086 21.5861 28.7392 21.0764C29.9698 20.5666 31.0216 19.7034 31.7616 18.5959C32.5017 17.4884 32.8966 16.1863 32.8966 14.8543C32.8949 13.0687 32.1848 11.3567 30.9222 10.094C29.6596 8.83138 27.9475 8.12133 26.1619 8.11963ZM26.1619 20.0772C25.1292 20.077 24.1197 19.7706 23.2611 19.1968C22.4025 18.6229 21.7333 17.8073 21.3382 16.8532C20.9431 15.899 20.8397 14.8491 21.0413 13.8362C21.2428 12.8234 21.7401 11.893 22.4703 11.1627C23.2006 10.4325 24.131 9.9352 25.1438 9.73368C26.1567 9.53217 27.2066 9.6355 28.1608 10.0306C29.1149 10.4257 29.9305 11.0949 30.5043 11.9535C31.0782 12.8121 31.3846 13.8216 31.3848 14.8543C31.384 16.2396 30.8337 17.568 29.8545 18.5479C28.8753 19.5278 27.5472 20.0791 26.1619 20.0808V20.0772Z">
                                                             </path>
                                                         </svg>Débito em conta</div>
-                                                </button></h2>
+                                                </button>
+                                            </h2>
                                             <div class="accordion-collapse collapse">
                                                 <div class="accordion-body-card accordion-body">
                                                     <div> <label class="pt-4 form-label">Selecione o seu
@@ -539,9 +544,10 @@
                                     </div>
                                     <div class="accordion-card accordion">
                                         <div class="mb-3 accordion-item">
-                                            <h2 class="payment-accordion accordion-header"><button type="button"
-                                                    aria-expanded="false" class="accordion-button collapsed">
-                                                    <div id="cardPayment" class="card-payment-method-accordion"
+                                            <h2 class="payment-accordion accordion-header">
+                                                <button id="toggleButton" type="button" aria-expanded="true"
+                                                    class="accordion-button collapsed">
+                                                    <div id="myCard" class="card-payment-method-accordion"
                                                         style="border-color: rgb(196, 196, 196);"><svg width="33"
                                                             height="33" viewBox="0 0 33 33"
                                                             xmlns="http://www.w3.org/2000/svg" class="me-3"
@@ -556,77 +562,76 @@
                                                                 d="M26.92 24.5018H21.275C20.9344 24.501 20.608 24.3654 20.3672 24.1246C20.1264 23.8837 19.9908 23.5574 19.99 23.2168V19.6248C19.991 19.2845 20.1268 18.9585 20.3676 18.718C20.6085 18.4776 20.9347 18.3423 21.275 18.3418H26.921C27.2599 18.3442 27.5841 18.4803 27.8231 18.7206C28.0621 18.9609 28.1965 19.2859 28.197 19.6248V23.2168C28.197 23.5569 28.0622 23.8831 27.822 24.124C27.5819 24.3649 27.2561 24.5007 26.916 24.5018H26.92ZM21.529 22.9628H26.662V19.8828H21.529V22.9628Z">
                                                             </path>
                                                         </svg>Cartão de crédito</div>
-                                                </button></h2>
-                                            <div class="accordion-collapse collapse">
-                                                <div class="accordion-body-card mb-3 accordion-body">
-                                                    <div class="ps-1 mb-3 pt-4 row"><strong class="text-muted">Incluir
-                                                            opcionais</strong></div>
-                                                    <div class="ps-1 row">
-                                                        <div class="col-sm-8 col-8">
-                                                            <div class="mb-1">
-                                                                <div class="form-check">
-                                                                    <div class="text-start invalid-feedback">Valor
-                                                                        obrigatório
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                            </h2>
+                                        </div>
+                                        <hr class="m-2 mt-4 mb-4 text-muted">
+                                        <div id="credit" class="accordion-collapse collapse pt-2 show">
+                                            <form novalidate="" class="" data-hs-cf-bound="true">
+                                                <div class="mb-3"><label class="form-label">Número do
+                                                        cartão</label><input placeholder="0000 0000 0000 0000"
+                                                        enterkeyhint="next" required="" type="text" class="form-control"
+                                                        value="">
+                                                    <div class="invalid-feedback">Campo obrigatório
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3"><label class="form-label">Nome do
+                                                        titular</label><input placeholder="ex. Maria Lucia Almeida "
+                                                        enterkeyhint="next" required="" type="text" id="nomeTitular"
+                                                        class="form-control" value="">
+                                                    <div class="invalid-feedback">Campo obrigatório
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="mb-3"><label
+                                                                class="form-label">Validade</label><input
+                                                                placeholder="10/10" enterkeyhint="next" required=""
+                                                                type="text" id="validadeCartao" class="form-control"
+                                                                value="">
+                                                            <div class="invalid-feedback">Campo
+                                                                obrigatório</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="mb-3"><label class="form-label">CVV</label><input
+                                                                placeholder="123" enterkeyhint="next" required=""
+                                                                type="text" id="cvvCartao" class="form-control"
+                                                                value="">
+                                                            <div class="invalid-feedback">Campo
+                                                                obrigatório</div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <hr class="m-2 mt-4 mb-4 text-muted">
-                                                <div id="credit" class="accordion-collapse collapse pt-2 show">
-                                                    <form novalidate="" class="" data-hs-cf-bound="true">
-                                                        <div class="mb-3"><label class="form-label">Número do
-                                                                cartão</label><input placeholder="0000 0000 0000 0000"
-                                                                enterkeyhint="next" required="" type="text"
-                                                                class="form-control" value="">
-                                                            <div class="invalid-feedback">Campo obrigatório
-                                                            </div>
-                                                        </div>
-                                                        <div class="mb-3"><label class="form-label">Nome do
-                                                                titular</label><input
-                                                                placeholder="ex. Maria Lucia Almeida "
-                                                                enterkeyhint="next" required="" type="text"
-                                                                id="nomeTitular" class="form-control" value="">
-                                                            <div class="invalid-feedback">Campo obrigatório
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-sm-6">
-                                                                <div class="mb-3"><label
-                                                                        class="form-label">Validade</label><input
-                                                                        placeholder="10/10" enterkeyhint="next"
-                                                                        required="" type="text" id="validadeCartao"
-                                                                        class="form-control" value="">
-                                                                    <div class="invalid-feedback">Campo
-                                                                        obrigatório</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col">
-                                                                <div class="mb-3"><label
-                                                                        class="form-label">CVV</label><input
-                                                                        placeholder="123" enterkeyhint="next"
-                                                                        required="" type="text" id="cvvCartao"
-                                                                        class="form-control" value="">
-                                                                    <div class="invalid-feedback">Campo
-                                                                        obrigatório</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="mb-4"><label class="form-label">CPF</label><input
-                                                                placeholder="000.000.000-00" required="" type="text"
-                                                                id="cpfCartao" class="form-control" value="">
-                                                            <div class="invalid-feedback">Campo obrigatório
-                                                            </div>
-                                                        </div>
-                                                        <div class="d-grid pt-3"><button type="submit"
-                                                                class="d-flex justify-content-center btn btn-secondary btn-lg">Solicitar
-                                                                cartão</button></div>
-                                                    </form>
+                                                <div class="mb-4"><label class="form-label">CPF</label><input
+                                                        placeholder="000.000.000-00" required="" type="text"
+                                                        id="cpfCartao" class="form-control" value="">
+                                                    <div class="invalid-feedback">Campo obrigatório
+                                                    </div>
                                                 </div>
-                                            </div>
+                                                <div class="d-grid pt-3"><button type="submit"
+                                                        class="d-flex justify-content-center btn btn-secondary btn-lg">Solicitar
+                                                        cartão</button></div>
+                                            </form>
+                                            </button>
                                         </div>
                                     </div>
+
+                                    <script>
+                                        const toggleButton = document.getElementById('toggleButton');
+                                        const creditDiv = document.getElementById('credit');
+
+                                        // Adiciona um evento de clique ao botão
+                                        toggleButton.addEventListener('click', () => {
+                                            // Verifica se a div com o ID 'credit' está visível
+                                            if (creditDiv.style.display === 'block' || creditDiv.style.display === '') {
+                                                // Se estiver visível, oculta a div
+                                                creditDiv.style.display = 'none';
+                                            } else {
+                                                // Se estiver oculta, exibe a div
+                                                creditDiv.style.display = 'block';
+                                            }
+                                        });
+                                    </script>
                                     <div class="mb-3 accordion-item">
                                         <h2 class="payment-accordion accordion-header">
                                             <button type="button" aria-expanded="false"
@@ -668,8 +673,7 @@
                                         </h2>
                                         <div class="accordion-collapse collapse">
                                             <div class="accordion-body-card accordion-body">
-                                                <div> <label class="pt-4 form-label">Selecione o seu
-                                                        banco</label></div>
+                                                <div> <label class="pt-4 form-label">Selecione o seu banco</label></div>
                                                 <div class="btn-group btn-bank-selected mb-2">
                                                     <button type="button" name="itau" value="itau"
                                                         class="btn-bank  onlyLogo rounded btn btn-primary">

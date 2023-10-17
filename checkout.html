@@ -28,63 +28,11 @@
         body {
             overflow: auto;
         }
-
-        @media (min-width: 800px) and (max-width: 1024px) {
-            .grecaptcha-badge {
-                width: 256px;
-                height: 60px;
-                display: block;
-                transition: right 0.3s ease 0s;
-                position: fixed;
-                bottom: 14px;
-                right: -186px;
-                box-shadow: gray 0px 0px 5px;
-                border-radius: 2px;
-                overflow: hidden;
-            }
-
-            .btn-primary {
-                background-color: #ffda00;
-                border: none;
-            }
-
-
-            @media (min-width: 800px) {
-                .navbar {
-                    width: 800px;
-
-                }
-            }
-
-            @media (max-width: 1024px) {
-                .navbar {
-                    width: 1024px;
-
-                }
-            }
-        }
     </style>
 </head>
 
 <body class="overflow-auto">
     <div id="root">
-        <div>
-            <div>
-                <div class="grecaptcha-badge" data-style="bottomright"
-                    style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;">
-                    <div class="grecaptcha-logo">
-                        <iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-3zfqmurbfqod"
-                            frameborder="0" scrolling="no"
-                            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
-                            src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Le8mKUZAAAAAAt8I_-ajpKEtqq3fUiBe6DLydcb&amp;co=aHR0cHM6Ly9zb2xpY2l0ZS5jYXJ0YW9kZXRvZG9zLmNvbS5icjo0NDM.&amp;hl=pt-BR&amp;type=image&amp;v=lLirU0na9roYU3wDDisGJEVT&amp;theme=light&amp;size=invisible&amp;badge=bottomright&amp;cb=5plos0k9lwmw"></iframe>
-                    </div>
-                    <div class="grecaptcha-error"></div><textarea id="g-recaptcha-response" name="g-recaptcha-response"
-                        class="g-recaptcha-response"
-                        style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
-                </div>
-                <iframe style="display: none;"></iframe>
-            </div>
-        </div>
         <main>
             <nav data-page="pagamento" class="px-1 px-xl-5 py-3 undefined bg-white navbar navbar-expand navbar-light">
                 <a href="https://cardfacil.com.br/" target="_blank">
@@ -101,12 +49,8 @@
                 </a>
     </div>
     </nav>
+
     <!-- CADASTRO -->
-    <div class="px-5 col-sm-auto">
-        <div class="d-flex h-100">
-            <div class="vr"></div>
-        </div>
-    </div>
     <div class="d-none d-xl-block px-5 pb-4 pagamento-form col">
         <div class="d-flex justify-content-between row">
             <div class="col" style="cursor: pointer;">
@@ -147,54 +91,96 @@
                             para realização de cadastro.</h5>
                     </div>
                     <div class="col">
-                        <div class="mb-3"><label class="form-label">Nome completo</label><input
+                        <div class="mb-3"><label class="form-label">Nome completo*</label><input
                                 placeholder="ex. Maria Lucia Almeida" enterkeyhint="next" required="" type="text"
-                                class="form-control is-invalid" value="">
+                                class="form-control" value="">
                             <div class="invalid-feedback">Campo obrigatório</div>
                         </div>
-                        <div class="mb-3"><label class="form-label">CPF</label><input placeholder="000.000.000-00"
+
+                        <div class="mb-3"><label class="form-label">CPF*</label><input placeholder="000.000.000-00"
                                 enterkeyhint="next" required="" type="text" id="cpf" class="form-control">
                             <div class="invalid-feedback">Campo obrigatório</div>
                         </div>
-                        <div class="mb-3"><label class="form-label">E-mail</label><input placeholder="ana@gmail.com"
+
+                        <div class="mb-3"><label class="form-label">E-mail*</label><input placeholder="ana@gmail.com"
                                 enterkeyhint="next" required="" type="text" id="email" class="form-control" value="">
                             <div class="invalid-feedback">Campo obrigatório</div>
                         </div>
-                        <div class="mb-3"><label class="form-label">Telefone</label><input placeholder="(11) 99999-9999"
-                                enterkeyhint="next" required="" type="text" id="telefone" class="form-control" value="">
+
+                        <div class="mb-3"><label class="form-label">Telefone*</label><input
+                                placeholder="(11) 99999-9999" enterkeyhint="next" required="" type="text" id="telefone"
+                                class="form-control" value="">
                             <div class="invalid-feedback">Campo obrigatório</div>
                         </div>
+
                         <div class="mb-1">
-                            <div class="form-check"><input required="" type="checkbox" id="Maior18"
-                                    class="form-check-input"><label for="Maior18" class="form-check-label">Maior de 18
-                                    anos*</label>
-                                <div class="text-start invalid-feedback">Campo obrigatório</div>
+                            <div class="form-check">
+                                <input required="" type="checkbox" id="Maior18" class="form-check-input">
+                                <label for="Maior18" class="form-check-label">Maior de 18 anos*</label>
+                                <div class="text-start invalid-feedback" id="errorMessage">Campo obrigatório</div>
                             </div>
+
                         </div>
                         <div class="mb-1">
-                            <div class="form-check"><input required="" type="checkbox" id="termos"
-                                    class="form-check-input"><label for="termos" class="form-check-label">Li
-                                    e aceito os <button type="button" class="underline text-link-terms"><strong>termos e
-                                            condições</strong></button>*</label>
-                                <div class="text-start invalid-feedback">Campo obrigatório</div>
+                            <div class="form-check">
+                                <input required="" type="checkbox" id="termos" class="form-check-input">
+                                <label for="termos" class="form-check-label">Li e aceito os <button type="button"
+                                        class="underline text-link-terms">
+                                        <strong>termos e
+                                            condições</strong>
+                                    </button>*</label>
+                                <div class="text-start invalid-feedback" id="errorMessage">Campo
+                                    obrigatório</div>
                             </div>
                         </div>
+
                         <div class="mb-1">
                             <div class="form-check"><input type="checkbox" id="termosSmsEmailTel"
                                     class="form-check-input"><label for="termosSmsEmailTel" class="form-check-label">Eu
                                     aceito notificações e contato via
                                     <b>SMS</b>, <b>e-mail</b> ou <b>telefone</b></label>
-                                <div class="text-start invalid-feedback">Valor obrigatório</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <script>
+                // Função para verificar se um campo está preenchido corretamente
+                function verificarCampoPreenchido(input) {
+                    if (input.value.trim() === '') {
+                        input.classList.remove('is-valid');
+                        input.classList.add('is-invalid');
+                    } else {
+                        input.classList.remove('is-invalid');
+                        input.classList.add('is-valid');
+                    }
+                }
+                // Selecione todos os campos de texto no formulário
+                var camposDeTexto = document.querySelectorAll('input[type="text"]');
+
+                // Adicione um evento 'onblur' a cada campo para verificar quando ele perde o foco
+                camposDeTexto.forEach(function (campo) {
+                    campo.addEventListener('blur', function () {
+                        verificarCampoPreenchido(campo);
+                    });
+                });
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', function () {
+                        if (this.checked) {
+                            this.classList.remove('invalid');
+                            this.classList.add('valid');
+                        } else {
+                            this.classList.remove('valid');
+                            this.classList.add('invalid');
+                        }
+                    });
+                });
+            </script>
             <!-- ENDERECO -->
             <div class="px-5 col-sm-auto">
-                <div class="d-flex h-100">
-                    <div class="vr"></div>
-                </div>
+                <div class="d-flex h-100"><div class="vr"></div></div>
             </div>
             <div class="col" style="cursor: pointer;">
                 <div class="row">
@@ -554,7 +540,7 @@
                                         // Se estiver oculta, exibe a div
                                         debitoDiv.style.display = 'block';
                                     }
-                                });                                               
+                                }); 
                             </script>
                         </div>
                     </div>
@@ -596,3 +582,5 @@
 </body>
 
 </html>
+
+ESTOU FAZENDO TESTE NO TESTE.HTML PRECISO RETORNAR CAMPO OBRIGATORIO NOS CHECKBOX DO CHECKOUT

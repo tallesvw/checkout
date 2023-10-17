@@ -81,7 +81,7 @@ html {
 body {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: #fff;
+    background-color: #ffffff;
     background-color: var(--bs-body-bg);
     color: #212529;
     color: var(--bs-body-color);
@@ -140,7 +140,7 @@ body {
     --bs-text-0800: #fcf8ef;
     --bs-hover-0800: #3d8970;
     --bs-text-price: #4ba68a;
-    --bs-border-price: #78f5c9;
+    --bs-border-price: #616161;
     --bs-text-default: #1d1d1d;
     --bs-text-info: #7f8690;
     --bs-text-link: #00a988;
@@ -254,9 +254,18 @@ body {
     width: 8px;
 }
 
+.valid {
+    border: 1px solid green;
+}
+
+.invalid {
+    border: 1px solid red;
+}
+
+
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb:hover {
-    background: #78f5c9;
+    background: #616161;
     background: var(--bs-border-price);
 }
 

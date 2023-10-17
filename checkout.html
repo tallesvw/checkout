@@ -328,7 +328,7 @@
                                     <h5 class="m-0 text-primary">Valor total</h5>
                                 </div>
                                 <div class="col-sm-4 col-4">
-                                    <h5 class="m-0 fw-normal text-primary" id="valorTotal">R$ 0,00 </h5>
+                                    <h5 class="m-0 fw-normal text-primary" id="valorTotal"></h5>
                                 </div>
                             </div>
                         </form>
@@ -644,7 +644,7 @@
         }
 
         // Atualize o elemento HTML com o valor total calculado
-        valorTotalElement.textContent = 'R$ ' + valorTotal.toFixed(2);
+        valorTotalElement.textContent = '' + valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     }
 
     // Adicione ouvintes de eventos de clique aos botões de rádio

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styleCheckout.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+        </script>
+    <title>telaPequena</title>
+</head>
+
+<body>
+    <main>
+        <nav data-page="pagamento" class="px-1 px-xl-5 py-3 undefined bg-white navbar navbar-expand navbar-light">
+            <a href="https://cardfacil.com.br/" target="_blank">
+                <div class="container-xxl">
+                    <span class="navbar-brand">
+                        <img class="logo" alt="Imagem Logo" src="./assets/logo2.png" height="60" width="100">
+                    </span>
+                    <a href="(31) 3618-0430">
+                        <button type="button" style="background-color: #ffda00; border: none"
+                            title="Fale com nossos atendentes" class="btn-sm btn btn-primary">
+                            (31) 3618-0430
+                        </button>
+                    </a>
+                </div>
+        </nav>
+        <div class="g-0 g-xl-2 container-xxl">
+            <div class="h-responsive pt-4 g-0 g-xl-2 row">
+                <div class="d-xl-none col">
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <h2 id="pessoaAccordion" class="accordion-header"><button type="button" aria-expanded="true"
+                                    class="accordion-button">Cadastro</button></h2>
+                            <div class="accordion-collapse collapse show">
+                                <div class="accordion-body">
+                                    <h5 class="text-muted mb-4 fw-normal">Os seus dados serão utilizados apenas para
+                                        realização de cadastro.</h5>
+                                    <div class="mb-3"><label class="form-label">Nome completo</label><input
+                                            placeholder="ex. Maria Lucia Almeida" enterkeyhint="next" required=""
+                                            type="text" class="form-control" value="">
+                                        <div class="invalid-feedback">Campo obrigatório</div>
+                                    </div>
+                                    <div class="mb-3"><label class="form-label">CPF</label><input
+                                            placeholder="000.000.000-00" enterkeyhint="next" required="" type="text"
+                                            id="cpf" class="form-control">
+                                        <div class="invalid-feedback">Campo obrigatório</div>
+                                    </div>
+                                    <div class="mb-3"><label class="form-label">E-mail</label><input
+                                            placeholder="ana@gmail.com" enterkeyhint="next" required="" type="text"
+                                            id="email" class="form-control" value="">
+                                        <div class="invalid-feedback">Campo obrigatório</div>
+                                    </div>
+                                    <div class="mb-3"><label class="form-label">Telefone</label><input
+                                            placeholder="(11) 99999-9999" enterkeyhint="next" required="" type="text"
+                                            id="telefone" class="form-control" value="">
+                                        <div class="invalid-feedback">Campo obrigatório</div>
+                                    </div>
+                                    <div class="mb-1">
+                                        <div class="form-check"><input required="" type="checkbox" id="Maior18"
+                                                class="form-check-input"><label for="Maior18"
+                                                class="form-check-label">Maior de 18 anos*</label>
+                                            <div class="text-start invalid-feedback">Campo obrigatório</div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-1">
+                                        <div class="form-check"><input required="" type="checkbox" id="termos"
+                                                class="form-check-input"><label for="termos" class="form-check-label">Li
+                                                e aceito os <button type="button"
+                                                    class="underline text-link-terms"><strong>termos e
+                                                        condições</strong></button>*</label>
+                                            <div class="text-start invalid-feedback">Campo obrigatório</div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-1">
+                                        <div class="form-check"><input type="checkbox" id="termosSmsEmailTel"
+                                                class="form-check-input"><label for="termosSmsEmailTel"
+                                                class="form-check-label">Eu aceito notificações e contato via
+                                                <b>SMS</b>, <b>e-mail</b> ou <b>telefone</b></label>
+                                            <div class="text-start invalid-feedback">Valor obrigatório</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="endAccordion" class="accordion-item">
+                            <h2 id="enderecoAccordion" class="accordion-header"><button type="button"
+                                    aria-expanded="false" class="accordion-button collapsed"
+                                    disabled="disabled">Endereço</button></h2>
+                            <div class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    <h5 class="text-muted fw-normal mb-4">Preencha os campos abaixo com o seu
+                                        endereço.</h5>
+                                    <div class="d-flex justify-content-end align-items-start">
+                                        <div class="mb-4 w-100"><label class="form-label">CEP</label><input
+                                                placeholder="0000-000" enterkeyhint="next" required="" type="text"
+                                                class="form-control" value="">
+                                            <div class="invalid-feedback">Campo obrigatório</div><small
+                                                class="form-text" style="float: right; display: none;">Não sabe seu
+                                                CEP? <a
+                                                    href="https://buscacepinter.correios.com.br/app/localidade_logradouro/index.php"
+                                                    target="_blank" rel="noreferrer" class="underline">Clique
+                                                    aqui</a></small>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3"><label class="form-label">Rua</label><input
+                                            placeholder="Novo oriente da boa ventura" enterkeyhint="next" required=""
+                                            type="text" id="rua" class="form-control" value="">
+                                        <div class="invalid-feedback">Campo obrigatório</div>
+                                    </div>
+                                    <div class="mb-3"><label class="form-label">Bairro</label><input
+                                            placeholder="Jardim das Oliveiras" enterkeyhint="next" required=""
+                                            type="text" id="bairro" class="form-control" value="">
+                                        <div class="invalid-feedback">Campo obrigatório</div>
+                                    </div>
+                                    <div class="my-3 row">
+                                        <div class="col">
+                                            <div><label class="form-label">Número</label><input placeholder="10"
+                                                    enterkeyhint="next" required="" type="text" id="numero"
+                                                    class="form-control" value="">
+                                                <div class="invalid-feedback">Campo obrigatório</div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div><label class="form-label">Complemento</label><input
+                                                    placeholder="apt 01" enterkeyhint="next" type="text"
+                                                    id="complemento" class="form-control" value=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="pagamentoAccordion" class="accordion-item">
+                            <h2 class="accordion-header"><button type="button" aria-expanded="false"
+                                    class="accordion-button collapsed" disabled="disabled">Pagamento</button></h2>
+                            <div class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    <fieldset class="voucher w-100 my-3">
+                                        <legend>Você possui um voucher? Digite ele aqui</legend>
+                                        <div class="voucher-border">
+                                            <div class="mb-3 mt-4 input-group"><span class="input-group-text"
+                                                    id="voucher"><img src="/todos/icon-voucher.svg"
+                                                        alt="Imagem Voucher"></span><input placeholder="ex. DESCONTAO"
+                                                    aria-describedby="voucher" type="text" id="voucher"
+                                                    class="text-uppercase form-control form-control-lg" value="">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <hr class="m-2 mt-4 text-muted">
+                                    <div class="px-1 ps-4 my-3 row">
+                                        <div class="ps-2 col-sm-8 col-8">
+                                            <h5 class="text-muted">1ª mensalidade</h5>
+                                        </div>
+                                        <div class="col-sm-4 col-4">
+                                            <h5 class="fw-normal text-muted ">R$ 29,70</h5>
+                                        </div>
+                                        <div class="col-sm-4 offset-sm-8"> </div>
+                                        <div class="ps-2 col-sm-8 col-8">
+                                            <h5 class="m-0 text-muted">taxa de adesão</h5>
+                                        </div>
+                                        <div class="col-sm-4 col-4">
+                                            <h5 class="m-0 fw-normal text-muted  ">R$ 29,70</h5>
+                                        </div>
+                                        <div class="col-sm-4 offset-sm-8"></div>
+                                    </div>
+                                    <hr class="m-2 text-muted">
+                                    <div class="mb-5 px-1 ps-4 row">
+                                        <div class="ps-2 col-sm-8 col-8">
+                                            <h5 class="m-0 text-primary">Valor total</h5>
+                                        </div>
+                                        <div class="col-sm-4 col-4">
+                                            <h5 class="m-0 fw-normal text-primary ">R$ 59,40</h5>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-card accordion">
+                                        <div class="mb-3 accordion-item">
+                                            <h2 class="payment-accordion accordion-header"><button type="button"
+                                                    aria-expanded="false" class="accordion-button collapsed">
+                                                    <div id="cardPayment" class="card-payment-method-accordion"
+                                                        style="border-color: rgb(196, 196, 196);"><svg width="33"
+                                                            height="33" viewBox="0 0 33 33"
+                                                            xmlns="http://www.w3.org/2000/svg" class="me-3"
+                                                            fill="#4BA68A">
+                                                            <path
+                                                                d="M28.46 28.6092H4.85C3.82967 28.6079 2.85148 28.2021 2.12981 27.4808C1.40813 26.7595 1.00185 25.7816 1 24.7612V15.2672C1 15.1322 1.02663 14.9985 1.07837 14.8738C1.1301 14.749 1.20593 14.6357 1.30151 14.5403C1.39709 14.4449 1.51054 14.3693 1.63537 14.3178C1.7602 14.2663 1.89396 14.24 2.029 14.2402H31.283C31.4178 14.24 31.5514 14.2664 31.676 14.3179C31.8006 14.3695 31.9138 14.4451 32.0091 14.5406C32.1043 14.636 32.1798 14.7494 32.2311 14.8741C32.2824 14.9988 32.3085 15.1324 32.308 15.2672V24.7672C32.3069 25.7875 31.9012 26.7656 31.1798 27.487C30.4584 28.2084 29.4802 28.6142 28.46 28.6152V28.6092ZM2.541 15.7772V24.7612C2.54206 25.373 2.78576 25.9594 3.21864 26.3917C3.65152 26.824 4.23822 27.067 4.85 27.0672H28.46C29.0719 27.067 29.6587 26.8243 30.0921 26.3923C30.5254 25.9602 30.7699 25.3741 30.772 24.7622V15.7772H2.541Z">
+                                                            </path>
+                                                            <path
+                                                                d="M31.283 12.187H2.029C1.7566 12.1865 1.49548 12.0782 1.30267 11.8857C1.10987 11.6933 1.00106 11.4324 1 11.16L1 8.848C1.00185 7.82767 1.40813 6.84969 2.12981 6.12839C2.85148 5.4071 3.82967 5.00132 4.85 5H28.46C29.4802 5.00106 30.4584 5.40681 31.1798 6.12822C31.9012 6.84963 32.3069 7.82777 32.308 8.848V11.16C32.3077 11.432 32.1997 11.6927 32.0076 11.8852C31.8155 12.0777 31.555 12.1862 31.283 12.187ZM2.541 10.644H30.771V8.844C30.7684 8.23264 30.5238 7.64718 30.0907 7.21563C29.6577 6.78407 29.0714 6.54152 28.46 6.541H4.85C4.23804 6.54126 3.6512 6.78434 3.21829 7.21688C2.78538 7.64941 2.54179 8.23604 2.541 8.848V10.644Z">
+                                                            </path>
+                                                            <path
+                                                                d="M26.92 24.5018H21.275C20.9344 24.501 20.608 24.3654 20.3672 24.1246C20.1264 23.8837 19.9908 23.5574 19.99 23.2168V19.6248C19.991 19.2845 20.1268 18.9585 20.3676 18.718C20.6085 18.4776 20.9347 18.3423 21.275 18.3418H26.921C27.2599 18.3442 27.5841 18.4803 27.8231 18.7206C28.0621 18.9609 28.1965 19.2859 28.197 19.6248V23.2168C28.197 23.5569 28.0622 23.8831 27.822 24.124C27.5819 24.3649 27.2561 24.5007 26.916 24.5018H26.92ZM21.529 22.9628H26.662V19.8828H21.529V22.9628Z">
+                                                            </path>
+                                                        </svg>Cartão de crédito</div>
+                                                </button></h2>
+                                            <div class="accordion-collapse collapse">
+                                                <div class="accordion-body-card mb-3 accordion-body"></div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 accordion-item">
+                                            <h2 class="payment-accordion accordion-header"><button type="button"
+                                                    aria-expanded="false" class="accordion-button collapsed">
+                                                    <div id="cardPayment" class="card-payment-method-accordion"
+                                                        style="border-color: rgb(196, 196, 196);"><svg width="33"
+                                                            height="33" viewBox="0 0 33 33"
+                                                            lns="http://www.w3.org/2000/svg" class="me-3"
+                                                            fill="#4BA68A">
+                                                            <path
+                                                                d="M17.9511 26.1221H8.16609C7.97325 26.1221 7.78831 26.1987 7.65195 26.3351C7.51559 26.4714 7.43896 26.6563 7.43896 26.8492C7.43896 27.042 7.51559 27.227 7.65195 27.3633C7.78831 27.4997 7.97325 27.5763 8.16609 27.5763H17.9511C18.1439 27.5763 18.3288 27.4997 18.4652 27.3633C18.6015 27.227 18.6781 27.042 18.6781 26.8492C18.6781 26.6563 18.6015 26.4714 18.4652 26.3351C18.3288 26.1987 18.1439 26.1221 17.9511 26.1221Z">
+                                                            </path>
+                                                            <path
+                                                                d="M23.2141 22.9626H2.90383C2.71252 22.9632 2.52298 22.9261 2.34607 22.8532C2.16916 22.7804 2.00837 22.6734 1.87293 22.5383C1.73748 22.4032 1.63004 22.2427 1.55677 22.0659C1.48351 21.8892 1.44586 21.6997 1.44598 21.5084V8.9066C1.44622 8.52099 1.59951 8.1512 1.87217 7.87854C2.14484 7.60588 2.51457 7.45259 2.90017 7.45235H22.8152C23.6038 7.13217 24.4374 6.93645 25.2861 6.87216C25.0167 6.59648 24.695 6.37732 24.3399 6.22756C23.9847 6.0778 23.6033 6.00045 23.2178 6H2.90383C2.13411 6.00242 1.39665 6.30939 0.852552 6.85384C0.308449 7.39828 0.00193079 8.13593 0 8.90565V21.5084C0.00241579 22.2777 0.309203 23.0147 0.853306 23.5584C1.39741 24.1022 2.1346 24.4085 2.90383 24.4104H23.2141C23.6937 24.4096 24.1656 24.2899 24.5876 24.062C25.0096 23.8341 25.3684 23.5051 25.632 23.1045C25.0221 23.0744 24.4175 22.9749 23.8301 22.8079C23.6392 22.9056 23.4285 22.9585 23.2141 22.9626Z">
+                                                            </path>
+                                                            <path d="M10.5025 15.8081H8.98969V17.3218H10.5025V15.8081Z">
+                                                            </path>
+                                                            <path d="M10.5025 12.332H8.98969V13.8457H10.5025V12.332Z">
+                                                            </path>
+                                                            <path d="M10.5025 19.2827H8.98969V20.7964H10.5025V19.2827Z">
+                                                            </path>
+                                                            <path
+                                                                d="M12.3182 17.3218H18.2924C18.1381 16.8286 18.0318 16.3217 17.9748 15.8081H12.3182V17.3218Z">
+                                                            </path>
+                                                            <path
+                                                                d="M18.3125 12.333H12.3182V13.8467H17.984C18.0447 13.3328 18.1547 12.8259 18.3125 12.333Z">
+                                                            </path>
+                                                            <path
+                                                                d="M12.3182 20.7954H20.4577C19.9851 20.3422 19.5685 19.834 19.2167 19.2817H12.3182V20.7954Z">
+                                                            </path>
+                                                            <path
+                                                                d="M25.7345 15.5233L23.9042 14.0362L22.9506 15.2094L25.9834 17.673L29.5718 13.0341L28.3757 12.1079L25.7345 15.5233Z">
+                                                            </path>
+                                                            <path
+                                                                d="M26.1619 8.11963C24.8299 8.11963 23.5278 8.51458 22.4203 9.2546C21.3128 9.99462 20.4496 11.0464 19.9398 12.277C19.4301 13.5076 19.2967 14.8618 19.5566 16.1682C19.8165 17.4746 20.4579 18.6746 21.3998 19.6165C22.3416 20.5583 23.5416 21.1998 24.848 21.4597C26.1544 21.7195 27.5086 21.5861 28.7392 21.0764C29.9698 20.5666 31.0216 19.7034 31.7616 18.5959C32.5017 17.4884 32.8966 16.1863 32.8966 14.8543C32.8949 13.0687 32.1848 11.3567 30.9222 10.094C29.6596 8.83138 27.9475 8.12133 26.1619 8.11963ZM26.1619 20.0772C25.1292 20.077 24.1197 19.7706 23.2611 19.1968C22.4025 18.6229 21.7333 17.8073 21.3382 16.8532C20.9431 15.899 20.8397 14.8491 21.0413 13.8362C21.2428 12.8234 21.7401 11.893 22.4703 11.1627C23.2006 10.4325 24.131 9.9352 25.1438 9.73368C26.1567 9.53217 27.2066 9.6355 28.1608 10.0306C29.1149 10.4257 29.9305 11.0949 30.5043 11.9535C31.0782 12.8121 31.3846 13.8216 31.3848 14.8543C31.384 16.2396 30.8337 17.568 29.8545 18.5479C28.8753 19.5278 27.5472 20.0791 26.1619 20.0808V20.0772Z">
+                                                            </path>
+                                                        </svg>Débito em conta</div>
+                                                </button></h2>
+                                            <div class="accordion-collapse collapse">
+                                                <div class="accordion-body-card accordion-body">
+                                                    <div> <label class="pt-4 form-label">Selecione o seu
+                                                            banco</label></div>
+                                                    <div class="btn-group btn-bank-selected mb-2"><button type="button"
+                                                            name="itau" value="itau"
+                                                            class="btn-bank  onlyLogo rounded btn btn-primary"><svg
+                                                                width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                    d="M5.06419 1.05862L18.9686 1.06684C21.1511 1.06684 22.9495 2.86513 22.9412 5.05588V18.9601C22.9412 21.151 21.1429 22.9411 18.9523 22.9411L5.03966 22.9329C2.84891 22.9249 1.05884 21.1348 1.05884 18.9439L1.07515 5.03945C1.07515 2.84882 2.86535 1.0504 5.06419 1.05862Z"
+                                                                    fill="#33348E"></path>
+                                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                    d="M19.8597 11.0395H18.2739L17.62 12.2819H18.7316L19.8597 11.0395ZM20.9142 13.0586H19.3692V16.3936C19.3692 17.4155 18.6824 17.7097 18.1759 17.7097C17.6935 17.7097 17.162 17.5298 17.1704 16.6386V13.0585H15.6255L15.6172 16.8594C15.6172 18.3306 16.4594 18.9845 17.6201 18.9845C18.4292 18.9927 19.0588 18.6411 19.4102 18.0201H19.4265V18.8294H20.9143V13.0586H20.9142ZM14.4155 14.587C14.4155 13.1566 12.9116 12.9032 12.0778 12.9032C10.8761 12.9032 9.62543 13.1566 9.43742 14.9222H10.9333C10.9823 14.5871 11.1213 14.1211 11.8897 14.1211C12.2902 14.1211 12.9116 14.1539 12.9116 14.7915C12.9116 15.1184 12.6091 15.2166 12.3638 15.2492L10.9743 15.4536C9.98514 15.5926 9.24953 16.1728 9.24953 17.301C9.24953 18.4943 10.1651 18.9848 11.0396 18.9848C12.1023 18.9848 12.6009 18.5025 12.9443 18.1512C12.9769 18.47 13.0014 18.5517 13.0914 18.8296L14.4238 18.8214C14.4238 18.1838 14.4156 17.7179 14.4156 17.7098V14.587H14.4155ZM7.82713 11.0395H6.2822V13.0503H5.4811V14.1375H6.27398V17.6442C6.27398 18.3879 6.51105 18.8949 7.85166 18.8949H8.0561C8.30126 18.8949 8.54642 18.8783 8.78362 18.8703V17.7176C8.67728 17.7259 8.56298 17.7422 8.46474 17.7422C7.83534 17.7422 7.81891 17.6113 7.81891 17.2679L7.82713 14.1374H8.79171V13.0502H7.82713V11.0395ZM4.77002 11.0312H3.10246L3.09424 18.8213H4.76181L4.77002 11.0312Z"
+                                                                    fill="#FFF22D"></path>
+                                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                    d="M12.9116 16.7612V16.0176C12.7562 16.1401 12.4945 16.2381 11.857 16.3281C11.2766 16.4261 10.8025 16.5732 10.8025 17.2027C10.8025 17.7258 11.2276 17.8975 11.5218 17.8975C12.2086 17.8976 12.9116 17.4643 12.9116 16.7612Z"
+                                                                    fill="#33348E"></path>
+                                                            </svg></button><button type="button" name="bradesco"
+                                                            class="btn-bank  onlyLogo rounded btn btn-primary"><svg
+                                                                width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                    d="M0.107178 0.285645H20.6429V20.664H12.1494V12.2216H10.2877V20.664H9.29868V14.9H8.36799V20.664H0.107178V0.285645ZM0.805112 7.38904C1.89086 6.90406 2.97675 6.41881 4.06297 5.93343C8.42354 -0.149584 14.0883 2.15342 16.1052 5.06009C11.4122 2.05197 7.94099 3.5853 6.21548 5.64236C19.4022 4.27358 22.6988 12.3085 15.5816 15.2492C21.8836 10.1837 13.8749 6.04983 5.51748 6.45736C3.50982 10.1641 4.16884 12.9006 6.04089 15.3656C4.02237 13.8192 2.68367 11.5589 3.7721 6.7485C2.78304 6.96219 1.79398 7.17562 0.805112 7.38904V7.38904Z"
+                                                                    fill="#CC2229"></path>
+                                                            </svg></button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p><small class="text-muted text-center ">* Pagamento mensal de R$ 29,70.<br>**
+                                            O pagamento inicial será de R$ 59,40, pois inclui a taxa de adesão no
+                                            valor de R$ 29,70 mais a primeira mensalidade no valor de R$
+                                            29,70.<br>***Valor sujeito a alteração devido ao uso de voucher.</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        // Função para verificar se um campo está preenchido corretamente
+                        function verificarCampoPreenchido(input) {
+                            if (input.value.trim() === '') {
+                                input.classList.remove('is-valid');
+                                input.classList.add('is-invalid');
+                            } else {
+                                input.classList.remove('is-invalid');
+                                input.classList.add('is-valid');
+                            }
+                        }
+                        // Selecione todos os campos de texto no formulário
+                        var camposDeTexto = document.querySelectorAll('input[type="text"]');
+
+                        // Adicione um evento 'onblur' a cada campo para verificar quando ele perde o foco
+                        camposDeTexto.forEach(function (campo) {
+                            campo.addEventListener('blur', function () {
+                                verificarCampoPreenchido(campo);
+                            });
+                        });
+                        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                        const cadastroAccordionButton = document.querySelector('#pessoaAccordion button');
+                        const enderecoAccordionButton = document.querySelector('#enderecoAccordion button');
+
+                        checkboxes.forEach(checkbox => {
+                            checkbox.addEventListener('change', checkCheckboxes);
+                        });
+
+                        function checkCheckboxes() {
+                            if (areAllCheckboxesChecked()) {
+                                cadastroAccordionButton.setAttribute('disabled', 'disabled');
+                                enderecoAccordionButton.removeAttribute('disabled');
+                            } else {
+                                cadastroAccordionButton.removeAttribute('disabled');
+                                enderecoAccordionButton.setAttribute('disabled', 'disabled');
+                            }
+                        }
+
+                        function areAllCheckboxesChecked() {
+                            for (const checkbox of checkboxes) {
+                                if (!checkbox.checked) {
+                                    return false;
+                                }
+                            }
+                            return true;
+                        }
+
+                    </script>
+                </div>
+
+</body>
+
+</html>

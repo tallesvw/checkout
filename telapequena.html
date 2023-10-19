@@ -41,9 +41,10 @@
                 <div class="d-xl-none col">
                     <div class="accordion">
                         <div class="accordion-item">
-                            <h2 id="pessoaAccordion" class="accordion-header"><button type="button" aria-expanded="true"
-                                    class="accordion-button">Cadastro</button></h2>
-                            <div class="accordion-collapse collapse show">
+                            <h2 id="pessoaAccordion" class="accordion-header">
+                                <button type="button" aria-expanded="true" class="accordion-button">Cadastro</button>
+                            </h2>
+                            <div id="cadastro" class="accordion-collapse collapse show">
                                 <div class="accordion-body">
                                     <h5 class="text-muted mb-4 fw-normal">Os seus dados serão utilizados apenas para
                                         realização de cadastro.</h5>
@@ -96,9 +97,8 @@
                         </div>
                         <div id="endAccordion" class="accordion-item">
                             <h2 id="enderecoAccordion" class="accordion-header"><button type="button"
-                                    aria-expanded="false" class="accordion-button collapsed"
-                                    disabled="disabled">Endereço</button></h2>
-                            <div class="accordion-collapse collapse">
+                                    aria-expanded="true" class="accordion-button collapsed">Endereço</button></h2>
+                            <div id="endereco" class="accordion-collapse collapse">
                                 <div class="accordion-body">
                                     <h5 class="text-muted fw-normal mb-4">Preencha os campos abaixo com o seu
                                         endereço.</h5>
@@ -144,13 +144,13 @@
                         <div id="pagamentoAccordion" class="accordion-item">
                             <h2 class="accordion-header"><button type="button" aria-expanded="false"
                                     class="accordion-button collapsed" disabled="disabled">Pagamento</button></h2>
-                            <div class="accordion-collapse collapse">
+                            <div id="pagamento" class="accordion-collapse collapse">
                                 <div class="accordion-body">
                                     <fieldset class="voucher w-100 my-3">
                                         <legend>Você possui um voucher? Digite ele aqui</legend>
                                         <div class="voucher-border">
                                             <div class="mb-3 mt-4 input-group"><span class="input-group-text"
-                                                    id="voucher"><img src="/todos/icon-voucher.svg"
+                                                    id="voucher"><img src="./assets/voucher.jpg"
                                                         alt="Imagem Voucher"></span><input placeholder="ex. DESCONTAO"
                                                     aria-describedby="voucher" type="text" id="voucher"
                                                     class="text-uppercase form-control form-control-lg" value="">
@@ -274,16 +274,26 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <p><small class="text-muted text-center ">* Pagamento mensal de R$ 29,70.<br>**
-                                            O pagamento inicial será de R$ 59,40, pois inclui a taxa de adesão no
-                                            valor de R$ 29,70 mais a primeira mensalidade no valor de R$
-                                            29,70.<br>***Valor sujeito a alteração devido ao uso de voucher.</small>
+                                    <p>
+                                        <small class="text-muted text-center ">* Pagamento mensal de R$
+                                            29,90 para plano individual e R$ 39,90 para plano familiar.<br>** O
+                                            pagamento inicial
+                                            será de R$
+                                            59,90, para plano individual ou R$ 69,90 para plano familia, pois inclui a
+                                            taxa de adesão no valor de R$ 30,00 mais a primeira mensalidade no
+                                            valor de R$ 29,90 para plano individual, ou R$ 39,90 para plano
+                                            familiar.<br>***Valor
+                                            sujeito a
+                                            alteração devido ao uso de
+                                            voucher.</small>
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <script>
+                        var verificacaoRealizada = false; // Variável de controle
+
                         // Função para verificar se um campo está preenchido corretamente
                         function verificarCampoPreenchido(input) {
                             if (input.value.trim() === '') {
@@ -303,36 +313,170 @@
                                 verificarCampoPreenchido(campo);
                             });
                         });
-                        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                        const cadastroAccordionButton = document.querySelector('#pessoaAccordion button');
-                        const enderecoAccordionButton = document.querySelector('#enderecoAccordion button');
 
-                        checkboxes.forEach(checkbox => {
-                            checkbox.addEventListener('change', checkCheckboxes);
-                        });
+                        // Função para verificar o formulário
+                        function verificarFormulario() {
+                            var camposDeTexto = document.querySelectorAll('input[type="text"]');
+                            var todosCamposPreenchidos = true;
 
-                        function checkCheckboxes() {
-                            if (areAllCheckboxesChecked()) {
-                                cadastroAccordionButton.setAttribute('disabled', 'disabled');
-                                enderecoAccordionButton.removeAttribute('disabled');
-                            } else {
-                                cadastroAccordionButton.removeAttribute('disabled');
-                                enderecoAccordionButton.setAttribute('disabled', 'disabled');
-                            }
+                            camposDeTexto.forEach(function (campo) {
+                                verificarCampoPreenchido(campo);
+                                if (campo.classList.contains('is-invalid')) {
+                                    todosCamposPreenchidos = false;
+                                }
+                            });
+
+                            return todosCamposPreenchidos;
                         }
 
-                        function areAllCheckboxesChecked() {
-                            for (const checkbox of checkboxes) {
-                                if (!checkbox.checked) {
-                                    return false;
+                       
+                        const button = document.querySelector('.accordion-button');
+                        const cadastro = document.getElementById('cadastro');
+                        const endereco = document.getElementById('endereco');
+                        const pagamento = document.getElementById('pagamento');
+                        
+
+                       
+                        button.addEventListener('click', function () {
+                           
+                            if (cadastro.style.display === 'none') {
+                              
+                                cadastro.style.display = 'block';
+                            } else {
+                               
+                                cadastro.style.display = 'none';
+                            }
+                        });
+                        
+                        button.addEventListener('click', function () {
+                           
+                           if (endereco.style.display === 'none') {
+                             
+                            endereco.style.display = 'block';
+                           } else {
+                              
+                            endereco.style.display = 'none';
+                           }
+                       });
+                       
+                       button.addEventListener('click', function () {
+                           
+                           if (pagamento.style.display === 'none') {
+                             
+                            pagamento.style.display = 'block';
+                           } else {
+                              
+                            pagamento.style.display = 'none';
+                           }
+                       });
+                        
+
+                        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                        var ultimoCheckbox = checkboxes[checkboxes.length - 1];
+
+                        ultimoCheckbox.addEventListener('change', function () {
+                            if (ultimoCheckbox.checked && !verificacaoRealizada) {
+                                if (verificarFormulario()) {
+                                    mostrarAbaEndereco();
+                                    verificacaoRealizada = true;
                                 }
                             }
-                            return true;
-                        }
-
+                        });
                     </script>
                 </div>
-
 </body>
 
 </html>
+<!-- <script>
+                        // Função para verificar se um campo está preenchido corretamente
+                        function verificarCampoPreenchido(input) {
+                            if (input.value.trim() === '') {
+                                input.classList.remove('is-valid');
+                                input.classList.add('is-invalid');
+                            } else {
+                                input.classList.remove('is-invalid');
+                                input.classList.add('is-valid');
+                            }
+                        }
+                        // Selecione todos os campos de texto no formulário
+                        var camposDeTexto = document.querySelectorAll('input[type="text"]');
+
+                        // Adicione um evento 'onblur' a cada campo para verificar quando ele perde o foco
+                        camposDeTexto.forEach(function (campo) {
+                            campo.addEventListener('blur', function () {
+                                verificarCampoPreenchido(campo);
+                            });
+                        });
+  
+                    </script> -->
+
+<!-- este esta funcionando do jeito que eu quero so esta retornando o erro total -->
+
+<!-- <script>
+    // Função para verificar se um campo está preenchido corretamente
+    function verificarCampoPreenchido(input) {
+      if (input.value.trim() === '') {
+        input.classList.remove('is-valid');
+        input.classList.add('is-invalid');
+      } else {
+        input.classList.remove('is-invalid');
+        input.classList.add('is-valid');
+      }
+    }
+  
+    // Função para verificar se um checkbox está marcado
+    function verificarCheckbox(checkbox) {
+      if (!checkbox.checked) {
+        checkbox.classList.remove('is-valid');
+        checkbox.classList.add('is-invalid');
+        var invalidFeedback = checkbox.nextElementSibling.nextElementSibling;
+        invalidFeedback.style.display = 'block';
+      } else {
+        checkbox.classList.remove('is-invalid');
+        checkbox.classList.add('is-valid');
+        var invalidFeedback = checkbox.nextElementSibling.nextElementSibling;
+        invalidFeedback.style.display = 'none';
+      }
+    }
+  
+    // Função para verificar se todos os campos do formulário estão preenchidos corretamente
+    function verificarFormulario() {
+      var camposDeTexto = document.querySelectorAll('input[type="text"]');
+      var todosCamposPreenchidos = true;
+  
+      camposDeTexto.forEach(function (campo) {
+        verificarCampoPreenchido(campo);
+        if (campo.classList.contains('is-invalid')) {
+          todosCamposPreenchidos = false;
+        }
+      });
+  
+      var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      var todosCheckboxesMarcados = true;
+  
+      checkboxes.forEach(function (checkbox) {
+        verificarCheckbox(checkbox);
+        if (!checkbox.checked) {
+          todosCheckboxesMarcados = false;
+        }
+      });
+  
+      return todosCamposPreenchidos && todosCheckboxesMarcados;
+    }
+  
+    // Evento de escuta para os checkboxes
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(function (checkbox) {
+      checkbox.addEventListener('change', function () {
+        verificarFormulario();
+      });
+    });
+  
+    // Evento de escuta para os campos de texto
+    var camposDeTexto = document.querySelectorAll('input[type="text"]');
+    camposDeTexto.forEach(function (campo) {
+      campo.addEventListener('blur', function () {
+        verificarFormulario();
+      });
+    });
+  </script> -->

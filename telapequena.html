@@ -37,12 +37,14 @@
                     </a>
                 </div>
         </nav>
+        <!-- CADASTRO -->
         <div class="g-0 g-xl-2 container-xxl">
             <div class="h-responsive pt-4 g-0 g-xl-2 row">
                 <div class="d-xl-none col">
                     <div class="accordion">
                         <div class="accordion-item">
-                            <h2 id="pessoaAccordion" class="accordion-header"><button type="button" aria-expanded="true"
+                            <h2 id="pessoaAccordion" class="accordion-header">
+                                <button id="cadastroButton" type="button" aria-expanded="true"
                                     class="accordion-button">Cadastro</button>
                             </h2>
                             <div id="cadastro" class="accordion-button collapsed show">
@@ -96,10 +98,13 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- ENDERECO -->
                         <div id="endAccordion" class="accordion-item">
-                            <h2 id="enderecoAccordion" class="accordion-header"><button type="button"
-                                    aria-expanded="false" class="accordion-button collapsed"
-                                    disabled="disabled">Endereço</button></h2>
+                            <h2 id="enderecoAccordion" class="accordion-header">
+                                <button id="enderecoButton" type="button" aria-expanded="false"
+                                    class="accordion-button collapsed">Endereço
+                                </button>
+                            </h2>
                             <div id="endereco" class="accordion-collapse collapse">
                                 <div class="accordion-body">
                                     <h5 class="text-muted fw-normal mb-4">Preencha os campos abaixo com o seu
@@ -145,9 +150,13 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- PAGAMENTO -->
                         <div id="pagamentoAccordion" class="accordion-item">
-                            <h2 class="accordion-header"><button type="button" aria-expanded="false"
-                                    class="accordion-button collapsed" disabled="disabled">Pagamento</button></h2>
+                            <h2 class="accordion-header">
+                                <button id="pagamentoButton" type="button" aria-expanded="false"
+                                    class="accordion-button collapsed">Pagamento
+                                </button>
+                            </h2>
                             <div id="pagamento" class="accordion-collapse collapse">
                                 <div class="accordion-body">
                                     <fieldset class="voucher w-100 my-3">
@@ -420,7 +429,74 @@
                                 verificarCampoPreenchido(campo);
                             });
                         });
+                        // Evento de escuta para o botão "Cadastro"
+                        document.getElementById("cadastroButton").addEventListener("click", function () {
+                            var cadastro = document.getElementById("cadastro");
+                            if (cadastro.style.display === "none" || cadastro.style.display === "") {
+                                cadastro.style.display = "block";
+                            } else {
+                                cadastro.style.display = "none";
+                            }
+                        });
 
+                        // Evento de escuta para o botão "Endereço"
+                        document.getElementById("enderecoButton").addEventListener("click", function () {
+                            var endereco = document.getElementById("endereco");
+                            if (endereco.style.display === "none" || endereco.style.display === "") {
+                                endereco.style.display = "block";
+                            } else {
+                                endereco.style.display = "none";
+                            }
+                        });
+
+                        // Evento de escuta para o botão "Pagamento"
+                        document.getElementById("pagamentoButton").addEventListener("click", function () {
+                            var endereco = document.getElementById("pagamento");
+                            if (endereco.style.display === "none" || endereco.style.display === "") {
+                                endereco.style.display = "block";
+                            } else {
+                                endereco.style.display = "none";
+                            }
+                        });
+                        // ATE AQUI TA OK
+                        //    SOMA DOS PLANOS PARA O VALOR TOTAL
+                        function calcularValorTotal() {
+                            // Obtenha os elementos do formulário
+                            var opcaoRadios = document.querySelectorAll('input[name="opcao"]');
+                            var valorTotalElement = document.getElementById('valorTotal');
+
+                            // Valores das taxas de adesão e mensalidades
+                            var taxaAdesaoIndividual = 30.00;
+                            var mensalidadeIndividual = 29.90;
+                            var taxaAdesaoFamiliar = 30.00;
+                            var mensalidadeFamiliar = 39.90;
+
+                            // Inicialize o valor total como zero
+                            var valorTotal = 0;
+
+                            // Verifique qual opção foi selecionada e calcule o valor total
+                            for (var i = 0; i < opcaoRadios.length; i++) {
+                                if (opcaoRadios[i].checked) {
+                                    if (opcaoRadios[i].value === "individual") {
+                                        valorTotal = taxaAdesaoIndividual + mensalidadeIndividual;
+                                    } else if (opcaoRadios[i].value === "familiar") {
+                                        valorTotal = taxaAdesaoFamiliar + mensalidadeFamiliar;
+                                    }
+                                }
+                            }
+
+                            // Atualize o elemento HTML com o valor total calculado
+                            valorTotalElement.textContent = '' + valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                        }
+
+                        // Adicione ouvintes de eventos de clique aos botões de rádio
+                        var opcaoRadios = document.querySelectorAll('input[name="opcao"]');
+                        for (var i = 0; i < opcaoRadios.length; i++) {
+                            opcaoRadios[i].addEventListener('change', calcularValorTotal);
+                        }
+
+                        // Chame a função para calcular o valor total inicialmente
+                        calcularValorTotal();
                     </script>
                 </div>
 </body>

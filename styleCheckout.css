@@ -23,17 +23,17 @@
     font-kerning: normal;
     letter-spacing: .015em;
     word-spacing: 0.001em;
-}
+} */
 
-*,
+ *,
 :after,
 :before {
     box-sizing: border-box;
-}
+} 
 
 user agent stylesheet div {
     display: block;
-}
+} 
 
 .row {
     --bs-gutter-x: 1.5rem;
@@ -43,9 +43,9 @@ user agent stylesheet div {
     margin-left: calc(var(--bs-gutter-x)*-.5);
     margin-right: calc(var(--bs-gutter-x)*-.5);
     margin-top: calc(var(--bs-gutter-y)*-1);
-}
+} */
 
-.g-0,
+ .g-0,
 .gy-0 {
     --bs-gutter-y: 0;
 }
@@ -53,9 +53,9 @@ user agent stylesheet div {
 .g-0,
 .gx-0 {
     --bs-gutter-x: 0;
-}
+} */
 
-.container,
+ .container,
 .container-fluid,
 .container-lg,
 .container-md,
@@ -69,14 +69,14 @@ user agent stylesheet div {
     padding-left: calc(var(--bs-gutter-x)*.5);
     padding-right: calc(var(--bs-gutter-x)*.5);
     width: 100%;
-}
+} */
 
 body,
 html {
     font-family: Ubuntu, Source Sans Pro, sans-serif;
     margin: 0;
     padding: 0;
-}
+} */
 
 body {
     -webkit-text-size-adjust: 100%;
@@ -95,7 +95,7 @@ body {
     line-height: var(--bs-body-line-height);
     margin: 0;
     text-align: var(--bs-body-text-align);
-}
+} */
 
 :root {
     --bs-blue: #0d6efd;
@@ -236,13 +236,13 @@ body {
     --bs-link-hover-color: #3c856e;
     --bs-code-color: #d63384;
     --bs-highlight-bg: #fff3cd;
-}
+} */
 
-*,
+ *,
 :after,
 :before {
     box-sizing: border-box;
-}
+} 
 
 *,
 :after,

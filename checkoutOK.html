@@ -4,7 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./styleCheckout.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./styleCheckout.css"> -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400&family=Raleway&family=Source+Sans+3:ital,wght@0,400;1,200&family=Ubuntu:wght@300&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Poppins:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:ital,wght@0,400;1,200&family=Ubuntu:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Poppins:ital@0;1&family=Source+Sans+3:ital,wght@0,400;1,200&family=Ubuntu:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Poppins:ital@0;1&family=Source+Sans+3:ital,wght@1,200&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Poppins:ital@0;1&family=Source+Sans+3:ital,wght@1,200&family=Ubuntu:wght@300&display=swap"
+        rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -20,27 +46,118 @@
     <title>CHECKOUT</title>
 
     <style>
-        #credit,
-        #debito {
+        #credit {
             display: none;
         }
 
         body {
             overflow: auto;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            background-color: #fff;
+            background-color: var(--bs-body-bg);
+            color: #212529;
+            color: var(--bs-body-color);
+            font-family: 'Ubuntu', 'Source Sans 3', sans-serif;
+            font-family: var(--bs-body-font-family);
+            font-size: 1rem;
+            font-size: var(--bs-body-font-size);
+            font-weight: 400;
+            font-weight: var(--bs-body-font-weight);
+            line-height: 1.5;
+            line-height: var(--bs-body-line-height);
+            margin: 0;
+            text-align: var(--bs-body-text-align);
+        }
+
+        .btn {
+            color: #fcf8ef;
+            padding: 5px 10px;
+            font-size: 17px;
+            border-radius: 40px;
+            line-height: 35px;
+            min-height: 36px;
+        }
+
+        h5 {
+            font-size: 18px;
+
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body,
+        h1,
+        h3,
+        h4,
+        h6,
+        label,
+        input,
+        select,
+        textarea {
+            font-size: 12px;
+            font-family: 'Source Sans 3', sans-serif;
+        }
+      
+        .form-label {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            font-size: 13px;
+            font-family: 'Roboto Condensed', sans-serif;
+            margin-left: 10px;
+        }
+       
+        .form-control {
+            border-radius: 10px;
+            border: none;
+            font-style: italic;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 15px;
+            padding: 10px 18px;
+            background-color: #F2F0E4;
+        }
+
+        span.input-group-text {
+            background-color: #F2F0E4;
+            border: none;
+            border-radius: 10px;
+        }
+
+       
+        .vr,
+        hr {
+            opacity: 1;
+        }
+
+        .vr {
+            background-color: #e0e0e0;
+            background-color: var(--bs-separator-vertical);
+            align-self: stretch;
+            background-color: currentcolor;
+            display: inline-block;
+            min-height: 1em;
+            opacity: .25;
+            width: 1px;
         }
     </style>
 </head>
 
 <body class="overflow-auto">
     <main>
-        <nav data-page="pagamento" class="px-1 px-xl-5 py-3 undefined bg-white navbar navbar-expand navbar-light">
+        <nav data-page="pagamento" class="px-1 px-xl-5 py-3 undefined bg-white navbar navbar-expand navbar-light" style="margin-bottom: 30px;">
             <a href="https://cardfacil.com.br/" target="_blank">
                 <div class="container-xxl">
                     <span class="navbar-brand">
-                        <img class="logo" alt="Imagem Logo" src="./assets/logo2.png" height="100" width="300">
+                        <img class="logo" alt="Imagem Logo" src="./assets/logo2.png" height="32" width="123">
                     </span>
-                    <a href="(31) 3618-0430">
-                        <button type="button" style="background-color: #ffda00; border: none"
+                    <a href="https://wa.me/553136180430">
+                        <button type="button" style="background-color: #ffda00; border: none;"
                             title="Fale com nossos atendentes" class="btn-sm btn btn-primary">
                             (31) 3618-0430
                         </button>
@@ -91,7 +208,7 @@
                         </div>
                         <div class="col">
                             <div class="mb-3"><label class="form-label">Nome completo*</label><input
-                                    placeholder="ex. Maria Lucia Almeida" enterkeyhint="next" required="" type="text"
+                                    placeholder="ex. Guilherme Goncalves Silva" enterkeyhint="next" required="" type="text"
                                     class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
@@ -102,7 +219,7 @@
                             </div>
 
                             <div class="mb-3"><label class="form-label">E-mail*</label><input
-                                    placeholder="ana@gmail.com" enterkeyhint="next" required="" type="text" id="email"
+                                    placeholder="Guilherme@gmail.com" enterkeyhint="next" required="" type="text" id="email"
                                     class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
@@ -125,10 +242,10 @@
                             <div class="mb-1">
                                 <div class="form-check">
                                     <input required="" type="checkbox" id="termos" class="form-check-input">
-                                    <label for="termos" class="form-check-label">Li e aceito os <button type="button"
+                                    <label for="termos" class="form-check-label">Li e aceito os <a type="link"
                                             class="underline text-link-terms">
                                             <strong>termos e condições</strong>
-                                        </button>*</label>
+                                        </a>*</label>
                                     <div class="text-start invalid-feedback" id="errorMessage">Campo
                                         obrigatório</div>
                                 </div>
@@ -191,7 +308,7 @@
                         </div>
                         <div class="col">
                             <div class="d-flex justify-content-end align-items-start">
-                                <div class="mb-4 w-100"><label class="form-label">CEP</label>
+                                <div class="mb-4 w-100"><label class="form-label">CEP*</label>
                                     <input id="cep" placeholder="0000-000" enterkeyhint="next" required="" type="text"
                                         class="form-control" value="">
                                     <div class="invalid-feedback">Campo obrigatório</div><small class="form-text"
@@ -204,7 +321,7 @@
                                 </div>
                             </div>
                             <div class="mb-3"><label class="form-label">
-                                    Rua
+                                    Rua*
                                 </label>
                                 <input placeholder="Novo oriente da boa ventura" enterkeyhint="next" required=""
                                     type="text" id="rua" class="form-control" value="">
@@ -212,14 +329,14 @@
                                     Campo obrigatório
                                 </div>
                             </div>
-                            <div class="mb-3"><label class="form-label">Bairro</label><input
-                                    placeholder="Jardim das Oliveiras" enterkeyhint="next" required="" type="text"
+                            <div class="mb-3"><label class="form-label">Bairro*</label><input
+                                    placeholder="Novo Horizonte" enterkeyhint="next" required="" type="text"
                                     id="bairro" class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
                             <div class="my-3 row">
                                 <div class="col">
-                                    <div><label class="form-label">Número</label><input placeholder="10"
+                                    <div><label class="form-label">Número*</label><input placeholder="10"
                                             enterkeyhint="next" required="" type="text" id="numero" class="form-control"
                                             value="">
                                         <div class="invalid-feedback">Campo obrigatório</div>
@@ -235,6 +352,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- PAGAMENTO -->
                 <div class="px-5 col-sm-auto">
                     <div class="d-flex h-100">
@@ -264,42 +382,39 @@
                             </svg>
                         </div>
                         <div class="col">
-                            <fieldset class="voucher w-100 my-3">
-                                <h5 class="text-muted fw-normal py-4">Você possui um voucher? Digite ele aqui</h5>
-                                <div class="voucher-border">
-                                    <div class="mb-3 mt-4 input-group"><span class="input-group-text" id="voucher">
-                                            <img src="./assets/voucher.jpg" width="80" height="80"
-                                                alt="Imagem Voucher"></span><input placeholder="ex. DESCONTO"
-                                            aria-describedby="voucher" type="text" id="voucher"
-                                            class="text-uppercase form-control form-control-lg" value="">
-                                    </div>
+                            <h5 class="text-muted fw-normal py-4">Você possui um voucher? Digite ele aqui</h5>
+                            <div class="voucher-border">
+                                <div class="mb-3 mt-4 input-group"><span class="input-group-text" id="voucher">
+                                        <img src="./assets/voucher.png" width="60" height="45"
+                                            alt="Imagem Voucher"></span><input placeholder="ex. DESCONTO"
+                                        aria-describedby="voucher" type="text" id="voucher"
+                                        class="text-uppercase form-control form-control-lg" value="">
                                 </div>
-                            </fieldset>
+                            </div>
+
                             <!-- PLANOS INDIVIDUAL E FAMILIAR -->
                             <hr class="m-2 mt-4 text-muted">
-                            <div class="px-1 ps-4 my-3 row">
+                            <div class="px-0.5 ps-4 my-3 row">
                                 <div class="d-flex align-items-center">
                                     <input type="radio" name="opcao" value="individual" class="me-2">
-                                    <h5 class="text-muted m-0" style="font-size: 17px;">Plano Individual
-                                    </h5>
+                                    <h5 class="text-muted m-0" style="font-size: 17px;">Plano Individual</h5>
 
-                                    <div class="px-1 ps-4 my-3 row">
-                                        <div class="ps-2 col-sm-8 col-8">
-                                            <h5 class="text-muted" style="font-size: 15px;">Taxa de adesão
-                                            </h5>
+                                    <div class="px-0.5 ps-4 my-0.2 row">
+                                        <div class="ps-1 col-sm-8 col-8">
+                                            <h1 class="text-muted" style="font-size: 15px;">Taxa de adesão</h1>
                                         </div>
                                         <div class="col-sm-4 col-4">
-                                            <h5 class="m-0 fw-normal text-muted" style="font-size: 15px;">R$
+                                            <h1 class="m-0 fw-normal text-muted" style="font-size: 15px;">R$
                                                 30,00
-                                            </h5>
+                                            </h1>
                                         </div>
                                         <div class="ps-2 col-sm-8 col-8">
-                                            <h5 class="m-0 text-muted" style="font-size: 15px;">Mensalidade
-                                            </h5>
+                                            <h1 class="m-0 text-muted" style="font-size: 15px;">Mensalidade
+                                            </h1>
                                         </div>
                                         <div class="col-sm-4 col-4">
-                                            <h5 class="fw-normal text-muted" style="font-size: 15px;">R$
-                                                29,90</h5>
+                                            <h1 class="fw-normal text-muted" style="font-size: 15px;">R$
+                                                29,90</h1>
                                         </div>
                                     </div>
                                 </div>
@@ -309,8 +424,9 @@
                                 <div class="d-flex align-items-center">
                                     <input type="radio" name="opcao" value="familiar" class="me-2">
                                     <h5 class="text-muted m-0" style="font-size: 17px;">Plano Familiar</h5>
-                                    <div class="px-1 ps-4 my-3 row">
-                                        <div class="ps-2 col-sm-8 col-8">
+
+                                    <div class="px-0.5 ps-4 my-0.2 row">
+                                        <div class="ps-1 col-sm-8 col-8">
                                             <h5 class="text-muted" style="font-size: 15px;">Taxa de adesão
                                             </h5>
                                         </div>
@@ -348,18 +464,17 @@
                                             class="accordion-button collapsed">
                                             <div id="myCard" class="card-payment-method-accordion"
                                                 style="border-color: rgb(196, 196, 196);">
-                                                <svg width="33" height="33" viewBox="0 0 33 33"
-                                                    xmlns="http://www.w3.org/2000/svg" class="me-3" fill="#4BA68A">
-                                                    <path
-                                                        d="M28.46 28.6092H4.85C3.82967 28.6079 2.85148 28.2021 2.12981 27.4808C1.40813 26.7595 1.00185 25.7816 1 24.7612V15.2672C1 15.1322 1.02663 14.9985 1.07837 14.8738C1.1301 14.749 1.20593 14.6357 1.30151 14.5403C1.39709 14.4449 1.51054 14.3693 1.63537 14.3178C1.7602 14.2663 1.89396 14.24 2.029 14.2402H31.283C31.4178 14.24 31.5514 14.2664 31.676 14.3179C31.8006 14.3695 31.9138 14.4451 32.0091 14.5406C32.1043 14.636 32.1798 14.7494 32.2311 14.8741C32.2824 14.9988 32.3085 15.1324 32.308 15.2672V24.7672C32.3069 25.7875 31.9012 26.7656 31.1798 27.487C30.4584 28.2084 29.4802 28.6142 28.46 28.6152V28.6092ZM2.541 15.7772V24.7612C2.54206 25.373 2.78576 25.9594 3.21864 26.3917C3.65152 26.824 4.23822 27.067 4.85 27.0672H28.46C29.0719 27.067 29.6587 26.8243 30.0921 26.3923C30.5254 25.9602 30.7699 25.3741 30.772 24.7622V15.7772H2.541Z">
-                                                    </path>
-                                                    <path
-                                                        d="M31.283 12.187H2.029C1.7566 12.1865 1.49548 12.0782 1.30267 11.8857C1.10987 11.6933 1.00106 11.4324 1 11.16L1 8.848C1.00185 7.82767 1.40813 6.84969 2.12981 6.12839C2.85148 5.4071 3.82967 5.00132 4.85 5H28.46C29.4802 5.00106 30.4584 5.40681 31.1798 6.12822C31.9012 6.84963 32.3069 7.82777 32.308 8.848V11.16C32.3077 11.432 32.1997 11.6927 32.0076 11.8852C31.8155 12.0777 31.555 12.1862 31.283 12.187ZM2.541 10.644H30.771V8.844C30.7684 8.23264 30.5238 7.64718 30.0907 7.21563C29.6577 6.78407 29.0714 6.54152 28.46 6.541H4.85C4.23804 6.54126 3.6512 6.78434 3.21829 7.21688C2.78538 7.64941 2.54179 8.23604 2.541 8.848V10.644Z">
-                                                    </path>
-                                                    <path
-                                                        d="M26.92 24.5018H21.275C20.9344 24.501 20.608 24.3654 20.3672 24.1246C20.1264 23.8837 19.9908 23.5574 19.99 23.2168V19.6248C19.991 19.2845 20.1268 18.9585 20.3676 18.718C20.6085 18.4776 20.9347 18.3423 21.275 18.3418H26.921C27.2599 18.3442 27.5841 18.4803 27.8231 18.7206C28.0621 18.9609 28.1965 19.2859 28.197 19.6248V23.2168C28.197 23.5569 28.0622 23.8831 27.822 24.124C27.5819 24.3649 27.2561 24.5007 26.916 24.5018H26.92ZM21.529 22.9628H26.662V19.8828H21.529V22.9628Z">
-                                                    </path>
-                                                </svg>Cartão de crédito
+                                                <img width="40" height="40" viewBox="0 0 33 33"
+                                                    src="./assets/credit_card.svg" class="me-3" fill="#000">
+                                                <path
+                                                    d="M28.46 28.6092H4.85C3.82967 28.6079 2.85148 28.2021 2.12981 27.4808C1.40813 26.7595 1.00185 25.7816 1 24.7612V15.2672C1 15.1322 1.02663 14.9985 1.07837 14.8738C1.1301 14.749 1.20593 14.6357 1.30151 14.5403C1.39709 14.4449 1.51054 14.3693 1.63537 14.3178C1.7602 14.2663 1.89396 14.24 2.029 14.2402H31.283C31.4178 14.24 31.5514 14.2664 31.676 14.3179C31.8006 14.3695 31.9138 14.4451 32.0091 14.5406C32.1043 14.636 32.1798 14.7494 32.2311 14.8741C32.2824 14.9988 32.3085 15.1324 32.308 15.2672V24.7672C32.3069 25.7875 31.9012 26.7656 31.1798 27.487C30.4584 28.2084 29.4802 28.6142 28.46 28.6152V28.6092ZM2.541 15.7772V24.7612C2.54206 25.373 2.78576 25.9594 3.21864 26.3917C3.65152 26.824 4.23822 27.067 4.85 27.0672H28.46C29.0719 27.067 29.6587 26.8243 30.0921 26.3923C30.5254 25.9602 30.7699 25.3741 30.772 24.7622V15.7772H2.541Z">
+                                                </path>
+                                                <path
+                                                    d="M31.283 12.187H2.029C1.7566 12.1865 1.49548 12.0782 1.30267 11.8857C1.10987 11.6933 1.00106 11.4324 1 11.16L1 8.848C1.00185 7.82767 1.40813 6.84969 2.12981 6.12839C2.85148 5.4071 3.82967 5.00132 4.85 5H28.46C29.4802 5.00106 30.4584 5.40681 31.1798 6.12822C31.9012 6.84963 32.3069 7.82777 32.308 8.848V11.16C32.3077 11.432 32.1997 11.6927 32.0076 11.8852C31.8155 12.0777 31.555 12.1862 31.283 12.187ZM2.541 10.644H30.771V8.844C30.7684 8.23264 30.5238 7.64718 30.0907 7.21563C29.6577 6.78407 29.0714 6.54152 28.46 6.541H4.85C4.23804 6.54126 3.6512 6.78434 3.21829 7.21688C2.78538 7.64941 2.54179 8.23604 2.541 8.848V10.644Z">
+                                                </path>
+                                                <path
+                                                    d="M26.92 24.5018H21.275C20.9344 24.501 20.608 24.3654 20.3672 24.1246C20.1264 23.8837 19.9908 23.5574 19.99 23.2168V19.6248C19.991 19.2845 20.1268 18.9585 20.3676 18.718C20.6085 18.4776 20.9347 18.3423 21.275 18.3418H26.921C27.2599 18.3442 27.5841 18.4803 27.8231 18.7206C28.0621 18.9609 28.1965 19.2859 28.197 19.6248V23.2168C28.197 23.5569 28.0622 23.8831 27.822 24.124C27.5819 24.3649 27.2561 24.5007 26.916 24.5018H26.92ZM21.529 22.9628H26.662V19.8828H21.529V22.9628Z">
+                                                </path>Cartão de Credito
                                             </div>
                                         </button>
                                     </h2>
@@ -368,14 +483,14 @@
                                 <div id="credit" class="accordion-collapse collapse pt-2 show" style="display: none;">
                                     <form novalidate="" class="" data-hs-cf-bound="true">
                                         <div class="mb-3"><label class="form-label">Número do
-                                                cartão</label><input placeholder="0000 0000 0000 0000"
+                                                cartão*</label><input placeholder="0000 0000 0000 0000"
                                                 enterkeyhint="next" required="" type="text" class="form-control"
                                                 value="">
                                             <div class="invalid-feedback">Campo obrigatório
                                             </div>
                                         </div>
                                         <div class="mb-3"><label class="form-label">Nome do
-                                                titular</label><input placeholder="ex. Maria Lucia Almeida "
+                                                titular*</label><input placeholder="ex. Maria Lucia Almeida "
                                                 enterkeyhint="next" required="" type="text" id="nomeTitular"
                                                 class="form-control" value="">
                                             <div class="invalid-feedback">Campo obrigatório
@@ -383,7 +498,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <div class="mb-3"><label class="form-label">Validade</label><input
+                                                <div class="mb-3"><label class="form-label">Validade*</label><input
                                                         placeholder="10/10" enterkeyhint="next" required="" type="text"
                                                         id="validadeCartao" class="form-control" value="">
                                                     <div class="invalid-feedback">Campo
@@ -391,7 +506,7 @@
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <div class="mb-3"><label class="form-label">CVV</label><input
+                                                <div class="mb-3"><label class="form-label">CVV*</label><input
                                                         placeholder="123" enterkeyhint="next" required="" type="text"
                                                         id="cvvCartao" class="form-control" value="">
                                                     <div class="invalid-feedback">Campo
@@ -399,7 +514,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="mb-4"><label class="form-label">CPF</label><input
+                                        <div class="mb-4"><label class="form-label">CPF*</label><input
                                                 placeholder="000.000.000-00" required="" type="text" id="cpfCartao"
                                                 class="form-control" value="">
                                             <div class="invalid-feedback">Campo obrigatório
@@ -413,7 +528,7 @@
                                 </div>
                             </div>
                             <!-- CARTAO DE DEBITO -->
-                            <div class="accordion-card accordion">
+                            <!-- <div class="accordion-card accordion">
                                 <div class="mb-3 accordion-item">
                                     <h2 class="payment-accordion accordion-header">
                                         <button id="toggleDebitButton" type="button" aria-expanded="false"
@@ -458,7 +573,7 @@
                                             <div>
                                                 <label class="pt-4 form-label">Selecione o seu banco</label>
                                             </div>
-                                            <!-- BANCO ITAU -->
+                                            BANCO ITAU
                                             <div class="btn-group btn-bank-selected mb-2">
                                                 <button type="button" name="itau" value="itau"
                                                     class="btn-bank  onlyLogo rounded btn active btn-primary">
@@ -514,9 +629,9 @@
                                                                 cartão</button>
                                                         </div>
                                                     </form>
-                                                </div>
-                                                <!-- BANCO BRADESCO -->
-                                                <button type="button" name="bradesco"
+                                                </div> -->
+                            <!-- BANCO BRADESCO -->
+                            <!-- <button type="button" name="bradesco"
                                                     class="btn-bank  onlyLogo rounded btn btn-primary">
                                                     <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
@@ -526,8 +641,8 @@
                                                         </path>
                                                     </svg>
                                                 </button>
-                                            </div>
-                                            <div id="credit" class="accordion-collapse collapse pt-2"
+                                            </div> -->
+                            <!-- <div id="credit" class="accordion-collapse collapse pt-2"
                                                 style="display: none;">
                                                 <form novalidate="" class="" data-hs-cf-bound="true">
                                                     <div class="mb-3">
@@ -581,26 +696,25 @@
                                     </div>
 
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
-                    <p>
-                        <small class="text-muted text-center ">* Pagamento mensal de R$
-                            29,90 para plano individual e R$ 39,90 para plano familiar.<br>** O pagamento inicial
-                            será de R$
-                            59,90, para plano individual ou R$ 69,90 para plano familia, pois inclui a
-                            taxa de adesão no valor de R$ 30,00 mais a primeira mensalidade no
-                            valor de R$ 29,90 para plano individual, ou R$ 39,90 para plano familiar.<br>***Valor
-                            sujeito a
-                            alteração devido ao uso de
-                            voucher.</small>
-                    </p>
+                    <div class="text-center">
+                        <p>
+                            <small class="text-muted">* Pagamento mensal de R$ 29,90 para plano individual e R$ 39,90
+                                para plano familiar.<br>** O pagamento inicial será de R$ 59,90, para plano individual
+                                ou R$ 69,90 para plano familia, pois inclui a taxa de adesão no valor de R$ 30,00 mais a
+                                primeira mensalidade no valor de R$ 29,90 para plano individual, ou R$ 39,90 para plano
+                                familiar.<br>***Valor sujeito a alteração devido ao uso de voucher.</small>
+                        </p>
+                    </div>
+
                 </div>
                 <div class="mt-5 pt-5 col-sm-12">
                     <div class="text-center">
                         <div class="help-text">
                             <p class="fw-normal m-0 mb-3">Você está com alguma dificuldade?<br>Fale com
-                                um dos <a href="https://cardfacil.com.br/" target="_blank"
+                                um dos <a href="https://wa.me/553136180430" target="_blank"
                                     class="fw-normal underline">nossos atendentes</a> ou</p><a
                                 href="https://cardfacil.com.br/" target="_blank"
                                 class="btn btn-outline-primary btn-lg bg-white px-4 fw-normal text-primary">Acesse
@@ -728,8 +842,8 @@
 
             const toggleCreditButton = document.getElementById('toggleCreditButton');
             const creditDiv = document.getElementById('credit');
-            const toggleDebitButton = document.getElementById('toggleDebitButton');
-            const debitoDiv = document.getElementById('debito');
+            // const toggleDebitButton = document.getElementById('toggleDebitButton');
+            // const debitoDiv = document.getElementById('debito');
 
             // Adiciona um evento de clique ao botão
             toggleCreditButton.addEventListener('click', () => {
@@ -743,26 +857,26 @@
                 }
             });
 
-            toggleDebitButton.addEventListener('click', () => {
-                // Verifica se a div com o ID 'credit' está visível
-                if (debitoDiv.style.display === 'block' || debitoDiv.style.display === '') {
-                    // Se estiver visível, oculta a div
-                    debitoDiv.style.display = 'none';
-                } else {
-                    // Se estiver oculta, exibe a div
-                    debitoDiv.style.display = 'block';
-                }
-            });
+            // toggleDebitButton.addEventListener('click', () => {
+            //     // Verifica se a div com o ID 'credit' está visível
+            //     if (debitoDiv.style.display === 'block' || debitoDiv.style.display === '') {
+            //         // Se estiver visível, oculta a div
+            //         debitoDiv.style.display = 'none';
+            //     } else {
+            //         // Se estiver oculta, exibe a div
+            //         debitoDiv.style.display = 'block';
+            //     }
+            // });
 
             function toggleContent(bankName) {
-            // Hide all content sections
-            document.getElementById('debito').style.display = 'none';
-            document.getElementById('credit').style.display = 'none';
+                // Hide all content sections
+                document.getElementById('debito').style.display = 'none';
+                document.getElementById('credit').style.display = 'none';
 
-            // Show the content section corresponding to the clicked button
-            document.getElementById(bankName).style.display = 'block';
-        }
-        
+                // Show the content section corresponding to the clicked button
+                document.getElementById(bankName).style.display = 'block';
+            }
+
             //    SOMA DOS PLANOS PARA O VALOR TOTAL
             function calcularValorTotal() {
                 // Obtenha os elementos do formulário

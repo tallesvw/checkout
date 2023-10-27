@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .loading {
+                padding-top: 20px;
+                text-align: center;
+                width: 100%;
+                height: 100%;
+                background: #eee;
+                position: absolute;
+                display: none;
+                z-index: 992;
+            }
+            
+            .loading p {
+                font-size: 2.5rem;
+            }
+            .tabela_cliente {
+                display: flex;
+                flex-direction: row;
+                width: 400px;
+                justify-content: space-between;
+                padding-top: 17px;
+            }
+            .tabela_cliente > p,  .tabela_cliente > div {
+                flex: 1;
+            }
+            .buscarCliente {
+                width: 100%;
+                background: rgb(255, 224, 0);
+                border: none;
+                border-radius: 5px;
+                font-size: 2.5rem;
+                padding: 10px;
+            }
+            .ativa {
+                width: 8px;
+                height: 8px;
+                background: rgb(48, 255, 48);
+                border-radius: 8px;
+                margin-left: 8px;
+            }
+            .congelada {
+                width: 8px;
+                height: 8px;
+                background: #29ccdb;
+                border-radius: 8px;
+                margin-left: 8px;
+            }
+            .cancelada {
+                width: 8px;
+                height: 8px;
+                background: rgb(255, 52, 52);
+                border-radius: 8px;
+                margin-left: 8px;
+            }
+            .statusIsActivate {
+                display: flex;
+                flex-direction: row;
+                align-items: baseline;
+            }
+            .tabela_dependentes > p:first-child {
+                padding-top: 17px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+<body>
+    
+    <div class="loading">
+        <p>Buscando...</p>
+    </div>
+
+<input type="text" class="input" placeholder="Digite o CPF ou Nome do associado"/>
+<button class="buscarCliente">Buscar Associado</button>
+<h2 class="mostraCliente" >Nenhum cliente encontrado.</h2>
+
+<script>
+
+let buscarCliente = document.querySelector(".buscarCliente")
+let mostraCliente = document.querySelector(".mostraCliente")
+let loading = document.querySelector(".loading")
+
+  function isActivate(cong, des){
+      //! Campos do JSON
+      // dt_congelamento_sac
+      // dt_desativacao_sac
+
+      //! Formato da data: "05/09/2022"
+      try {
+        if(cong === "" && des === ""){
+        return "ativa"
+          } else if (cong !== "" && des === "") {
+            return "congelada"
+          } else if (cong !== "" && des !== "") {
+            return "cancelada"
+          }
+      } catch {
+          return "Não foi possível buscar o status."
+      }
+    }
+
+buscarCliente.addEventListener("click", async function oi(){
+    loading.style.display = "block"
+    let input = document.querySelector(".input").value
+
+var requestOptions = {
+    method: 'GET',
+    headers: { 
+        "Content-Type": "application/x-www-form-urlencoded",
+        "app_token": "07247eb2-05ed-4e24-a88d-cf9f0a5fec51",
+        "access_token": "7a334ec9-80cc-4fec-9128-4fcf216223da"
+    },
+  redirect: 'follow'
+};
+
+fetch(`https://api.superlogica.net/v2/financeiro/clientes?apenasColunasPrincipais=0&apenasPessoasJuridicas=0&pagina=1&itensPorPagina=50&pesquisaEmTudo=${input}&status=2`, requestOptions)
+  .then(response => response.json())
+  .then(async (result) => { 
+      
+      let nomePlano = "" 
+      let statusAssinatura = isActivate(result[0].dt_congelamento_sac, result[0].dt_desativacao_sac)
+      let dataNascimento = ""
+
+        function FormataStringData(data) {
+            var dia  = data.split("/")[0];
+            var mes  = data.split("/")[1];
+            var ano  = data.split("/")[2];
+
+            return  ("0"+mes).slice(-2) + '/' + ("0"+dia).slice(-2) + '/' + ano;
+        }
+      
+      await fetch(`https://api.superlogica.net/v2/financeiro/clientes?id=${result[0].id_sacado_sac}`, requestOptions)
+      .then(response2 => response2.json())
+        .then(result2 => {
+            nomePlano = result2[0].sacado_grupo[0].st_nome_grp
+            dataNascimento = result[0].dt_nascimento_sac
+        })
+        .catch(error2 => {
+            nomePlano = "Não encontrada." 
+        });
+
+        
+        
+        let depFormatado = ''
+        let dependentes = result[0].tx_observacao_sac.split('\n\n')
+        let depArray = dependentes.forEach(n => {
+            depFormatado += `<p>${n}</p>`
+        })
+       
+      
+      mostraCliente.innerHTML = `
+        <h2>Nome: ${result[0].st_nome_sac}</h2>
+        
+        <div class="tabela_cliente">
+        <p>Assinatura</p>
+        <p>${nomePlano}</p> 
+        </div>
+        <hr>
+        <div class="tabela_cliente">
+            <p>Status do cliente</p>
+            <div class="statusIsActivate">
+                <p>${statusAssinatura}</p>
+                <div class="${statusAssinatura}"></div>
+            </div>
+        
+        </div>
+        <hr>
+        <div class="tabela_cliente">
+            <p>E-mail</p>
+            <p>${result[0].st_email_sac ? result[0].st_email_sac.toLowerCase() : 'não informado.'}</p>
+        </div>
+        <hr>
+        <div class="tabela_cliente">
+            <p>Data nascimento</p>
+            <p>${dataNascimento !== '' ? FormataStringData(dataNascimento) : 'não informado.'}</p>
+        </div>
+        <hr>
+        <div class="tabela_dependentes">
+            <p>Dependentes</p>
+            ${depFormatado !== '<p></p>' ? depFormatado : '<p>Nenhum dependente declarado.</p>'}
+        </div>
+       
+                `
+  })
+  .catch(error => {
+      mostraCliente.innerHTML = "<h2>Erro ao buscar o cliente</h2>"
+  })
+  .finally(() => {
+      loading.style.display = "none"
+  })
+    
+    
+    // let input = document.querySelector(".input").value
+	   // let result = await fetch(`https://economia.awesomeapi.com.br/last/${input}`);
+    // let moedas = await result.json();
+    // moedas = JSON.stringify(moedas);
+    
+    
+// 	h1.innerHTML = moedas["USDBRL"].varBid
+
+})
+
+
+
+
+</script>
+
+</body>
+</html>

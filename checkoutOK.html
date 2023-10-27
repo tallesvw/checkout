@@ -311,7 +311,9 @@
                             <div class="d-flex justify-content-end align-items-start">
                                 <div class="mb-4 w-100"><label class="form-label">CEP*</label>
                                     <input id="cep" placeholder="0000-000" required="" type="text" class="form-control"
-                                        value="">
+                                        value="" oninput="validarCEP(this);" onblur="pesquisacep(this.value);">
+                                    <div id="cep-error" class="invalid-feedback" style="display: none;">CEP inválido
+                                    </div>
                                     <div class="invalid-feedback">Campo obrigatório<small class="form-text"
                                             style="float: right; display: block;">
                                             Não sabe seu CEP?
@@ -722,12 +724,19 @@
         </div>
         <script>
 
+            // esta faltando verificar abaixo de 8 e acima de 8 
+
+            
             const cepInput = document.getElementById('cep');
             const cepError = document.getElementById('cep-error');
 
-            cepInput.addEventListener('blur', function () {
-                const cep = cepInput.value.replace(/\D/g, '');
-                if (cep.length === 8) {
+            cepInput.addEventListener('input', function () {
+                // Remove caracteres não numéricos do valor do campo
+                cepInput.value = cepInput.value.replace(/\D/g, '');
+
+                const cep = cepInput.value;
+
+                if (/^\d{8}$/.test(cep)) { // Verifica se o CEP consiste em exatamente 8 dígitos numéricos
                     fetch(`https://viacep.com.br/ws/${cep}/json/`)
                         .then((response) => response.json())
                         .then((data) => {
@@ -735,49 +744,28 @@
                                 cepError.textContent = '';
                                 document.getElementById('logradouro').value = data.logradouro;
                                 document.getElementById('bairro').value = data.bairro;
+
+                                // Marque o campo como válido
+                                cepInput.classList.remove('is-invalid');
+                                cepInput.classList.add('is-valid');
                             } else {
                                 cepError.textContent = 'CEP não encontrado. Verifique o CEP digitado.';
+
+                                // Marque o campo como inválido
+                                cepInput.classList.remove('is-valid');
+                                cepInput.classList.add('is-invalid');
                             }
                         })
                         .catch((error) => console.error('Erro ao consultar o CEP:', error));
                 } else {
-                    cepError.textContent = 'CEP inválido. Deve conter 8 dígitos numéricos.';
+                    cepError.textContent = 'CEP inválido. Deve conter exatamente 8 dígitos numéricos e não deve conter letras.';
+
+                    // Marque o campo como inválido
+                    cepInput.classList.remove('is-valid');
+                    cepInput.classList.add('is-invalid');
                 }
             });
-            //             const apiUrl = "https://api.superlogica.net/v2/financeiro/checkout";
-            //             const apiKey = "f9c649af-72cc-4413-98f8-767a883bee59";
 
-            //             const headers = {
-            //                 Authorization: `Bearer ${apiKey}`,
-            //                 "Content-Type": "application/json",
-            //             };
-
-            //             // Dados da requisição (caso seja necessário)
-            //             const requestData = {
-            //                 // Inclua aqui os dados que você deseja enviar na requisição, se necessário.
-            //             };
-
-            //             // Configuração da requisição
-            //             const requestConfig = {
-            //                 method: "GET", // Use "GET", "POST", "PUT" ou "DELETE" conforme necessário.
-            //                 headers: headers,
-            //                 // body: JSON.stringify(requestData), // Se você estiver fazendo uma requisição POST ou PUT, inclua o corpo da requisição aqui.
-            //             };
-            // k
-            //             fetch(apiUrl, requestConfig)
-            //                 .then((response) => {
-            //                     if (!response.ok) {
-            //                         throw new Error("Erro na requisição à API");
-            //                     }
-            //                     return response.json();
-            //                 })
-            //                 .then((data) => {
-            //                     // Manipule os dados da resposta da API aqui
-            //                     console.log("Resposta da API:", data);
-            //                 })
-            //                 .catch((error) => {
-            //                     console.error("Erro ao acessar a API:", error);
-            //                 });
 
 
             // Função para verificar se um campo está preenchido corretamente

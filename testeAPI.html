@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teste da API Superlógica</title>
+</head>
+<body>
+    <button id="fetchButton">Fazer Requisição à API</button>
+    <pre id="response"></pre>
+
+    <script>
+        const apiUrl = "https://api.superlogica.net/v2/financeiro/checkout";
+        const apiKey = "f9c649af-72cc-4413-98f8-767a883bee59";
+        const headers = {
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+        };
+
+        const requestConfig = {
+            method: "POST", 
+        };
+
+        const fetchButton = document.getElementById("fetchButton");
+        const responseElement = document.getElementById("response");
+
+        fetchButton.addEventListener("click", () => {
+            responseElement.textContent = "Fazendo requisição à API...";
+
+            // Realize a chamada à API usando o método fetch
+            fetch(apiUrl, requestConfig)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Erro na requisição à API");
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    // Manipule os dados da resposta da API aqui
+                    responseElement.textContent = JSON.stringify(data, null, 2);
+                })
+                .catch((error) => {
+                    responseElement.textContent = "Erro ao acessar a API: " + error.message;
+                });
+        });
+    </script>
+</body>
+</html>

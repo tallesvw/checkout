@@ -1,0 +1,227 @@
+ <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="cep">CEP:</label>
+        <input type="text" id="cep" name="cep">
+        <br>
+        <label for="logradouro">Logradouro:</label>
+        <input type="text" id="logradouro" name="logradouro">
+        <br>
+        <label for="bairro">Bairro:</label>
+        <input type="text" id="bairro" name="bairro">
+        <br>
+      </form>
+      <script>
+        const cepInput = document.getElementById('cep');
+        cepInput.addEventListener('blur', function () {
+          const cep = cepInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos do CEP
+          if (cep.length === 8) {
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+              .then((response) => response.json())
+              .then((data) => {
+                if (!data.erro) {
+                  document.getElementById('logradouro').value = data.logradouro;
+                  document.getElementById('bairro').value = data.bairro;
+                } else {
+                  alert('CEP não encontrado. Verifique o CEP digitado.');
+                }
+              })
+              .catch((error) => console.error('Erro ao consultar o CEP:', error));
+          }
+        });
+      </script>
+      
+</body>
+</html> -->
+
+<!-- <form>
+    <label for="cep">CEP:</label>
+    <input type="text" id="cep" name="cep" required pattern="\d{8}" title="CEP inválido (deve conter 8 dígitos numéricos)">
+    <br>
+    <label for="logradouro">Logradouro:</label>
+    <input type="text" id="logradouro" name="logradouro" required>
+    <br>
+    <label for="bairro">Bairro:</label>
+    <input type="text" id="bairro" name="bairro" required>
+    <br>
+    <label for="localidade">Cidade:</label>
+    <input type="text" id="localidade" name="localidade" required>
+    <br>
+    <label for="uf">Estado:</label>
+    <input type="text" id="uf" name="uf" required>
+    <br>
+    <span id="cep-error" class="error-message"></span>
+  </form>
+  
+  <script>
+    const cepInput = document.getElementById('cep');
+    const cepError = document.getElementById('cep-error');
+  
+    cepInput.addEventListener('blur', function () {
+      const cep = cepInput.value.replace(/\D/g, '');
+      if (cep.length === 8) {
+        fetch(`https://viacep.com.br/ws/${cep}/json/`)
+          .then((response) => response.json())
+          .then((data) => {
+            if (!data.erro) {
+              cepError.textContent = '';
+              document.getElementById('logradouro').value = data.logradouro;
+              document.getElementById('bairro').value = data.bairro;
+              document.getElementById('localidade').value = data.localidade;
+              document.getElementById('uf').value = data.uf;
+            } else {
+              cepError.textContent = 'CEP não encontrado. Verifique o CEP digitado.';
+            }
+          })
+          .catch((error) => console.error('Erro ao consultar o CEP:', error));
+      } else {
+        cepError.textContent = 'CEP inválido. Deve conter 8 dígitos numéricos.';
+      }
+    });
+  </script>
+   -->
+
+
+  <div class="col">
+    <div class="d-flex justify-content-end align-items-start">
+        <div class="mb-4 w-100">
+            <label class="form-label">CEP*</label>
+            <input id="cep" placeholder="0000-000"   required type="text" class="form-control" value="">
+            <div id="cep-error" class="invalid-feedback" style="display: none;">CEP inválido</div>
+            <small class="form-text" style="float: right; display: none;">
+                Não sabe seu CEP? <a href="https://buscacepinter.correios.com.br/app/localidade_logradouro/index.php" target="_blank" rel="noreferrer" class="underline">Clique aqui</a>
+            </small>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Rua*</label>
+        <input placeholder="Novo oriente da boa ventura"   required type="text" id="rua" class="form-control" value="">
+        <div class="invalid-feedback">Campo obrigatório</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Bairro*</label>
+        <input placeholder="Novo Horizonte"   required type="text" id="bairro" class="form-control" value="">
+        <div class="invalid-feedback">Campo obrigatório</div>
+    </div>
+</div>
+
+<script>
+    const cepInput = document.getElementById('cep');
+    const ruaInput = document.getElementById('rua');
+    const bairroInput = document.getElementById('bairro');
+    const cepError = document.getElementById('cep-error');
+
+    cepInput.addEventListener('blur', function () {
+        const cep = cepInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos do CEP
+
+        if (cep.length === 8) {
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                .then((response) => response.json())
+                .then((data) => {
+                    if (!data.erro) {
+                        cepError.style.display = 'none'; // Esconde a mensagem de erro
+                        ruaInput.value = data.logradouro;
+                        bairroInput.value = data.bairro;
+                    } else {
+                        cepError.style.display = 'block'; // Mostra a mensagem de erro
+                    }
+                })
+                .catch((error) => console.error('Erro ao consultar o CEP:', error));
+        } else {
+            cepError.style.display = 'block'; // Mostra a mensagem de erro
+        }
+    });
+</script>
+
+<!-- <html>
+    <head>
+    <title>ViaCEP Webservice</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    
+    <script>
+    
+    function limpa_formulário_cep() {
+           
+            document.getElementById('rua').value=("");
+            document.getElementById('bairro').value=("");
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+          
+            document.getElementById('rua').value=(conteudo.logradouro);
+            document.getElementById('bairro').value=(conteudo.bairro);
+        } 
+        else {
+            limpa_formulário_cep();
+        }
+    }
+        
+    function pesquisacep(valor) {
+
+       
+        var cep = valor.replace(/\D/g, '');
+
+        
+        if (cep != "") {
+
+           
+            var validacep = /^[0-9]{8}$/;
+
+           
+            if(validacep.test(cep)) {
+
+              
+                document.getElementById('rua').value="...";
+                document.getElementById('bairro').value="...";
+
+              
+                var script = document.createElement('script');
+
+                
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+            
+                document.body.appendChild(script);
+
+            } 
+            else {
+                limpa_formulário_cep();
+                
+            }
+        } 
+        else {
+            limpa_formulário_cep();
+        }
+    };
+
+    </script>
+    </head> -->
+
+    <!-- <body>
+ 
+      <form method="get" action=".">
+        <label>Cep:
+        <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+               onblur="pesquisacep(this.value);" /></label><br />
+        <label>Rua:
+        <input name="rua" type="text" id="rua" size="60" /></label><br />
+        <label>Bairro:
+        <input name="bairro" type="text" id="bairro" size="40" /></label><br />
+        <label>Cidade:
+        <input name="cidade" type="text" id="cidade" size="40" /></label><br />
+        <label>Estado:
+        <input name="uf" type="text" id="uf" size="2" /></label><br />
+        <label>IBGE:
+        <input name="ibge" type="text" id="ibge" size="8" /></label><br />
+      </form>
+    </body>
+
+    </html> -->

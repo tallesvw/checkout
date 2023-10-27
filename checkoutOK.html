@@ -312,23 +312,20 @@
                                 <div class="mb-4 w-100"><label class="form-label">CEP*</label>
                                     <input id="cep" placeholder="0000-000" required="" type="text" class="form-control"
                                         value="">
-                                    <div class="invalid-feedback">Campo obrigatório</div><small class="form-text"
-                                        style="float: right; display: none;">
-                                        Não sabe seu CEP?
-                                        <a href="https://buscacepinter.correios.com.br/app/localidade_logradouro/index.php"
-                                            target="_blank" rel="noreferrer" class="underline">
-                                            Clique aqui</a>
-                                    </small>
+                                    <div class="invalid-feedback">Campo obrigatório<small class="form-text"
+                                            style="float: right; display: block;">
+                                            Não sabe seu CEP?
+                                            <a href="https://buscacepinter.correios.com.br/app/localidade_logradouro/index.php"
+                                                target="_blank" rel="noreferrer" class="underline">
+                                                Clique aqui</a>
+                                        </small></div>
                                 </div>
                             </div>
-                            <div class="mb-3"><label class="form-label">
-                                    Rua*
-                                </label>
-                                <input placeholder="Rua sete de setembro" required="" type="text" id="rua"
+                            <div class="mb-3">
+                                <label class="form-label">Rua*</label>
+                                <input placeholder="Novo oriente da boa ventura" required="" type="text" id="rua"
                                     class="form-control" value="">
-                                <div class="invalid-feedback">
-                                    Campo obrigatório
-                                </div>
+                                <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
                             <div class="mb-3"><label class="form-label">Bairro*</label><input
                                     placeholder="Novo Horizonte" required="" type="text" id="bairro"
@@ -394,47 +391,53 @@
                             <!-- PLANOS INDIVIDUAL E FAMILIAR -->
                             <hr class="m-2 mt-4 text-muted">
                             <div class="px-0.5 ps-4 my-3 row">
-                                <div class="d-flex align-items-center col">
+                                <div class="d-flex align-items-center">
                                     <input type="radio" name="opcao" value="individual" class="me-2">
                                     <h5 class="text-muted m-0" style="font-size: 17px;">Plano Individual</h5>
-                                </div>
-                                <div class="d-flex align-items-center col">
-                                    <div class="row">
-                                        <div class="col-sm-8 col-8">
+
+                                    <div class="px-0.5 ps-4 my-0.2 row">
+                                        <div class="ps-1 col-sm-8 col-8">
                                             <h1 class="text-muted" style="font-size: 15px;">Taxa de adesão</h1>
                                         </div>
                                         <div class="col-sm-4 col-4">
-                                            <h1 class="m-0 fw-normal text-muted" style="font-size: 15px;">R$ 30,00</h1>
+                                            <h1 class="m-0 fw-normal text-muted" style="font-size: 15px;">R$
+                                                30,00
+                                            </h1>
                                         </div>
-                                        <div class="col-sm-8 col-8">
-                                            <h1 class="m-0 text-muted" style="font-size: 15px;">Mensalidade</h1>
+                                        <div class="ps-2 col-sm-8 col-8">
+                                            <h1 class="m-0 text-muted" style="font-size: 15px;">Mensalidade
+                                            </h1>
                                         </div>
                                         <div class="col-sm-4 col-4">
-                                            <h1 class="fw-normal text-muted" style="font-size: 15px;">R$ 29,90</h1>
+                                            <h1 class="fw-normal text-muted" style="font-size: 15px;">R$
+                                                29,90</h1>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                             <hr class="m-2 mt-4 text-muted">
-                            <div class="px-0.5 ps-4 my-3 row">
-                                <div class="d-flex align-items-center col">
+                            <div class="px-1 ps-4 my-3 row">
+                                <div class="d-flex align-items-center">
                                     <input type="radio" name="opcao" value="familiar" class="me-2">
                                     <h5 class="text-muted m-0" style="font-size: 17px;">Plano Familiar</h5>
-                                </div>
-                                <div class="d-flex align-items-center col">
-                                    <div class="row">
-                                        <div class="col-sm-8 col-8">
-                                            <h5 class="text-muted" style="font-size: 15px;">Taxa de adesão</h5>
+
+                                    <div class="px-0.5 ps-4 my-0.2 row">
+                                        <div class="ps-1 col-sm-8 col-8">
+                                            <h5 class="text-muted" style="font-size: 15px;">Taxa de adesão
+                                            </h5>
                                         </div>
                                         <div class="col-sm-4 col-4">
-                                            <h5 class="m-0 fw-normal text-muted" style="font-size: 15px;">R$ 30,00</h5>
+                                            <h5 class="m-0 fw-normal text-muted" style="font-size: 15px;">R$
+                                                30,00
+                                            </h5>
                                         </div>
-                                        <div class="col-sm-8 col-8">
-                                            <h5 class="m-0 text-muted" style="font-size: 15px;">Mensalidade</h5>
+                                        <div class="ps-2 col-sm-8 col-8">
+                                            <h5 class="m-0 text-muted" style="font-size: 15px;">Mensalidade
+                                            </h5>
                                         </div>
                                         <div class="col-sm-4 col-4">
-                                            <h5 class="fw-normal text-muted" style="font-size: 15px;">R$ 39,90</h5>
+                                            <h5 class="fw-normal text-muted" style="font-size: 15px;">R$
+                                                39,90</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -445,7 +448,7 @@
                                     <h5 class="m-0 text-primary">Valor total</h5>
                                 </div>
                                 <div class="col-sm-4 col-4">
-                                    <h5 class="m-0 fw-normal text-primary" id="valorTotal" ></h5>
+                                    <h5 class="m-0 fw-normal text-primary" id="valorTotal"></h5>
                                 </div>
                             </div>
 
@@ -719,6 +722,65 @@
         </div>
         <script>
 
+            const cepInput = document.getElementById('cep');
+            const cepError = document.getElementById('cep-error');
+
+            cepInput.addEventListener('blur', function () {
+                const cep = cepInput.value.replace(/\D/g, '');
+                if (cep.length === 8) {
+                    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                        .then((response) => response.json())
+                        .then((data) => {
+                            if (!data.erro) {
+                                cepError.textContent = '';
+                                document.getElementById('logradouro').value = data.logradouro;
+                                document.getElementById('bairro').value = data.bairro;
+                            } else {
+                                cepError.textContent = 'CEP não encontrado. Verifique o CEP digitado.';
+                            }
+                        })
+                        .catch((error) => console.error('Erro ao consultar o CEP:', error));
+                } else {
+                    cepError.textContent = 'CEP inválido. Deve conter 8 dígitos numéricos.';
+                }
+            });
+            //             const apiUrl = "https://api.superlogica.net/v2/financeiro/checkout";
+            //             const apiKey = "f9c649af-72cc-4413-98f8-767a883bee59";
+
+            //             const headers = {
+            //                 Authorization: `Bearer ${apiKey}`,
+            //                 "Content-Type": "application/json",
+            //             };
+
+            //             // Dados da requisição (caso seja necessário)
+            //             const requestData = {
+            //                 // Inclua aqui os dados que você deseja enviar na requisição, se necessário.
+            //             };
+
+            //             // Configuração da requisição
+            //             const requestConfig = {
+            //                 method: "GET", // Use "GET", "POST", "PUT" ou "DELETE" conforme necessário.
+            //                 headers: headers,
+            //                 // body: JSON.stringify(requestData), // Se você estiver fazendo uma requisição POST ou PUT, inclua o corpo da requisição aqui.
+            //             };
+            // k
+            //             fetch(apiUrl, requestConfig)
+            //                 .then((response) => {
+            //                     if (!response.ok) {
+            //                         throw new Error("Erro na requisição à API");
+            //                     }
+            //                     return response.json();
+            //                 })
+            //                 .then((data) => {
+            //                     // Manipule os dados da resposta da API aqui
+            //                     console.log("Resposta da API:", data);
+            //                 })
+            //                 .catch((error) => {
+            //                     console.error("Erro ao acessar a API:", error);
+            //                 });
+
+
+            // Função para verificar se um campo está preenchido corretamente
             function verificarCampoPreenchido(input) {
                 if (input.value.trim() === '') {
                     input.classList.remove('is-valid');
@@ -730,7 +792,7 @@
                     return true;
                 }
             }
-
+            // Função para verificar um checkbox específico
             function verificarCheckbox(checkbox) {
                 if (!checkbox.checked) {
                     checkbox.classList.remove('is-valid');
@@ -746,15 +808,16 @@
                     return true;
                 }
             }
-
+            // Função para verificar todos os campos do formulário
             function verificarTodosCampos() {
-                var camposDeTexto = document.querySelectorAll('input[type="text"]:not(#complemento):not([id="voucher"]');
+                var camposDeTexto = document.querySelectorAll('input[type="text"]:not(#complemento):not([id="voucher"])');
                 var todosCamposPreenchidos = true;
 
                 camposDeTexto.forEach(function (campo, index, campos) {
                     if (!verificarCampoPreenchido(campo)) {
                         todosCamposPreenchidos = false;
 
+                        // Se o campo estiver vazio e o usuário mudar para o próximo campo
                         if (index < campos.length - 1 && campos[index + 1] !== document.activeElement) {
                             campo.classList.remove('is-valid');
                             campo.classList.add('is-invalid');
@@ -774,6 +837,7 @@
                 return todosCamposPreenchidos && todosCheckboxesMarcados;
             }
 
+            // Evento de escuta para os checkboxes
             var checkboxes = document.querySelectorAll('input[type="checkbox"]');
             checkboxes.forEach(function (checkbox) {
                 checkbox.addEventListener('change', function () {
@@ -781,11 +845,13 @@
                 });
             });
 
+            // Evento de escuta para os campos de texto
             var camposDeTexto = document.querySelectorAll('input[type="text"]:not(#complemento):not([id="voucher"])');
             camposDeTexto.forEach(function (campo, index, campos) {
                 campo.addEventListener('input', function () {
                     verificarCampoPreenchido(campo);
 
+                    // Se o campo estiver vazio e o usuário mudar para o próximo campo
                     if (campo.value.trim() === '' && index < campos.length - 1 && campos[index + 1] !== document.activeElement) {
                         campo.classList.remove('is-valid');
                         campo.classList.add('is-invalid');
@@ -832,7 +898,6 @@
             // const toggleDebitButton = document.getElementById('toggleDebitButton');
             // const debitoDiv = document.getElementById('debito');
 
-
             toggleCreditButton.addEventListener('click', () => {
                 if (creditDiv.style.display === 'block' || creditDiv.style.display === '') {
                     creditDiv.style.display = 'none';
@@ -842,9 +907,12 @@
             });
 
             // toggleDebitButton.addEventListener('click', () => {
+            //     // Verifica se a div com o ID 'credit' está visível
             //     if (debitoDiv.style.display === 'block' || debitoDiv.style.display === '') {
+            //         // Se estiver visível, oculta a div
             //         debitoDiv.style.display = 'none';
             //     } else {
+            //         // Se estiver oculta, exibe a div
             //         debitoDiv.style.display = 'block';
             //     }
             // });
@@ -859,7 +927,6 @@
                 var mensalidadeIndividual = 29.90;
                 var taxaAdesaoFamiliar = 30.00;
                 var mensalidadeFamiliar = 39.90;
-
                 var valorTotal = 0;
 
                 for (var i = 0; i < opcaoRadios.length; i++) {
@@ -871,15 +938,78 @@
                         }
                     }
                 }
+
+                // Atualize o elemento HTML com o valor total calculado
                 valorTotalElement.textContent = '' + valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             }
 
+            // Adicione ouvintes de eventos de clique aos botões de rádio
             var opcaoRadios = document.querySelectorAll('input[name="opcao"]');
             for (var i = 0; i < opcaoRadios.length; i++) {
                 opcaoRadios[i].addEventListener('change', calcularValorTotal);
             }
 
+            // Chame a função para calcular o valor total inicialmente
             calcularValorTotal();
+
+
+            function limpa_formulário_cep() {
+                //Limpa valores do formulário de cep.
+                document.getElementById('rua').value = ("");
+                document.getElementById('bairro').value = ("");
+            }
+
+            function meu_callback(conteudo) {
+                if (!("erro" in conteudo)) {
+                    //Atualiza os campos com os valores.
+                    document.getElementById('rua').value = (conteudo.logradouro);
+                    document.getElementById('bairro').value = (conteudo.bairro);
+                }
+                else {
+                    limpa_formulário_cep();
+                }
+            }
+
+            function pesquisacep(valor) {
+
+                //Nova variável "cep" somente com dígitos.
+                var cep = valor.replace(/\D/g, '');
+
+                //Verifica se campo cep possui valor informado.
+                if (cep != "") {
+
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
+
+                    //Valida o formato do CEP.
+                    if (validacep.test(cep)) {
+
+                        //Preenche os campos com "..." enquanto consulta webservice.
+                        document.getElementById('rua').value = "...";
+                        document.getElementById('bairro').value = "...";
+
+                        //Cria um elemento javascript.
+                        var script = document.createElement('script');
+
+                        //Sincroniza com o callback.
+                        script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                        //Insere script no documento e carrega o conteúdo.
+                        document.body.appendChild(script);
+
+                    } //end if.
+                    else {
+                        //cep é inválido.
+                        limpa_formulário_cep();
+
+                    }
+                } //end if.
+                else {
+                    //cep sem valor, limpa formulário.
+                    limpa_formulário_cep();
+                }
+            };
+
         </script>
     </main>
     <footer>

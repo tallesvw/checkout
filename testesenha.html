@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <title>Document</title>
+
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mb-3 {
+            margin-bottom: 15px;
+        }
+        
+        /* Estilos para os campos de entrada e feedback */
+        .form-label {
+            font-weight: bold;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .invalid-feedback {
+            color: #d9534f; /* Cor vermelha */
+            font-size: 14px;
+        }
+
+       mb-3 {
+           position: relative; 
+        }
+        div i {
+            font-size: 20px;
+            cursor: pointer;
+            position: absolute;
+            right: 5%;
+            color: #ccc;
+
+        } */
+        .eye-icon {
+            font-size: 20px;
+            cursor: pointer;
+            position: absolute;
+            right: 5%;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="mb-3">
+        <label class="form-label">Senha*</label>
+        <input placeholder="********" required type="password" id="senha" class="form-control" value="">
+        <i class="bi bi-eye-slash-fill eye-icon" id="senhaToggle" onclick="togglePasswordVisibility('senha', 'senhaToggle')"></i>      
+        <div id="invalidSenha" class="invalid-feedback" style="display: none">Campo obrigatório. A senha deve conter de 8 a 10 caracteres, incluindo uma letra maiúscula, uma letra minúscula e um número.</div>
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label">Confirmar Senha*</label>
+        <input placeholder="********" required type="password" id="confirmaSenha" class="form-control" value="">
+        <div id="invalidConfirmaSenha" class "invalid-feedback" style="display: none">As senhas não coincidem.</div>
+    </div>
+
+    <button id="verificarSenhaButton" class="btn btn-primary" onclick="validarSenha()">Verificar Senha</button>
+</body>
+    <script>
+      function togglePasswordVisibility(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('bi-eye-slash-fill');
+                icon.classList.add('bi-eye-fill');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('bi-eye-fill');
+                icon.classList.add('bi-eye-slash-fill');
+            }
+        }
+
+        function validarSenha() {
+            const senha = document.getElementById('senha').value;
+            const confirmaSenha = document.getElementById('confirmaSenha').value;
+            const senhaRequerida = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,10}$/; // Senha de 8 a 10 caracteres
+
+            if (senha.length > 10) {
+                alert('A senha não pode ter mais de 10 caracteres.');
+            } else if (senha === '') {
+                document.getElementById('senha').classList.add('is-invalid');
+                document.getElementById('invalidSenha').style.display = 'block';
+            } else if (!senha.match(senhaRequerida)) {
+                document.getElementById('senha').classList.add('is-invalid');
+                document.getElementById('invalidSenha').style.display = 'block';
+            } else {
+                document.getElementById('senha').classList.remove('is-invalid');
+                document.getElementById('invalidSenha').style.display = 'none';
+
+                if (senha === confirmaSenha) {
+                    alert('Senha OK');
+                }
+            }
+
+            if (senha !== confirmaSenha) {
+                document.getElementById('confirmaSenha').classList.add('is-invalid');
+                document.getElementById('invalidConfirmaSenha').style.display = 'block';
+            } else {
+                document.getElementById('confirmaSenha').classList.remove('is-invalid');
+                document.getElementById('invalidConfirmaSenha').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

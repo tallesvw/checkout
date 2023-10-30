@@ -172,8 +172,8 @@
                 <div class="col" style="cursor: pointer;">
                     <div class="row">
                         <div class="d-flex justify-content-between col-sm-12">
-                            <h2 class="h3">Cadastro</h2><svg width="13" height="16" viewBox="0 0 13 16" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" class="">
+                            <h2 class="h3" style="font-size: 23px;">Cadastro</h2><svg width="13" height="16"
+                                viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="">
                                 <g clip-path="url(#clip0_787_986)">
                                     <path
                                         d="M6.39823 14.2337L11.1851 9.19043L6.39823 14.2337ZM1.59168 9.19043L6.40042 14.2337L1.59168 9.19043Z"
@@ -204,8 +204,7 @@
                             </svg>
                         </div>
                         <div class="col-sm-12">
-                            <h5 class="text-muted fw-normal py-4">Os seus dados serão utilizados apenas
-                                para realização de cadastro.</h5>
+                            <h5 class="text-muted fw-normal py-4">Preencha Seus dados para cadastro.</h5>
                         </div>
                         <div class="col">
                             <div class="mb-3"><label class="form-label">Nome completo*</label><input
@@ -227,6 +226,17 @@
 
                             <div class="mb-3"><label class="form-label">Telefone*</label><input
                                     placeholder="(11) 99999-9999" required="" type="text" id="telefone"
+                                    class="form-control" value="">
+                                <div class="invalid-feedback">Campo obrigatório</div>
+                            </div>
+
+                            <div class="mb-3"><label class="form-label">Senha*</label><input placeholder="********"
+                                    required="" type="password" id="senha" class="form-control" value="">
+                                <div class="invalid-feedback">Campo obrigatório</div>
+                            </div>
+
+                            <div class="mb-3"><label class="form-label">Confirmar Senha*</label><input
+                                    placeholder="********" required="" type="password" id="confirmaSenha"
                                     class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
@@ -272,8 +282,8 @@
                 <div class="col" style="cursor: pointer;">
                     <div class="row">
                         <div class="d-flex justify-content-between col-sm-12">
-                            <h2 class="h3">Endereço</h2><svg width="13" height="16" viewBox="0 0 13 16" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" class="">
+                            <h2 class="h3" style="font-size: 23px;">Endereço</h2><svg width="13" height="16"
+                                viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="">
                                 <g clip-path="url(#clip0_787_986)">
                                     <path
                                         d="M6.39823 14.2337L11.1851 9.19043L6.39823 14.2337ZM1.59168 9.19043L6.40042 14.2337L1.59168 9.19043Z"
@@ -304,7 +314,7 @@
                             </svg>
                         </div>
                         <div class="col-sm-12">
-                            <h5 class="text-muted fw-normal py-4">Preencha os campos abaixo com o seu
+                            <h5 class="text-muted fw-normal py-4">Preencha seu
                                 endereço.</h5>
                         </div>
                         <div class="col">
@@ -360,8 +370,8 @@
                 <div class="col">
                     <div class="row">
                         <div class="d-flex justify-content-between col-sm-12">
-                            <h2 class="h3">Pagamento</h2><svg width="13" height="16" viewBox="0 0 13 16" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
+                            <h2 class="h3" style="font-size: 23px;">Pagamento</h2><svg width="13" height="16"
+                                viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_787_986)">
                                     <path
                                         d="M6.39823 14.2337L11.1851 9.19043L6.39823 14.2337ZM1.59168 9.19043L6.40042 14.2337L1.59168 9.19043Z"
@@ -380,7 +390,7 @@
                             </svg>
                         </div>
                         <div class="col">
-                            <h5 class="text-muted fw-normal py-4">Você possui um voucher? Digite ele aqui</h5>
+                            <h5 class="text-muted fw-normal py-4">Digite seu Voucher de Desconto aqui.</h5>
                             <div class="voucher-border">
                                 <div class="mb-3 mt-4 input-group"><span class="input-group-text" id="voucher">
                                         <img src="./assets/voucher.png" width="60" height="45"
@@ -391,11 +401,11 @@
                             </div>
 
                             <!-- PLANOS INDIVIDUAL E FAMILIAR -->
-                            <hr class="m-2 mt-4 text-muted">
+                            <h5 class="text-muted m-0" style="font-size: 17px;">Plano Individual</h5>
                             <div class="px-0.5 ps-4 my-3 row">
                                 <div class="d-flex align-items-center">
                                     <input type="radio" name="opcao" value="individual" class="me-2">
-                                    <h5 class="text-muted m-0" style="font-size: 17px;">Plano Individual</h5>
+
 
                                     <div class="px-0.5 ps-4 my-0.2 row">
                                         <div class="ps-1 col-sm-8 col-8">
@@ -417,35 +427,32 @@
                                     </div>
                                 </div>
                             </div>
-                            
                             <hr class="m-2 mt-4 text-muted">
-
-                                <div class="px-1 ps-4 my-3 row">
-                                    <div class="d-flex align-items-center">
-                                        <input type="radio" name="opcao" value="familiar" class="me-2">
-                                        <h5 class="text-muted m-0" style="font-size: 18px;">Plano Familiar</h5>
-
-                                        <div class="px-0.5 ps-4 my-0.2 row">
-                                            <div class="ps-1 col-sm-8 col-8">
-                                                <h5 class="text-muted" style="font-size: 16px;">Taxa de adesão
-                                                </h5>
-                                            </div>
-                                            <div class="col-sm-4 col-4">
-                                                <h5 class="m-0 fw-normal text-muted" style="font-size: 15px;">R$
-                                                    30,00
-                                                </h5>
-                                            </div>
-                                            <div class="ps-2 col-sm-8 col-8">
-                                                <h5 class="m-0 text-muted" style="font-size: 16px;">Mensalidade
-                                                </h5>
-                                            </div>
-                                            <div class="col-sm-4 col-4">
-                                                <h5 class="fw-normal text-muted" style="font-size: 15px;">R$
-                                                    39,90</h5>
-                                            </div>
+                            <h5 class="text-muted m-0" style="font-size: 18px;">Plano Familiar</h5>
+                            <div class="px-1 ps-4 my-3 row">
+                                <div class="d-flex align-items-center">
+                                    <input type="radio" name="opcao" value="familiar" class="me-2">
+                                    <div class="px-0.5 ps-4 my-0.2 row">
+                                        <div class="ps-1 col-sm-8 col-8">
+                                            <h5 class="text-muted" style="font-size: 16px;">Taxa de adesão
+                                            </h5>
+                                        </div>
+                                        <div class="col-sm-4 col-4">
+                                            <h5 class="m-0 fw-normal text-muted" style="font-size: 15px;">R$
+                                                30,00
+                                            </h5>
+                                        </div>
+                                        <div class="ps-2 col-sm-8 col-8">
+                                            <h5 class="m-0 text-muted" style="font-size: 16px;">Mensalidade
+                                            </h5>
+                                        </div>
+                                        <div class="col-sm-4 col-4">
+                                            <h5 class="fw-normal text-muted" style="font-size: 15px;">R$
+                                                39,90</h5>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             <hr class="m-2 mt-4 text-muted">
                             <div class="mb-5 px-1 ps-4 row">
                                 <div class="ps-2 col-sm-8 col-8">
@@ -455,7 +462,7 @@
                                     <h5 class="m-0 fw-normal text-primary" id="valorTotal"></h5>
                                 </div>
                             </div>
-                        
+
 
                             <!-- CARTAO DE CREDITO -->
                             <div class="accordion-card accordion">
@@ -483,9 +490,10 @@
 
                                 <div id="credit" class="accordion-collapse collapse pt-2 show" style="display: none;">
                                     <form novalidate="" class="" data-hs-cf-bound="true">
-                                        <div class="mb-3"><label class="form-label">Número do
-                                                cartão*</label><input placeholder="0000 0000 0000 0000" required=""
-                                                type="text" class="form-control" value="">
+                                        <div class="mb-3">
+                                            <label class="form-label">Número do cartão*</label>
+                                            <input placeholder="0000 0000 0000 0000" required="" type="text"
+                                                class="form-control" value="">
                                             <div class="invalid-feedback">Campo obrigatório
                                             </div>
                                         </div>
@@ -769,8 +777,6 @@
                 }
             });
 
-
-
             // Função para verificar se um campo está preenchido corretamente
             function verificarCampoPreenchido(input) {
                 if (input.value.trim() === '') {
@@ -801,7 +807,7 @@
             }
             // Função para verificar todos os campos do formulário
             function verificarTodosCampos() {
-                var camposDeTexto = document.querySelectorAll('input[type="text"]:not(#complemento):not([id="voucher"])');
+                var camposDeTexto = document.querySelectorAll('input[type="text"], input[type="password"]:not(#complemento):not([id="voucher"])');
                 var todosCamposPreenchidos = true;
 
                 camposDeTexto.forEach(function (campo, index, campos) {
@@ -837,7 +843,7 @@
             });
 
             // Evento de escuta para os campos de texto
-            var camposDeTexto = document.querySelectorAll('input[type="text"]:not(#complemento):not([id="voucher"])');
+            var camposDeTexto = document.querySelectorAll('input[type="text"], input[type="password"]:not(#complemento):not([id="voucher"])');
             camposDeTexto.forEach(function (campo, index, campos) {
                 campo.addEventListener('input', function () {
                     verificarCampoPreenchido(campo);
@@ -853,6 +859,59 @@
                     verificarCampoPreenchido(campo);
                 });
             });
+
+            // Função para validar a senha
+            function validarSenha(senha) {
+                // Use uma expressão regular para verificar a senha
+                // A senha deve ter de 8 a 10 caracteres, pelo menos uma letra maiúscula, uma letra minúscula e um número
+                var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,10}$/;
+                return regex.test(senha);
+            }
+
+            // Função para exibir uma mensagem de feedback
+            function exibirMensagemFeedback(elemento, mensagem) {
+                var feedbackElement = elemento.nextElementSibling;
+                feedbackElement.textContent = mensagem;
+                feedbackElement.classList.add('invalid-feedback');
+            }
+
+            // Função para limpar a mensagem de feedback
+            function limparMensagemFeedback(elemento) {
+                var feedbackElement = elemento.nextElementSibling;
+                feedbackElement.textContent = '';
+                feedbackElement.classList.remove('invalid-feedback');
+            }
+
+            // Função para comparar senha e confirmação de senha
+            function compararSenhaConfirmacao(senha, confirmacao) {
+                return senha === confirmacao;
+            }
+
+            // Lidar com a validação da senha no evento de input
+            var senhaInput = document.getElementById("senha");
+            var confirmacaoSenhaInput = document.getElementById("confirmaSenha");
+
+            senhaInput.addEventListener("input", function () {
+                var senha = senhaInput.value;
+                var confirmacao = confirmacaoSenhaInput.value;
+
+                if (validarSenha(senha)) {
+                    // Senha válida, então limpe a mensagem de feedback
+                    limparMensagemFeedback(senhaInput);
+                } else {
+                    // Senha inválida, exiba a mensagem de feedback
+                    exibirMensagemFeedback(senhaInput, "A senha deve ter de 8 a 10 caracteres, pelo menos uma letra maiúscula, uma letra minúscula e um número.");
+                }
+
+                if (compararSenhaConfirmacao(senha, confirmacao)) {
+                    // Senha e confirmação iguais, então limpe a mensagem de feedback
+                    limparMensagemFeedback(confirmacaoSenhaInput);
+                } else {
+                    // Senha e confirmação diferentes, exiba a mensagem de feedback
+                    exibirMensagemFeedback(confirmacaoSenhaInput, "A confirmação de senha não coincide com a senha.");
+                }
+            });
+
 
             // // Evento de escuta para o botão "Cadastro"
             // document.getElementById("cadastroButton").addEventListener("click", function () {
@@ -1001,6 +1060,38 @@
                 }
             };
 
+            // API SUPERLOGICA
+            const apiUrl = 'https://api.superlogica.net/v2/financeiro/checkout';
+
+
+            const formData = new URLSearchParams();
+            formData.append('app_token', 'ce7edf03-fa59-4c31-b378-5f6683a5c26f');
+            formData.append('access_token', 'f9c649af-72cc-4413-98f8-767a883bee59');
+
+            const requestOptions = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: formData.toString(),
+            };
+
+            fetch(apiUrl, requestOptions)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro na solicitação à API');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Faça algo com os dados da resposta (data)
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+
+
         </script>
     </main>
     <footer>
@@ -1015,107 +1106,3 @@
 </body>
 
 </html>
-
-
-
-
-<!-- 
-<script>
-    const toggleCreditButton = document.getElementById('toggleCreditButton');
-    const creditDiv = document.getElementById('credit');
-    const toggleDebitButton = document.getElementById('toggleDebitButton');
-    const debitoDiv = document.getElementById('debito');
-
-    // Adiciona um evento de clique ao botão
-    toggleCreditButton.addEventListener('click', () => {
-        // Verifica se a div com o ID 'credit' está visível
-        if (creditDiv.style.display === 'block' || creditDiv.style.display === '') {
-            // Se estiver visível, oculta a div
-            creditDiv.style.display = 'none';
-        } else {
-            // Se estiver oculta, exibe a div
-            creditDiv.style.display = 'block';
-        }
-    });
-
-    toggleDebitButton.addEventListener('click', () => {
-        // Verifica se a div com o ID 'credit' está visível
-        if (debitoDiv.style.display === 'block' || debitoDiv.style.display === '') {
-            // Se estiver visível, oculta a div
-            debitoDiv.style.display = 'none';
-        } else {
-            // Se estiver oculta, exibe a div
-            debitoDiv.style.display = 'block';
-        }
-    });
-    // Função para verificar se um campo está preenchido corretamente
-    function verificarCampoPreenchido(input) {
-        if (input.value.trim() === '') {
-            input.classList.remove('is-valid');
-            input.classList.add('is-invalid');
-        } else {
-            input.classList.remove('is-invalid');
-            input.classList.add('is-valid');
-        }
-    }
-    // Selecione todos os campos de texto no formulário
-    var camposDeTexto = document.querySelectorAll('input[type="text"]:not(#complemento):not(#voucher)');
-
-    // Adicione um evento 'onblur' a cada campo para verificar quando ele perde o foco
-    camposDeTexto.forEach(function (campo) {
-        campo.addEventListener('blur', function () {
-            verificarCampoPreenchido(campo);
-        });
-    });
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function () {
-            if (this.checked) {
-                this.classList.remove('invalid');
-                this.classList.add('valid');
-            } else {
-                this.classList.remove('valid');
-                this.classList.add('invalid');
-            }
-        });
-    });
-
-    //    SOMA DOS PLANOS PARA O VALOR TOTAL
-    function calcularValorTotal() {
-        // Obtenha os elementos do formulário
-        var opcaoRadios = document.querySelectorAll('input[name="opcao"]');
-        var valorTotalElement = document.getElementById('valorTotal');
-
-        // Valores das taxas de adesão e mensalidades
-        var taxaAdesaoIndividual = 30.00;
-        var mensalidadeIndividual = 29.90;
-        var taxaAdesaoFamiliar = 30.00;
-        var mensalidadeFamiliar = 39.90;
-
-        // Inicialize o valor total como zero
-        var valorTotal = 0;
-
-        // Verifique qual opção foi selecionada e calcule o valor total
-        for (var i = 0; i < opcaoRadios.length; i++) {
-            if (opcaoRadios[i].checked) {
-                if (opcaoRadios[i].value === "individual") {
-                    valorTotal = taxaAdesaoIndividual + mensalidadeIndividual;
-                } else if (opcaoRadios[i].value === "familiar") {
-                    valorTotal = taxaAdesaoFamiliar + mensalidadeFamiliar;
-                }
-            }
-        }
-
-        // Atualize o elemento HTML com o valor total calculado
-        valorTotalElement.textContent = '' + valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    }
-
-    // Adicione ouvintes de eventos de clique aos botões de rádio
-    var opcaoRadios = document.querySelectorAll('input[name="opcao"]');
-    for (var i = 0; i < opcaoRadios.length; i++) {
-        opcaoRadios[i].addEventListener('change', calcularValorTotal);
-    }
-
-    // Chame a função para calcular o valor total inicialmente
-    calcularValorTotal();
-</script> -->

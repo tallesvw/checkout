@@ -122,7 +122,7 @@
             padding: 10px 18px;
             background-color: #F2F0E4;
         }
-
+    
         span.input-group-text {
             background-color: #F2F0E4;
             border: none;
@@ -230,13 +230,14 @@
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
 
-                            <div class="mb-3"><label class="form-label">Senha*</label><input placeholder="********"
+                            <div class="mb-3"><label class="form-label">Senha*</label>
+                                <input placeholder="Digite sua senha"
                                     required="" type="password" id="senha" class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
 
                             <div class="mb-3"><label class="form-label">Confirmar Senha*</label><input
-                                    placeholder="********" required="" type="password" id="confirmaSenha"
+                                    placeholder="Confirme sua senha" required="" type="password" id="confirmaSenha"
                                     class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
@@ -736,8 +737,6 @@
         <script>
 
             // esta faltando verificar abaixo de 8 e acima de 8 
-
-
             const cepInput = document.getElementById('cep');
             const cepError = document.getElementById('cep-error');
 

@@ -192,8 +192,8 @@
                             <h5 class="text-muted fw-normal py-4">Preencha Seus dados para cadastro.</h5>
                         </div>
                         <div class="col">
-                            <div class="mb-3"><label class="form-label">Nome completo*</label><input
-                                   id="ST_NOME_SAC" placeholder="ex. Guilherme Goncalves Silva" required="" type="text"
+                            <div class="mb-3"><label class="form-label">Nome completo*</label><input id="ST_NOME_SAC"
+                                    placeholder="ex. Guilherme Goncalves Silva" required="" type="text"
                                     class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
@@ -306,6 +306,14 @@
                                     class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
+                            <div class="mb-3"><label class="form-label">Cidade*</label><input placeholder="Timóteo"
+                                    required="" type="text" id="cidade" class="form-control" value="">
+                                <div class="invalid-feedback">Campo obrigatório</div>
+                            </div>
+                            <div class="mb-3"><label class="form-label">Estado*</label><input placeholder="Minas Gerais"
+                                    required="" type="text" id="uf" class="form-control" value="">
+                                <div class="invalid-feedback">Campo obrigatório</div>
+                            </div>
                             <div class="my-3 row">
                                 <div class="col">
                                     <div><label class="form-label">Número*</label><input placeholder="10" required=""
@@ -354,7 +362,7 @@
                             <h5 id="individual" class="text-muted m-0" style="font-size: 17px;">Plano Individual</h5>
                             <div class="px-0.5 ps-4 my-3 row">
                                 <div class="d-flex align-items-center">
-                                    <input type="radio" name="individual" id="2" value="individual" class="me-2">
+                                    <input type="radio" name="idplano" id="individual" value="1" class="me-2">
 
 
                                     <div class="px-0.5 ps-4 my-0.2 row">
@@ -381,7 +389,7 @@
                             <h5 id="familiar" class="text-muted m-0" style="font-size: 17px;">Plano Familiar</h5>
                             <div class="px-1 ps-4 my-3 row">
                                 <div class="d-flex align-items-center">
-                                    <input type="radio" name="familiar" id="1" value="familiar" class="me-2">
+                                    <input type="radio" name="idplano" id="familiar" value="2" class="me-2">
                                     <div class="px-0.5 ps-4 my-0.2 row">
                                         <div class="ps-1 col-sm-8 col-8">
                                             <h5 class="text-muted" style="font-size: 16px;">Taxa de adesão
@@ -707,6 +715,8 @@
                                 cepError.textContent = '';
                                 document.getElementById('logradouro').value = data.logradouro;
                                 document.getElementById('bairro').value = data.bairro;
+                                document.getElementById('cidade').value = (conteudo.localidade);
+                                document.getElementById('uf').value = (conteudo.uf);
 
                                 // Marque o campo como válido
                                 cepInput.classList.remove('is-invalid');
@@ -991,7 +1001,7 @@
 
             // API SUPERLOGICA
             var urlencoded = new URLSearchParams();
-            urlencoded.append("idplano", "2");
+            urlencoded.append("idplano", "");
             urlencoded.append("ST_NOME_SAC", "");
             urlencoded.append("ST_CGC_SAC", "24334217052");
             urlencoded.append("ST_EMAIL_SAC", "");
@@ -1031,8 +1041,8 @@
 
             fetch(apiUrl, requestOptions)
                 .then(response => response.json())
-                .then(async (result) =>{
-let 
+                .then(async (result) => {
+                    let
                 })
                 .catch(error => console.log('error', error));
 

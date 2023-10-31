@@ -123,6 +123,10 @@
             background-color: #F2F0E4;
         }
 
+        .form-check {
+            margin-left: 10px;
+        }
+
         span.input-group-text {
             background-color: #F2F0E4;
             border: none;
@@ -172,35 +176,11 @@
                 <div class="col" style="cursor: pointer;">
                     <div class="row">
                         <div class="d-flex justify-content-between col-sm-12">
-                            <h2 class="h3" style="font-size: 23px;">Cadastro</h2><svg width="13" height="16"
-                                viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="">
-                                <g clip-path="url(#clip0_787_986)">
-                                    <path
-                                        d="M6.39823 14.2337L11.1851 9.19043L6.39823 14.2337ZM1.59168 9.19043L6.40042 14.2337L1.59168 9.19043Z"
-                                        stroke="#7F8690" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                    </path>
-                                    <path d="M6.39825 14.2319L6.39825 1.84257" stroke="#7F8690" stroke-width="2"
-                                        stroke-linecap="round"></path>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_787_986">
-                                        <rect width="11.7792" height="14.6829" fill="white"
-                                            transform="translate(12.278 15.3779) rotate(180)"></rect>
-                                    </clipPath>
-                                </defs>
-                            </svg><svg width="21" height="17" viewBox="0 0 21 17" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" class="d-none">
-                                <g clip-path="url(#clip0_651_938)">
-                                    <path
-                                        d="M6.1103 15.864L0.48075 8.75947C0.270373 8.47458 0.119973 8.15133 0.0383531 7.80865C-0.043267 7.46597 -0.0544668 7.11074 0.00540916 6.76375C0.0652852 6.41676 0.195034 6.08499 0.38706 5.78786C0.579087 5.49073 0.829533 5.23421 1.12374 5.03331C1.41794 4.83241 1.75 4.69117 2.10046 4.61786C2.45092 4.54455 2.81275 4.54064 3.16478 4.60636C3.5168 4.67208 3.85193 4.80611 4.15057 5.0006C4.4492 5.1951 4.70533 5.44615 4.90397 5.73906L8.53011 10.3164L16.1255 1.13317C16.3243 0.843444 16.5799 0.595475 16.8772 0.403713C17.1746 0.211951 17.5078 0.0802318 17.8575 0.0162316C18.2072 -0.0477686 18.5664 -0.04277 18.9141 0.0309358C19.2618 0.104642 19.5911 0.245581 19.8828 0.44554C20.1745 0.645499 20.4228 0.90048 20.6131 1.19562C20.8035 1.49077 20.9322 1.82017 20.9916 2.16464C21.0511 2.5091 21.0401 2.86175 20.9594 3.20201C20.8787 3.54228 20.7298 3.86337 20.5215 4.14657L10.8418 15.853C10.5919 16.2088 10.2564 16.4984 9.86513 16.696C9.47384 16.8937 9.03887 16.9933 8.59892 16.9861C8.1199 17.0342 7.63649 16.9555 7.19888 16.7582C6.76127 16.5609 6.3854 16.2522 6.1103 15.864Z"
-                                        fill="#A6FF00"></path>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_651_938">
-                                        <rect width="21" height="17" fill="white"></rect>
-                                    </clipPath>
-                                </defs>
+                            <h2 class="h3" style="font-size: 23px;">Cadastro</h2>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                                class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
                             </svg>
                         </div>
                         <div class="col-sm-12">
@@ -230,13 +210,14 @@
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
 
-                            <div class="mb-3"><label class="form-label">Senha*</label><input placeholder="********"
-                                    required="" type="password" id="senha" class="form-control" value="">
+                            <div class="mb-3"><label class="form-label">Senha*</label><input
+                                    placeholder="Digite sua senha" required="" type="password" id="senha"
+                                    class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
 
                             <div class="mb-3"><label class="form-label">Confirmar Senha*</label><input
-                                    placeholder="********" required="" type="password" id="confirmaSenha"
+                                    placeholder="Confirme sua senha" required="" type="password" id="confirmaSenha"
                                     class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
@@ -275,42 +256,18 @@
 
                 <!-- ENDERECO -->
                 <div class="px-5 col-sm-auto">
-                    <div class="d-flex h-100">
+                    <!-- <div class="d-flex h-100">
                         <div class="vr"></div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col" style="cursor: pointer;">
                     <div class="row">
                         <div class="d-flex justify-content-between col-sm-12">
-                            <h2 class="h3" style="font-size: 23px;">Endereço</h2><svg width="13" height="16"
-                                viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="">
-                                <g clip-path="url(#clip0_787_986)">
-                                    <path
-                                        d="M6.39823 14.2337L11.1851 9.19043L6.39823 14.2337ZM1.59168 9.19043L6.40042 14.2337L1.59168 9.19043Z"
-                                        stroke="#7F8690" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                    </path>
-                                    <path d="M6.39825 14.2319L6.39825 1.84257" stroke="#7F8690" stroke-width="2"
-                                        stroke-linecap="round"></path>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_787_986">
-                                        <rect width="11.7792" height="14.6829" fill="white"
-                                            transform="translate(12.278 15.3779) rotate(180)"></rect>
-                                    </clipPath>
-                                </defs>
-                            </svg><svg width="21" height="17" viewBox="0 0 21 17" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" class="d-none">
-                                <g clip-path="url(#clip0_651_938)">
-                                    <path
-                                        d="M6.1103 15.864L0.48075 8.75947C0.270373 8.47458 0.119973 8.15133 0.0383531 7.80865C-0.043267 7.46597 -0.0544668 7.11074 0.00540916 6.76375C0.0652852 6.41676 0.195034 6.08499 0.38706 5.78786C0.579087 5.49073 0.829533 5.23421 1.12374 5.03331C1.41794 4.83241 1.75 4.69117 2.10046 4.61786C2.45092 4.54455 2.81275 4.54064 3.16478 4.60636C3.5168 4.67208 3.85193 4.80611 4.15057 5.0006C4.4492 5.1951 4.70533 5.44615 4.90397 5.73906L8.53011 10.3164L16.1255 1.13317C16.3243 0.843444 16.5799 0.595475 16.8772 0.403713C17.1746 0.211951 17.5078 0.0802318 17.8575 0.0162316C18.2072 -0.0477686 18.5664 -0.04277 18.9141 0.0309358C19.2618 0.104642 19.5911 0.245581 19.8828 0.44554C20.1745 0.645499 20.4228 0.90048 20.6131 1.19562C20.8035 1.49077 20.9322 1.82017 20.9916 2.16464C21.0511 2.5091 21.0401 2.86175 20.9594 3.20201C20.8787 3.54228 20.7298 3.86337 20.5215 4.14657L10.8418 15.853C10.5919 16.2088 10.2564 16.4984 9.86513 16.696C9.47384 16.8937 9.03887 16.9933 8.59892 16.9861C8.1199 17.0342 7.63649 16.9555 7.19888 16.7582C6.76127 16.5609 6.3854 16.2522 6.1103 15.864Z"
-                                        fill="#A6FF00"></path>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_651_938">
-                                        <rect width="21" height="17" fill="white"></rect>
-                                    </clipPath>
-                                </defs>
+                            <h2 class="h3" style="font-size: 23px;">Endereço</h2>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                                class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
                             </svg>
                         </div>
                         <div class="col-sm-12">
@@ -363,30 +320,18 @@
 
                 <!-- PAGAMENTO -->
                 <div class="px-5 col-sm-auto">
-                    <div class="d-flex h-100">
+                    <!-- <div class="d-flex h-100">
                         <div class="vr"></div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col">
                     <div class="row">
                         <div class="d-flex justify-content-between col-sm-12">
-                            <h2 class="h3" style="font-size: 23px;">Pagamento</h2><svg width="13" height="16"
-                                viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_787_986)">
-                                    <path
-                                        d="M6.39823 14.2337L11.1851 9.19043L6.39823 14.2337ZM1.59168 9.19043L6.40042 14.2337L1.59168 9.19043Z"
-                                        stroke="#7F8690" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                    </path>
-                                    <path d="M6.39825 14.2319L6.39825 1.84257" stroke="#7F8690" stroke-width="2"
-                                        stroke-linecap="round"></path>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_787_986">
-                                        <rect width="11.7792" height="14.6829" fill="white"
-                                            transform="translate(12.278 15.3779) rotate(180)"></rect>
-                                    </clipPath>
-                                </defs>
+                            <h2 class="h3" style="font-size: 23px;">Pagamento</h2>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                                class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
                             </svg>
                         </div>
                         <div class="col">
@@ -807,7 +752,7 @@
             }
             // Função para verificar todos os campos do formulário
             function verificarTodosCampos() {
-                var camposDeTexto = document.querySelectorAll('input[type="text"], input[type="password"]:not(#complemento):not([id="voucher"])');
+                var camposDeTexto = document.querySelectorAll('input[type="text"]:not(#complemento):not([id="voucher"]), input[type="password"]');
                 var todosCamposPreenchidos = true;
 
                 camposDeTexto.forEach(function (campo, index, campos) {
@@ -843,7 +788,7 @@
             });
 
             // Evento de escuta para os campos de texto
-            var camposDeTexto = document.querySelectorAll('input[type="text"], input[type="password"]:not(#complemento):not([id="voucher"])');
+            var camposDeTexto = document.querySelectorAll('input[type="text"]:not(#complemento):not([id="voucher"]), input[type="password"]');
             camposDeTexto.forEach(function (campo, index, campos) {
                 campo.addEventListener('input', function () {
                     verificarCampoPreenchido(campo);
@@ -859,15 +804,7 @@
                     verificarCampoPreenchido(campo);
                 });
             });
-
-            // Função para validar a senha
-            function validarSenha(senha) {
-                // Use uma expressão regular para verificar a senha
-                // A senha deve ter de 8 a 10 caracteres, pelo menos uma letra maiúscula, uma letra minúscula e um número
-                var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,10}$/;
-                return regex.test(senha);
-            }
-
+    
             // Função para exibir uma mensagem de feedback
             function exibirMensagemFeedback(elemento, mensagem) {
                 var feedbackElement = elemento.nextElementSibling;
@@ -880,6 +817,11 @@
                 var feedbackElement = elemento.nextElementSibling;
                 feedbackElement.textContent = '';
                 feedbackElement.classList.remove('invalid-feedback');
+            }
+
+            // Função para comparar senha e confirmação de senha
+            function compararSenhaConfirmacao(senha, confirmacao) {
+                return senha === confirmacao;
             }
 
             // Função para comparar senha e confirmação de senha
@@ -900,7 +842,7 @@
                     limparMensagemFeedback(senhaInput);
                 } else {
                     // Senha inválida, exiba a mensagem de feedback
-                    exibirMensagemFeedback(senhaInput, "A senha deve ter de 8 a 10 caracteres, pelo menos uma letra maiúscula, uma letra minúscula e um número.");
+                    exibirMensagemFeedback(senhaInput, "A senha deve ter de 8 a 12 caracteres, pelo menos uma letra maiúscula, uma letra minúscula e um número.");
                 }
 
                 if (compararSenhaConfirmacao(senha, confirmacao)) {
@@ -911,6 +853,7 @@
                     exibirMensagemFeedback(confirmacaoSenhaInput, "A confirmação de senha não coincide com a senha.");
                 }
             });
+
 
 
             // // Evento de escuta para o botão "Cadastro"

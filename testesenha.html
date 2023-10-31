@@ -13,6 +13,7 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            margin-top: 20px;
         }
         
         .container {
@@ -64,13 +65,17 @@
             right: 5%;
             color: #ccc;
         }
+
+        .form-control {
+    width: 150px; /* Defina o tamanho desejado */
+}
     </style>
 </head>
 <body>
     <div class="mb-3">
         <label class="form-label">Senha*</label>
         <input placeholder="********" required type="password" id="senha" class="form-control" value="">
-        <i class="bi bi-eye-slash-fill eye-icon" id="senhaToggle" onclick="togglePasswordVisibility('senha', 'senhaToggle')"></i>      
+        <i class="bi bi-eye-slash-fill eye-icon" id="senhatoggle" onclick="togglePasswordVisibility('senha', 'senhaToggle')"></i>      
         <div id="invalidSenha" class="invalid-feedback" style="display: none">Campo obrigatório. A senha deve conter de 8 a 10 caracteres, incluindo uma letra maiúscula, uma letra minúscula e um número.</div>
     </div>
     

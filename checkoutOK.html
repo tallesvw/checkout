@@ -133,6 +133,10 @@
             border-radius: 10px;
         }
 
+        .mb-3.accordion-item {
+            border-radius: 10px;
+            border: 1px solid #fcf8ef;
+        }
 
         .vr,
         hr {
@@ -149,6 +153,10 @@
             opacity: .25;
             width: 1px;
         }
+
+        .invalid-feedback {
+            margin-left: 10px;
+        }
     </style>
 </head>
 
@@ -162,12 +170,13 @@
                         <img class="logo" alt="Imagem Logo" src="./assets/logo2.png" height="32" width="123">
                     </span>
                     <a href="https://wa.me/553136180430">
-                        <button type="button" style="background-color: #ffda00; border: none;"
+                        <button type="button" style="background-color: #ffda00; color: #000; border: none;"
                             title="Fale com nossos atendentes" class="btn-sm btn btn-primary">
                             (31) 3618-0430
                         </button>
                     </a>
-                </div>
+            </a>
+            </div>
         </nav>
 
         <!-- CADASTRO -->
@@ -176,9 +185,15 @@
                 <div class="col" style="cursor: pointer;">
                     <div class="row">
                         <div class="d-flex justify-content-between col-sm-12">
+<<<<<<< HEAD
                             <h2 class="h3" style="font-size: 23px;">Cadastro</h2>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+=======
+                            <h2 class="h3" style="font-size: 23px;">Cadastro</h2><svg xmlns="http://www.w3.org/2000/svg"
+                                width="23" height="23" fill="currentColor" class="bi bi-arrow-down-circle"
+                                viewBox="0 0 16 16">
+>>>>>>> 2d8abb13a5c9ff1953b794237e613df45514cd7e
                                 <path fill-rule="evenodd"
                                     d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
                             </svg>
@@ -187,37 +202,46 @@
                             <h5 class="text-muted fw-normal py-4">Preencha Seus dados para cadastro.</h5>
                         </div>
                         <div class="col">
-                            <div class="mb-3"><label class="form-label">Nome completo*</label><input
+                            <div class="mb-3"><label class="form-label">Nome completo*</label><input id="nome" name="ST_NOME_SAC"
                                     placeholder="ex. Guilherme Goncalves Silva" required="" type="text"
                                     class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
 
                             <div class="mb-3"><label class="form-label">CPF*</label><input placeholder="000.000.000-00"
-                                    required="" type="text" id="cpf" class="form-control">
+                                    required="" type="text" id="cpf" name="ST_CGC_SAC" class="form-control">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
 
                             <div class="mb-3"><label class="form-label">E-mail*</label><input
-                                    placeholder="Guilherme@gmail.com" required="" type="text" id="email"
+                                    placeholder="Guilherme@gmail.com" required="" type="text" id="email" name="ST_EMAIL_SAC"
                                     class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
 
                             <div class="mb-3"><label class="form-label">Telefone*</label><input
-                                    placeholder="(11) 99999-9999" required="" type="text" id="telefone"
+                                    placeholder="(11) 99999-9999" required="" type="text" id="telefone" name="ST_TELEFONE_SAC"
                                     class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
 
+<<<<<<< HEAD
                             <div class="mb-3"><label class="form-label">Senha*</label><input
                                     placeholder="Digite sua senha" required="" type="password" id="senha"
+=======
+                            <div class="mb-3"><label class="form-label">Senha*</label>
+                                <input placeholder="Digite sua senha" required="" type="password" id="senha" name="senha"
+>>>>>>> 2d8abb13a5c9ff1953b794237e613df45514cd7e
                                     class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
 
                             <div class="mb-3"><label class="form-label">Confirmar Senha*</label><input
+<<<<<<< HEAD
                                     placeholder="Confirme sua senha" required="" type="password" id="confirmaSenha"
+=======
+                                    placeholder="Confirme sua senha" required="" type="password" id="senha_confirmacao" name="senha_confirmacao"
+>>>>>>> 2d8abb13a5c9ff1953b794237e613df45514cd7e
                                     class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
@@ -263,9 +287,15 @@
                 <div class="col" style="cursor: pointer;">
                     <div class="row">
                         <div class="d-flex justify-content-between col-sm-12">
+<<<<<<< HEAD
                             <h2 class="h3" style="font-size: 23px;">Endereço</h2>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+=======
+                            <h2 class="h3" style="font-size: 23px;">Endereço</h2><svg xmlns="http://www.w3.org/2000/svg"
+                                width="23" height="23" fill="currentColor" class="bi bi-arrow-down-circle"
+                                viewBox="0 0 16 16">
+>>>>>>> 2d8abb13a5c9ff1953b794237e613df45514cd7e
                                 <path fill-rule="evenodd"
                                     d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
                             </svg>
@@ -276,14 +306,17 @@
                         </div>
                         <div class="col">
                             <div class="d-flex justify-content-end align-items-start">
-                                <div class="mb-4 w-100"><label class="form-label">CEP*</label>
-                                    <input id="cep" placeholder="0000-000" required="" type="text" class="form-control"
-                                        value="" oninput="validarCEP(this);" onblur="pesquisacep(this.value);">
+                                <div class="mb-4 w-100">
+                                    <label class="form-label">CEP*</label>
+                                    <input id="cep" name="ST_CEP_SAC" placeholder="0000-000" required="" type="text" class="form-control"
+                                        maxlength="9" value="" oninput="validarCEP(this);"
+                                        onblur="pesquisacep(this.value);">
                                     <div id="cep-error" class="invalid-feedback" style="display: none;">CEP inválido
                                     </div>
-                                    <div class="invalid-feedback">Campo obrigatório<small class="form-text"
-                                            style="float: right; display: block;">
-                                            Não sabe seu CEP?
+                                    <div class="invalid-feedback" id="erroCEP"></div>
+                                    <div class="invalid-feedback">Campo obrigatório
+                                        <small class="form-text"
+                                            style="float: right; display: block;">Não sabe seu CEP?
                                             <a href="https://buscacepinter.correios.com.br/app/localidade_logradouro/index.php"
                                                 target="_blank" rel="noreferrer" class="underline">
                                                 Clique aqui</a>
@@ -292,25 +325,39 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Rua*</label>
-                                <input placeholder="Novo oriente da boa ventura" required="" type="text" id="rua"
+                                <input placeholder="Oriente da boa ventura" required="" type="text" id="rua" name="ST_ENDERECO_SAC"
                                     class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
                             <div class="mb-3"><label class="form-label">Bairro*</label><input
-                                    placeholder="Novo Horizonte" required="" type="text" id="bairro"
+                                    placeholder="Novo Horizonte" required="" type="text" id="bairro" name="ST_BAIRRO_SAC"
                                     class="form-control" value="">
+                                <div class="invalid-feedback">Campo obrigatório</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Cidade*</label>
+                                <input placeholder="Timóteo" required="" type="text" id="cidade" name="ST_CIDADE_SAC" class="form-control"
+                                    value="">
+                                <div class="invalid-feedback">Campo obrigatório</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Estado*</label>
+                                <input placeholder="Minas Gerais" required="" type="text" id="uf" name="ST_ESTADO_SAC" class="form-control"
+                                    value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
                             <div class="my-3 row">
                                 <div class="col">
-                                    <div><label class="form-label">Número*</label><input placeholder="10" required=""
-                                            type="text" id="numero" class="form-control" value="">
+                                    <div>
+                                        <label class="form-label">Número*</label>
+                                        <input placeholder="10" required="" type="text" id="numero" name="ST_NUMERO_SAC" class="form-control"
+                                            value="">
                                         <div class="invalid-feedback">Campo obrigatório</div>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div><label class="form-label">Complemento</label><input placeholder="apt 01"
-                                            type="text" id="complemento" class="form-control" value="">
+                                            type="text" id="complemento" name="ST_COMPLEMENTO_SAC" class="form-control" value="">
                                     </div>
                                 </div>
                             </div>
@@ -327,8 +374,13 @@
                 <div class="col">
                     <div class="row">
                         <div class="d-flex justify-content-between col-sm-12">
+<<<<<<< HEAD
                             <h2 class="h3" style="font-size: 23px;">Pagamento</h2>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+=======
+                            <h2 class="h3" style="font-size: 23px;">Pagamento</h2><svg
+                                xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
+>>>>>>> 2d8abb13a5c9ff1953b794237e613df45514cd7e
                                 class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
                                     d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
@@ -339,17 +391,18 @@
                             <div class="voucher-border">
                                 <div class="mb-3 mt-4 input-group"><span class="input-group-text" id="voucher">
                                         <img src="./assets/voucher.png" width="60" height="45"
-                                            alt="Imagem Voucher"></span><input placeholder="ex. DESCONTO"
-                                        aria-describedby="voucher" type="text" id="voucher"
+                                            alt="Imagem Voucher"></span>
+                                            <input placeholder="ex. DESCONTO"
+                                        aria-describedby="voucher" type="text" id="voucher" name="cupom"
                                         class="text-uppercase form-control form-control-lg" value="">
                                 </div>
                             </div>
 
                             <!-- PLANOS INDIVIDUAL E FAMILIAR -->
-                            <h5 class="text-muted m-0" style="font-size: 17px;">Plano Individual</h5>
+                            <h5 id="individual" class="text-muted m-0" style="font-size: 17px;">Plano Individual</h5>
                             <div class="px-0.5 ps-4 my-3 row">
                                 <div class="d-flex align-items-center">
-                                    <input type="radio" name="opcao" value="individual" class="me-2">
+                                    <input type="radio" name="idplano" id="1" value="" class="me-2">
 
 
                                     <div class="px-0.5 ps-4 my-0.2 row">
@@ -373,10 +426,10 @@
                                 </div>
                             </div>
                             <hr class="m-2 mt-4 text-muted">
-                            <h5 class="text-muted m-0" style="font-size: 18px;">Plano Familiar</h5>
+                            <h5 id="familiar" class="text-muted m-0" style="font-size: 17px;">Plano Familiar</h5>
                             <div class="px-1 ps-4 my-3 row">
                                 <div class="d-flex align-items-center">
-                                    <input type="radio" name="opcao" value="familiar" class="me-2">
+                                    <input type="radio" name="idplano" id="2" value="" class="me-2">
                                     <div class="px-0.5 ps-4 my-0.2 row">
                                         <div class="ps-1 col-sm-8 col-8">
                                             <h5 class="text-muted" style="font-size: 16px;">Taxa de adesão
@@ -411,7 +464,7 @@
 
                             <!-- CARTAO DE CREDITO -->
                             <div class="accordion-card accordion">
-                                <div class="mb-3 accordion-item">
+                                <div class="mb-3 accordion-item ">
                                     <h2 class="payment-accordion accordion-header">
                                         <button id="toggleCreditButton" type="button" aria-expanded="false"
                                             class="accordion-button collapsed">
@@ -437,21 +490,21 @@
                                     <form novalidate="" class="" data-hs-cf-bound="true">
                                         <div class="mb-3">
                                             <label class="form-label">Número do cartão*</label>
-                                            <input placeholder="0000 0000 0000 0000" required="" type="text"
+                                            <input placeholder="0000 0000 0000 0000" required="" id="numero-cartao" name="ST_CARTAO_SAC" type="text"
                                                 class="form-control" value="">
                                             <div class="invalid-feedback">Campo obrigatório
                                             </div>
                                         </div>
                                         <div class="mb-3"><label class="form-label">Nome do
                                                 titular*</label><input placeholder="ex. Maria Lucia Almeida "
-                                                required="" type="text" id="nomeTitular" class="form-control" value="">
+                                                required="" type="text" id="nomeTitular" name="ST_NOMECARTAO_SAC" class="form-control" value="">
                                             <div class="invalid-feedback">Campo obrigatório
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="mb-3"><label class="form-label">Validade*</label><input
-                                                        placeholder="10/10" required="" type="text" id="validadeCartao"
+                                                        placeholder="10/10" required="" type="text" id="validadeCartao" name="ST_ANOVALIDADE_SAC"
                                                         class="form-control" value="">
                                                     <div class="invalid-feedback">Campo
                                                         obrigatório</div>
@@ -459,7 +512,7 @@
                                             </div>
                                             <div class="col">
                                                 <div class="mb-3"><label class="form-label">CVV*</label><input
-                                                        placeholder="123" required="" type="text" id="cvvCartao"
+                                                        placeholder="123" required="" type="text" id="cvvCartao" name="ST_SEGURANCACARTAO_SAC"
                                                         class="form-control" value="">
                                                     <div class="invalid-feedback">Campo
                                                         obrigatório</div>
@@ -472,10 +525,15 @@
                                             <div class="invalid-feedback">Campo obrigatório
                                             </div>
                                         </div>
-                                        <div class="d-grid pt-3"><button type="submit"
-                                                class="d-flex justify-content-center btn btn-secondary btn-lg">Solicitar
-                                                cartão</button><br>
+                                        <div class="d-grid pt-3">
+                                            <button type="submit" id="solicitar" name="aceite_contrato"
+                                                class="d-flex justify-content-center btn btn-secondary btn-lg"
+                                                style="background-color: #ffda00; color: #000; border: none;">Solicitar
+                                                Plano</button>
+                                            <br>
                                         </div>
+
+
                                     </form>
                                 </div>
                             </div>
@@ -669,8 +727,9 @@
                                 um dos <a href="https://wa.me/553136180430" target="_blank"
                                     class="fw-normal underline">nossos atendentes</a> ou</p><a
                                 href="https://cardfacil.com.br/" target="_blank"
-                                class="btn btn-outline-primary btn-lg bg-white px-4 fw-normal text-primary">Acesse
-                                nosso portal e saiba mais</a>
+                                class="btn btn-outline-primary btn-lg px-4 fw-normal"
+                                style="background-color: #ffda00; color: #000; border: none;">Acesse nosso portal e
+                                saiba mais</a>
                         </div>
                     </div>
                 </div>
@@ -680,46 +739,153 @@
         </div>
         <script>
 
-            // esta faltando verificar abaixo de 8 e acima de 8 
+            // API SUPERLOGICA
+            var urlencoded = new URLSearchParams();
+            urlencoded.append("idplano", "");         
+            urlencoded.append("ST_NOME_SAC", "");         
+            urlencoded.append("ST_CGC_SAC", "");         
+            urlencoded.append("ST_EMAIL_SAC", "");         
+            urlencoded.append("ST_TELEFONE_SAC", "");         
+            urlencoded.append("FL_PAGAMENTOPREF_SAC", "");         
+            urlencoded.append("senha", "");         
+            urlencoded.append("senha_confirmacao", "");         
+            urlencoded.append("ST_CEP_SAC", "");         
+            urlencoded.append("ST_ENDERECO_SAC", "");         
+            urlencoded.append("ST_NUMERO_SAC", "");         
+            urlencoded.append("ST_COMPLEMENTO_SAC", "");         
+            urlencoded.append("ST_BAIRRO_SAC", "");         
+            urlencoded.append("ST_CIDADE_SAC", "");         
+            urlencoded.append("ST_ESTADO_SAC", "");         
+            urlencoded.append("cupom", "");         
+            urlencoded.append("ST_CARTAO_SAC", "");         
+            urlencoded.append("ST_MESVALIDADE_SAC", "");
+            urlencoded.append("ST_ANOVALIDADE_SAC", "");         
+            urlencoded.append("ST_SEGURANCACARTAO_SAC", "");
+            urlencoded.append("ST_CARTAOBANDEIRA_SAC", "");
+            urlencoded.append("ST_NOMECARTAO_SAC", "");
+            urlencoded.append("aceite_contrato", "");
+
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+            myHeaders.append("app_token", "ce7edf03-fa59-4c31-b378-5f6683a5c26f");
+            myHeaders.append("access_token", "f9c649af-72cc-4413-98f8-767a883bee59");
+
+            const apiUrl = 'https://api.superlogica.net/v2/financeiro/checkout';
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: urlencoded,
+                redirect: 'follow'
+            };
+
+            fetch(apiUrl, requestOptions)
+                .then(response => response.json())
+                .then(async (result) => {
+                    let
+                })
+                .catch(error => console.log('error', error));
 
 
-            const cepInput = document.getElementById('cep');
-            const cepError = document.getElementById('cep-error');
+            function limpa_formulário_cep() {
+                document.getElementById('rua').value = ("");
+                document.getElementById('bairro').value = ("");
+                document.getElementById('cidade').value = ("");
+                document.getElementById('uf').value = ("");
+            }
 
-            cepInput.addEventListener('input', function () {
-                // Remove caracteres não numéricos do valor do campo
-                cepInput.value = cepInput.value.replace(/\D/g, '');
-
-                const cep = cepInput.value;
-
-                if (/^\d{8}$/.test(cep)) { // Verifica se o CEP consiste em exatamente 8 dígitos numéricos
-                    fetch(`https://viacep.com.br/ws/${cep}/json/`)
-                        .then((response) => response.json())
-                        .then((data) => {
-                            if (!data.erro) {
-                                cepError.textContent = '';
-                                document.getElementById('logradouro').value = data.logradouro;
-                                document.getElementById('bairro').value = data.bairro;
-
-                                // Marque o campo como válido
-                                cepInput.classList.remove('is-invalid');
-                                cepInput.classList.add('is-valid');
-                            } else {
-                                cepError.textContent = 'CEP não encontrado. Verifique o CEP digitado.';
-
-                                // Marque o campo como inválido
-                                cepInput.classList.remove('is-valid');
-                                cepInput.classList.add('is-invalid');
-                            }
-                        })
-                        .catch((error) => console.error('Erro ao consultar o CEP:', error));
-                } else {
-                    cepError.textContent = 'CEP inválido. Deve conter exatamente 8 dígitos numéricos e não deve conter letras.';
-
-                    // Marque o campo como inválido
-                    cepInput.classList.remove('is-valid');
-                    cepInput.classList.add('is-invalid');
+            function meu_callback(conteudo) {
+                if (!("erro" in conteudo)) {
+                    document.getElementById('rua').value = (conteudo.logradouro);
+                    document.getElementById('bairro').value = (conteudo.bairro);
+                    document.getElementById('cidade').value = (conteudo.localidade);
+                    document.getElementById('uf').value = (conteudo.uf);
                 }
+                else {
+                    limpa_formulário_cep();
+                }
+            }
+
+            function pesquisacep(valor) {
+                var cep = valor.replace(/\D/g, '');
+                var cepPrefix = cep.substring(0, 2);
+
+                if (cep != "") {
+                    var validacep = /^[0-9]{8}$/;
+
+                    if (validacep.test(cep)) {
+                        if (["30", "31", "32", "33", "34", "35", "36"].includes(cepPrefix)) {
+                            document.getElementById('rua').value = "...";
+                            document.getElementById('bairro').value = "...";
+                            document.getElementById('cidade').value = "...";
+                            document.getElementById('uf').value = "...";
+
+                            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                                .then((response) => response.json())
+                                .then((data) => {
+                                    meu_callback(data); // Chama o callback personalizado
+                                    document.getElementById('erroCEP').textContent = "";
+                                })
+                                .catch((error) => console.error('Erro ao consultar o CEP:', error));
+                        } else {
+                            document.getElementById('erroCEP').textContent = "O serviço está disponível apenas para CEPs de Minas Gerais.";
+                            limpa_formulário_cep();
+                        }
+                    } else {
+                        
+                        document.getElementById('cepInput').classList.add('invalid-feedback');
+                        document.getElementById('cepInput').textContent = "Formato de CEP inválido. O CEP deve conter 8 dígitos numéricos.";
+                        limpa_formulário_cep();
+                    }
+                } else {
+                    limpa_formulário_cep();
+                }
+            };
+
+
+            // const cepInput = document.getElementById('cep');
+            // const cepError = document.getElementById('cep-error');
+
+            // cepInput.addEventListener('input', function () {
+            //     // Remove caracteres não numéricos do valor do campo
+            //     cepInput.value = cepInput.value.replace(/\D/g, '');
+
+            //     const cep = cepInput.value;
+
+            //     if (/^\d{8}$/.test(cep)) { // Verifica se o CEP consiste em exatamente 8 dígitos numéricos
+            //         fetch(`https://viacep.com.br/ws/${cep}/json/`)
+            //             .then((response) => response.json())
+            //             .then((data) => {
+            //                 if (!data.erro) {
+            //                     cepError.textContent = '';
+            //                     document.getElementById('logradouro').value = data.logradouro;
+            //                     document.getElementById('bairro').value = data.bairro;
+            //                     document.getElementById('cidade').value = data.cidade;;
+            //                     document.getElementById('uf').value = data.uf;
+
+            //                     // Marque o campo como válido
+            //                     cepInput.classList.remove('is-invalid');
+            //                     cepInput.classList.add('is-valid');
+            //                 } else {
+            //                     cepError.textContent = 'CEP não encontrado. Verifique o CEP digitado.';
+
+            //                     // Marque o campo como inválido
+            //                     cepInput.classList.remove('is-valid');
+            //                     cepInput.classList.add('is-invalid');
+            //                 }
+            //             })
+            //             .catch((error) => console.error('Erro ao consultar o CEP:', error));
+            //     } else {
+            //         cepError.textContent = 'CEP inválido. Deve conter exatamente 8 dígitos numéricos e não deve conter letras.';
+
+            //         // Marque o campo como inválido
+            //         cepInput.classList.remove('is-valid');
+            //         cepInput.classList.add('is-invalid');
+            //     }
+            // });
+            const inputNumero = document.getElementById('numero');
+            inputNumero.addEventListener('input', function () {
+                this.value = this.value.replace(/[^0-9]/g, '');
             });
 
             // Função para verificar se um campo está preenchido corretamente
@@ -804,6 +970,7 @@
                     verificarCampoPreenchido(campo);
                 });
             });
+<<<<<<< HEAD
     
             // Função para exibir uma mensagem de feedback
             function exibirMensagemFeedback(elemento, mensagem) {
@@ -828,6 +995,8 @@
             function compararSenhaConfirmacao(senha, confirmacao) {
                 return senha === confirmacao;
             }
+=======
+>>>>>>> 2d8abb13a5c9ff1953b794237e613df45514cd7e
 
             // Lidar com a validação da senha no evento de input
             var senhaInput = document.getElementById("senha");
@@ -837,19 +1006,27 @@
                 var senha = senhaInput.value;
                 var confirmacao = confirmacaoSenhaInput.value;
 
-                if (validarSenha(senha)) {
-                    // Senha válida, então limpe a mensagem de feedback
+                if (senha.trim() === '') {
+
+                    exibirMensagemFeedback(senhaInput, "Campo obrigatório.");
+                } else if (validarSenha(senha)) {
+
                     limparMensagemFeedback(senhaInput);
                 } else {
+<<<<<<< HEAD
                     // Senha inválida, exiba a mensagem de feedback
                     exibirMensagemFeedback(senhaInput, "A senha deve ter de 8 a 12 caracteres, pelo menos uma letra maiúscula, uma letra minúscula e um número.");
+=======
+
+                    exibirMensagemFeedback(senhaInput, "A senha deve ter de 8 a 12 caracteres, ter letra maiúscula, minúscula e número.");
+>>>>>>> 2d8abb13a5c9ff1953b794237e613df45514cd7e
                 }
 
                 if (compararSenhaConfirmacao(senha, confirmacao)) {
-                    // Senha e confirmação iguais, então limpe a mensagem de feedback
+
                     limparMensagemFeedback(confirmacaoSenhaInput);
                 } else {
-                    // Senha e confirmação diferentes, exiba a mensagem de feedback
+
                     exibirMensagemFeedback(confirmacaoSenhaInput, "A confirmação de senha não coincide com a senha.");
                 }
             });
@@ -944,96 +1121,6 @@
 
             // Chame a função para calcular o valor total inicialmente
             calcularValorTotal();
-
-
-            function limpa_formulário_cep() {
-                //Limpa valores do formulário de cep.
-                document.getElementById('rua').value = ("");
-                document.getElementById('bairro').value = ("");
-            }
-
-            function meu_callback(conteudo) {
-                if (!("erro" in conteudo)) {
-                    //Atualiza os campos com os valores.
-                    document.getElementById('rua').value = (conteudo.logradouro);
-                    document.getElementById('bairro').value = (conteudo.bairro);
-                }
-                else {
-                    limpa_formulário_cep();
-                }
-            }
-
-            function pesquisacep(valor) {
-
-                //Nova variável "cep" somente com dígitos.
-                var cep = valor.replace(/\D/g, '');
-
-                //Verifica se campo cep possui valor informado.
-                if (cep != "") {
-
-                    //Expressão regular para validar o CEP.
-                    var validacep = /^[0-9]{8}$/;
-
-                    //Valida o formato do CEP.
-                    if (validacep.test(cep)) {
-
-                        //Preenche os campos com "..." enquanto consulta webservice.
-                        document.getElementById('rua').value = "...";
-                        document.getElementById('bairro').value = "...";
-
-                        //Cria um elemento javascript.
-                        var script = document.createElement('script');
-
-                        //Sincroniza com o callback.
-                        script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
-
-                        //Insere script no documento e carrega o conteúdo.
-                        document.body.appendChild(script);
-
-                    } //end if.
-                    else {
-                        //cep é inválido.
-                        limpa_formulário_cep();
-
-                    }
-                } //end if.
-                else {
-                    //cep sem valor, limpa formulário.
-                    limpa_formulário_cep();
-                }
-            };
-
-            // API SUPERLOGICA
-            const apiUrl = 'https://api.superlogica.net/v2/financeiro/checkout';
-
-
-            const formData = new URLSearchParams();
-            formData.append('app_token', 'ce7edf03-fa59-4c31-b378-5f6683a5c26f');
-            formData.append('access_token', 'f9c649af-72cc-4413-98f8-767a883bee59');
-
-            const requestOptions = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: formData.toString(),
-            };
-
-            fetch(apiUrl, requestOptions)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Erro na solicitação à API');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Faça algo com os dados da resposta (data)
-                    console.log(data);
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
-                });
-
 
         </script>
     </main>

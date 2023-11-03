@@ -81,7 +81,6 @@
 
         h5 {
             font-size: 18px;
-
         }
 
         p {
@@ -103,6 +102,11 @@
         textarea {
             font-size: 12px;
             font-family: 'Source Sans 3', sans-serif;
+        }
+
+        .imgFormaPag {
+            margin-bottom: 25px;
+            margin-left: 3px;
         }
 
         .form-label {
@@ -132,6 +136,7 @@
             background-color: #F2F0E4;
             font-family: 'Ubuntu', sans-serif;
         }
+
         span.input-group-text {
             background-color: #F2F0E4;
             border: none;
@@ -208,10 +213,15 @@
                             </div>
 
                             <div class="mb-3"><label class="form-label">CPF*</label><input placeholder="000.000.000-00"
-                                    required="" type="text" id="cpf" name="ST_CGC_SAC" class="form-control">
+                                    required="" type="text" id="cpf" name="ST_CGC_SAC" class="form-control"
+                                    maxlength="11">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
-
+                            <div class="mb-3"><label class="form-label">Data de nascimento*</label><input
+                                    placeholder="Data de nascimento" required type="date" name="DT_NASCIMENTO_SAC"
+                                    id="dataNascimento" format="date" class="form-control" maxlength="8">
+                                <div class="invalid-feedback">Campo obrigatório</div>
+                            </div>
                             <div class="mb-3"><label class="form-label">E-mail*</label><input
                                     placeholder="Guilherme@gmail.com" required="" type="text" id="email"
                                     name="ST_EMAIL_SAC" class="form-control" value="">
@@ -220,7 +230,7 @@
 
                             <div class="mb-3"><label class="form-label">Telefone*</label><input
                                     placeholder="(11) 99999-9999" required="" type="text" id="telefone"
-                                    name="ST_TELEFONE_SAC" class="form-control" value="">
+                                    name="ST_CELULAR_SAC" class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
 
@@ -299,7 +309,8 @@
                                     </div>
                                     <div class="invalid-feedback" id="erroCEP"></div>
                                     <div class="invalid-feedback">Campo obrigatório
-                                        <small class="form-text" style="float: right; display: block;">Não sabe seu CEP?
+                                        <small class="form-text" style="float: right; display: block;">Não sabe seu
+                                            CEP?
                                             <a href="https://buscacepinter.correios.com.br/app/localidade_logradouro/index.php"
                                                 target="_blank" rel="noreferrer" class="underline">
                                                 Clique aqui</a>
@@ -379,7 +390,8 @@
                             </div>
 
                             <!-- PLANOS INDIVIDUAL E FAMILIAR -->
-                            <h5 id="individual" class="text-muted m-0" style="font-size: 17px;">Plano Individual</h5>
+                            <h5 id="individual" class="text-muted m-0" style="font-size: 17px;">Plano Individual
+                            </h5>
                             <div class="px-0.5 ps-4 my-3 row">
                                 <div class="d-flex align-items-center">
                                     <input type="radio" name="idplano" id="1" value="" class="me-2">
@@ -468,6 +480,32 @@
 
                                 <div id="credit" class="accordion-collapse collapse pt-2 show" style="display: none;">
                                     <form novalidate="" class="" data-hs-cf-bound="true">
+                                        <a href="javascript:void(0);" comportamentos="selecionarFormaPagamentoPref"
+                                            data-tipo-forma="cartao" carregado="sim"><img
+                                                src="https://cedadmincartoes.superlogica.net/temas/default/img/formaspagamento/visa.png"
+                                                height="25" class="imgFormaPag" forma="visa" style="opacity: 1;"></a>
+                                        <a href="javascript:void(0);" comportamentos="selecionarFormaPagamentoPref"
+                                            data-tipo-forma="cartao" carregado="sim"><img
+                                                src="https://cedadmincartoes.superlogica.net/temas/default/img/formaspagamento/mastercard.png"
+                                                height="25" class="imgFormaPag" forma="mastercard"
+                                                style="opacity: 1;"></a>
+                                        <a href="javascript:void(0);" comportamentos="selecionarFormaPagamentoPref"
+                                            data-tipo-forma="cartao" carregado="sim"><img
+                                                src="https://cedadmincartoes.superlogica.net/temas/default/img/formaspagamento/diners.png"
+                                                height="25" class="imgFormaPag" forma="diners" style="opacity: 1;"></a>
+                                        <a href="javascript:void(0);" comportamentos="selecionarFormaPagamentoPref"
+                                            data-tipo-forma="cartao" carregado="sim"><img
+                                                src="https://cedadmincartoes.superlogica.net/temas/default/img/formaspagamento/amex.png"
+                                                height="25" class="imgFormaPag" forma="amex" style="opacity: 1;"></a>
+                                        <a href="javascript:void(0);" comportamentos="selecionarFormaPagamentoPref"
+                                            data-tipo-forma="cartao" carregado="sim"><img
+                                                src="https://cedadmincartoes.superlogica.net/temas/default/img/formaspagamento/elo.png"
+                                                height="25" class="imgFormaPag" forma="elo" style="opacity: 1;"></a>
+                                        <a href="javascript:void(0);" comportamentos="selecionarFormaPagamentoPref"
+                                            data-tipo-forma="cartao" carregado="sim"><img
+                                                src="https://cedadmincartoes.superlogica.net/temas/default/img/formaspagamento/hipercard.png"
+                                                height="25" class="imgFormaPag" forma="hipercard"
+                                                style="opacity: 1; "></a>
                                         <div class="mb-3">
                                             <label class="form-label">Número do cartão*</label>
                                             <input placeholder="0000 0000 0000 0000" required="" id="numero-cartao"
@@ -486,7 +524,8 @@
                                             <div class="col-sm-6">
                                                 <div class="mb-3">
                                                     <label class="form-label">Mês*</label>
-                                                    <select required="" id="mesCartao" name="ST_MESVALIDADE_SAC" class="form-select text-muted">
+                                                    <select required="" id="mesCartao" name="ST_MESVALIDADE_SAC"
+                                                        class="form-select text-muted">
                                                         <option value="" disabled selected>Selecione o mês</option>
                                                         <option value="01">Janeiro</option>
                                                         <option value="02">Fevereiro</option>
@@ -507,17 +546,18 @@
                                             <div class="col-sm-6">
                                                 <div class="mb-3">
                                                     <label class="form-label">Ano*</label>
-                                                    <select required="" id="anoCartao" name="ST_ANOVALIDADE_SAC" class="form-select text-muted">
+                                                    <select required="" id="anoCartao" name="ST_ANOVALIDADE_SAC"
+                                                        class="form-select text-muted">
                                                         <option value="" disabled selected>Selecione o ano</option>
                                                         <option value="2022">2022</option>
                                                         <option value="2023">2023</option>
-                                                        <option value="2023">2024</option>
-                                                        <option value="2023">2025</option>
-                                                        <option value="2023">2026</option>
-                                                        <option value="2023">2027</option>
-                                                        <option value="2023">2028</option>
-                                                        <option value="2023">2029</option>
-                                                        <option value="2023">2030</option>
+                                                        <option value="2024">2024</option>
+                                                        <option value="2025">2025</option>
+                                                        <option value="2026">2026</option>
+                                                        <option value="2027">2027</option>
+                                                        <option value="2028">2028</option>
+                                                        <option value="2029">2029</option>
+                                                        <option value="2030">2030</option>
                                                     </select>
                                                     <div class="invalid-feedback">Campo obrigatório</div>
                                                 </div>
@@ -525,15 +565,15 @@
                                             <div class="col">
                                                 <div class="mb-3"><label class="form-label">CVV*</label><input
                                                         placeholder="123" required="" type="text" id="cvvCartao"
-                                                        name="ST_SEGURANCACARTAO_SAC" class="form-control" value="" format="numeric">
-                                                    <div class="invalid-feedback">Campo
-                                                        obrigatório</div>
+                                                        name="ST_SEGURANCACARTAO_SAC" class="form-control" value=""
+                                                        format="numeric">
+                                                    <div class="invalid-feedback">Campo obrigatório</div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="mb-4"><label class="form-label">CPF*</label><input
                                                 placeholder="000.000.000-00" required="" type="text" id="cpfCartao"
-                                                class="form-control" value="">
+                                                name="ST_DOCUMENTOPORTADOR_SAC" class="form-control" value="">
                                             <div class="invalid-feedback">Campo obrigatório
                                             </div>
                                         </div>
@@ -544,8 +584,6 @@
                                                 Plano</button>
                                             <br>
                                         </div>
-
-
                                     </form>
                                 </div>
                             </div>
@@ -723,10 +761,14 @@
                     </div>
                     <div class="text-center">
                         <p>
-                            <small class="text-muted">* Pagamento mensal de R$ 29,90 para plano individual e R$ 39,90
-                                para plano familiar.<br>** O pagamento inicial será de R$ 59,90, para plano individual
-                                ou R$ 69,90 para plano familia, pois inclui a taxa de adesão no valor de R$ 30,00 mais a
-                                primeira mensalidade no valor de R$ 29,90 para plano individual, ou R$ 39,90 para plano
+                            <small class="text-muted">* Pagamento mensal de R$ 29,90 para plano individual e R$
+                                39,90
+                                para plano familiar.<br>** O pagamento inicial será de R$ 59,90, para plano
+                                individual
+                                ou R$ 69,90 para plano familia, pois inclui a taxa de adesão no valor de R$ 30,00
+                                mais a
+                                primeira mensalidade no valor de R$ 29,90 para plano individual, ou R$ 39,90 para
+                                plano
                                 familiar.<br>***Valor sujeito a alteração devido ao uso de voucher.</small>
                         </p>
                     </div>
@@ -750,54 +792,68 @@
         </div>
         </div>
         <script>
-
             // API SUPERLOGICA
-            var urlencoded = new URLSearchParams();
-            urlencoded.append("idplano", "");
-            urlencoded.append("ST_NOME_SAC", "");
-            urlencoded.append("ST_CGC_SAC", "");
-            urlencoded.append("ST_EMAIL_SAC", "");
-            urlencoded.append("ST_TELEFONE_SAC", "");
-            urlencoded.append("FL_PAGAMENTOPREF_SAC", "");
-            urlencoded.append("senha", "");
-            urlencoded.append("senha_confirmacao", "");
-            urlencoded.append("ST_CEP_SAC", "");
-            urlencoded.append("ST_ENDERECO_SAC", "");
-            urlencoded.append("ST_NUMERO_SAC", "");
-            urlencoded.append("ST_COMPLEMENTO_SAC", "");
-            urlencoded.append("ST_BAIRRO_SAC", "");
-            urlencoded.append("ST_CIDADE_SAC", "");
-            urlencoded.append("ST_ESTADO_SAC", "");
-            urlencoded.append("cupom", "");
-            urlencoded.append("ST_CARTAO_SAC", "");
-            urlencoded.append("ST_MESVALIDADE_SAC", "");
-            urlencoded.append("ST_ANOVALIDADE_SAC", "");
-            urlencoded.append("ST_SEGURANCACARTAO_SAC", "");
-            urlencoded.append("ST_CARTAOBANDEIRA_SAC", "");
-            urlencoded.append("ST_NOMECARTAO_SAC", "");
-            urlencoded.append("aceite_contrato", "");
+            async function fazerChamadaAPI() {
+                var urlencoded = new URLSearchParams();
+                urlencoded.append("idplano", "");
+                urlencoded.append("ST_NOME_SAC", "");
+                urlencoded.append("ST_CGC_SAC", "");
+                urlencoded.append("ST_EMAIL_SAC", "");
+                urlencoded.append("ST_TELEFONE_SAC", "");
+                urlencoded.append("FL_PAGAMENTOPREF_SAC", "");
+                urlencoded.append("senha", "");
+                urlencoded.append("senha_confirmacao", "");
+                urlencoded.append("ST_CEP_SAC", "");
+                urlencoded.append("ST_ENDERECO_SAC", "");
+                urlencoded.append("ST_NUMERO_SAC", "");
+                urlencoded.append("ST_COMPLEMENTO_SAC", "");
+                urlencoded.append("ST_BAIRRO_SAC", "");
+                urlencoded.append("ST_CIDADE_SAC", "");
+                urlencoded.append("ST_ESTADO_SAC", "");
+                urlencoded.append("cupom", "");
+                urlencoded.append("ST_CARTAO_SAC", "");
+                urlencoded.append("ST_MESVALIDADE_SAC", "");
+                urlencoded.append("ST_ANOVALIDADE_SAC", "");
+                urlencoded.append("ST_SEGURANCACARTAO_SAC", "");
+                urlencoded.append("ST_CARTAOBANDEIRA_SAC", "");
+                urlencoded.append("ST_NOMECARTAO_SAC", "");
+                urlencoded.append("aceite_contrato", "");
 
-            var myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-            myHeaders.append("app_token", "ce7edf03-fa59-4c31-b378-5f6683a5c26f");
-            myHeaders.append("access_token", "f9c649af-72cc-4413-98f8-767a883bee59");
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+                myHeaders.append("app_token", "ce7edf03-fa59-4c31-b378-5f6683a5c26f");
+                myHeaders.append("access_token", "f9c649af-72cc-4413-98f8-767a883bee59");
 
-            const apiUrl = 'https://api.superlogica.net/v2/financeiro/checkout';
+                const apiUrl = 'https://api.superlogica.net/v2/financeiro/checkout';
 
-            var requestOptions = {
-                method: 'POST',
-                headers: myHeaders,
-                body: urlencoded,
-                redirect: 'follow'
-            };
+                var requestOptions = {
+                    method: 'POST',
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: 'follow'
+                };
 
-            fetch(apiUrl, requestOptions)
-                .then(response => response.json())
-                .then(async (result) => {
-                    let
+                return fetch(apiUrl, requestOptions)
+                    .then(response => response.json())
+                    .catch(error => {
+                        console.log('error', error);
+                        throw error;
+                    });
+            }
+
+            fazerChamadaAPI()
+                .then(result => {
                 })
-                .catch(error => console.log('error', error));
+                .catch(error => {
+                });
 
+            var dataNascimento = document.getElementById("dataNascimento");
+
+            var dataAtual = new Date();
+            var anoAtual = dataAtual.getFullYear();
+
+            dataNascimento.setAttribute("min", "1923-01-01");
+            dataNascimento.max = anoAtual + "-12-31";
 
             function limpa_formulário_cep() {
                 document.getElementById('rua').value = ("");
@@ -962,7 +1018,7 @@
                 });
             });
 
-            var camposDeTexto = document.querySelectorAll('input[type="text"]:not(#complemento):not([id="voucher"]), input[type="password"]');
+            var camposDeTexto = document.querySelectorAll('input[type="text"]:not(#complemento):not([id="voucher"]), input[type="password"], input[type="date"]');
             camposDeTexto.forEach(function (campo, index, campos) {
                 campo.addEventListener('input', function () {
                     verificarCampoPreenchido(campo);

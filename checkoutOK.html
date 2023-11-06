@@ -7,6 +7,7 @@
     <!-- <link rel="stylesheet" type="text/css" href="./styleCheckout.css"> -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400&family=Raleway&family=Source+Sans+3:ital,wght@0,400;1,200&family=Ubuntu:wght@300&display=swap"
@@ -191,7 +192,7 @@
         </nav>
 
         <!-- CADASTRO -->
-        <div class="d-xl-block px-5 pb-4 pagamento-form col" style="margin-left: 10%; margin-right: 10%;">
+        <div class="d-xl-block px-5 pb-4 pagamento-form col">
             <div class="d-flex justify-content-between row">
                 <div class="col" style="cursor: pointer;">
                     <div class="row">
@@ -215,7 +216,7 @@
 
                             <div class="mb-3"><label class="form-label">CPF*</label><input placeholder="000.000.000-00"
                                     required="" type="text" id="cpf" name="ST_CGC_SAC" class="form-control"
-                                    maxlength="11">
+                                    maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
                             <div class="mb-3"><label class="form-label">Data de nascimento*</label><input
@@ -224,27 +225,32 @@
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
                             <div class="mb-3"><label class="form-label">E-mail*</label><input
-                                    placeholder="Guilherme@gmail.com" required="" type="text" id="email"
+                                    placeholder="Guilherme@gmail.com" required="" type="email" id="email"
                                     name="ST_EMAIL_SAC" class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
 
                             <div class="mb-3"><label class="form-label">Telefone*</label><input
                                     placeholder="(11) 99999-9999" required="" type="text" id="telefone"
-                                    name="ST_CELULAR_SAC" class="form-control" value="">
+                                    name="ST_CELULAR_SAC" class="form-control" value=""
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
 
-                            <div class="mb-3"><label class="form-label">Senha*</label>
+                            <div class="mb-3">
+                                <label class="form-label">Senha*</label>
                                 <input placeholder="Digite sua senha" required="" type="password" id="senha"
-                                    name="senha" class="form-control" value="">
+                                    name="senha" class="form-control" value="" maxlength="12">  
                                 <div class="invalid-feedback">Campo obrigatório</div>
+                                <div class="invalid-feedback" id="senhaRequisitosError" style="display: none">
+                                    A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula e um número.
+                                </div>
                             </div>
 
-                            <div class="mb-3"><label class="form-label">Confirmar Senha*</label><input
-                                    placeholder="Confirme sua senha" required="" type="password" id="senha_confirmacao"
-                                    name="senha_confirmacao" class="form-control" value="">
+                            <div class="mb-3"><label class="form-label">Confirmar Senha*</label>
+                                <input placeholder="Confirme sua senha" required="" type="password" id="senha_confirmacao" name="senha_confirmacao" class="form-control" value="" maxlength="12"> 
                                 <div class="invalid-feedback">Campo obrigatório</div>
+                                <div class="invalid-feedback" id="senhaConfirmacaoError">As senhas não coincidem</div>
                             </div>
 
                             <div class="mb-1">
@@ -344,7 +350,8 @@
                                     <div>
                                         <label class="form-label">Número*</label>
                                         <input placeholder="10" required="" type="text" id="numero" name="ST_NUMERO_SAC"
-                                            class="form-control" value="">
+                                            class="form-control" value=""
+                                            oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                                         <div class="invalid-feedback">Campo obrigatório</div>
                                     </div>
                                 </div>
@@ -389,9 +396,7 @@
                             </h5>
                             <div class="px-0.5 ps-4 my-3 row">
                                 <div class="d-flex align-items-center">
-                                    <input type="radio" name="idplano" id="1" value="" class="me-2">
-
-
+                                    <input type="radio" name="idplano" id="um" value="um" class="me-2">
                                     <div class="px-0.5 ps-4 my-0.2 row">
                                         <div class="ps-1 col-sm-8 col-8">
                                             <h1 class="text-muted" style="font-size: 16px;">Taxa de adesão</h1>
@@ -416,7 +421,7 @@
                             <h5 id="familiar" class="text-muted m-0" style="font-size: 17px;">Plano Familiar</h5>
                             <div class="px-1 ps-4 my-3 row">
                                 <div class="d-flex align-items-center">
-                                    <input type="radio" name="idplano" id="2" value="" class="me-2">
+                                    <input type="radio" name="idplano" id="dois" value="dois" class="me-2">
                                     <div class="px-0.5 ps-4 my-0.2 row">
                                         <div class="ps-1 col-sm-8 col-8">
                                             <h5 class="text-muted" style="font-size: 16px;">Taxa de adesão
@@ -617,32 +622,33 @@
         </div>
         </div>
         <script>
-            // API SUPERLOGICA
+            // API SUPERLOGICA CHECKOUT
+
             async function fazerChamadaAPI() {
                 var urlencoded = new URLSearchParams();
-                // urlencoded.append("idplano", "");
-                // urlencoded.append("ST_NOME_SAC", "");
-                // urlencoded.append("ST_CGC_SAC", "");
-                // urlencoded.append("ST_EMAIL_SAC", "");
-                // urlencoded.append("ST_TELEFONE_SAC", "");
-                // urlencoded.append("FL_PAGAMENTOPREF_SAC", "");
-                // urlencoded.append("senha", "");
-                // urlencoded.append("senha_confirmacao", "");
-                // urlencoded.append("ST_CEP_SAC", "");
-                // urlencoded.append("ST_ENDERECO_SAC", "");
-                // urlencoded.append("ST_NUMERO_SAC", "");
-                // urlencoded.append("ST_COMPLEMENTO_SAC", "");
-                // urlencoded.append("ST_BAIRRO_SAC", "");
-                // urlencoded.append("ST_CIDADE_SAC", "");
-                // urlencoded.append("ST_ESTADO_SAC", "");
-                // urlencoded.append("cupom", "");
-                // urlencoded.append("ST_CARTAO_SAC", "");
-                // urlencoded.append("ST_MESVALIDADE_SAC", "");
-                // urlencoded.append("ST_ANOVALIDADE_SAC", "");
-                // urlencoded.append("ST_SEGURANCACARTAO_SAC", "");
-                // urlencoded.append("ST_CARTAOBANDEIRA_SAC", "");
-                // urlencoded.append("ST_NOMECARTAO_SAC", "");
-                // urlencoded.append("aceite_contrato", "");
+                urlencoded.append("idplano", "");
+                urlencoded.append("ST_NOME_SAC", "");
+                urlencoded.append("ST_CGC_SAC", "");
+                urlencoded.append("ST_EMAIL_SAC", "");
+                urlencoded.append("ST_TELEFONE_SAC", "");
+                urlencoded.append("FL_PAGAMENTOPREF_SAC", "");
+                urlencoded.append("senha", "");
+                urlencoded.append("senha_confirmacao", "");
+                urlencoded.append("ST_CEP_SAC", "");
+                urlencoded.append("ST_ENDERECO_SAC", "");
+                urlencoded.append("ST_NUMERO_SAC", "");
+                urlencoded.append("ST_COMPLEMENTO_SAC", "");
+                urlencoded.append("ST_BAIRRO_SAC", "");
+                urlencoded.append("ST_CIDADE_SAC", "");
+                urlencoded.append("ST_ESTADO_SAC", "");
+                urlencoded.append("cupom", "");
+                urlencoded.append("ST_CARTAO_SAC", "");
+                urlencoded.append("ST_MESVALIDADE_SAC", "");
+                urlencoded.append("ST_ANOVALIDADE_SAC", "");
+                urlencoded.append("ST_SEGURANCACARTAO_SAC", "");
+                urlencoded.append("ST_CARTAOBANDEIRA_SAC", "");
+                urlencoded.append("ST_NOMECARTAO_SAC", "");
+                urlencoded.append("aceite_contrato", "");
 
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -671,51 +677,11 @@
                     console.error('Erro na chamada à API:', error);
                     throw error;
                 }
-            }
+            };
 
-            fazerChamadaAPI()
-                .then(result => {
-                    // Tratar a resposta da API bem-sucedida aqui
-                    console.log('Resposta da API com sucesso:', result);
-                })
-                .catch(error => {
-                    // Tratar o erro da chamada à API aqui
-                    console.error('Erro na chamada à API:', error);
-                });
-
-            document.getElementById('meuFormulario').addEventListener('submit', function (event) {
-                event.preventDefault(); // Evita o envio padrão do formulário
-                const nome = document.getElementById('nome').value;
-                const cpf = document.getElementById('cpf').value;
-                const dataNascimento = document.getElementById('dataNascimento').value;
-                const email = document.getElementById('email').value;
-                const telefone = document.getElementById('telefone').value;
-                const senha = document.getElementById('senha').value;
-                const senha_confirmacao = document.getElementById('senha_confirmacao').value;
-
-                // Realiza a chamada à API com os dados coletados
-                fazerChamadaAPI({
-                    ST_NOME_SAC: nome,
-                    ST_CGC_SAC: cpf,
-                    DT_NASCIMENTO_SAC: dataNascimento,
-                    ST_EMAIL_SAC: email,
-                    ST_CELULAR_SAC: telefone,
-                    senha,
-                    senha_confirmacao
-                })
-                    .then(result => {
-                        // Tratar a resposta da API bem-sucedida aqui
-                        console.log('Resposta da API com sucesso:', result);
-                    })
-                    .catch(error => {
-                        // Tratar o erro da chamada à API aqui
-                        console.error('Erro na chamada à API:', error);
-                    });
-            });
             //////////////////////////////////////////////////////////////////////////////////
 
-            // CADASTRO 
-
+            //////////////////////// CADASTRO ////////////////////////
             var dataNascimento = document.getElementById("dataNascimento");
 
             var dataAtual = new Date();
@@ -724,7 +690,108 @@
             dataNascimento.setAttribute("min", "1923-01-01");
             dataNascimento.max = anoAtual + "-12-31";
 
+            function verificarCampoPreenchido(input) {
+                if (input.value.trim() === '') {
+                    input.classList.remove('is-valid');
+                    input.classList.add('is-invalid');
+                    return false;
+                } else {
+                    input.classList.remove('is-invalid');
+                    input.classList.add('is-valid');
+                    return true;
+                }
+            }
 
+            function verificarCheckbox(checkbox) {
+                if (!checkbox.checked) {
+                    checkbox.classList.remove('is-valid');
+                    checkbox.classList.add('is-invalid');
+                    var invalidFeedback = checkbox.nextElementSibling.nextElementSibling;
+                    invalidFeedback.style.display = 'block';
+                    return false;
+                } else {
+                    checkbox.classList.remove('is-invalid');
+                    checkbox.classList.add('is-valid');
+                    var invalidFeedback = checkbox.nextElementSibling.nextElementSibling;
+                    invalidFeedback.style.display = 'none';
+                    return true;
+                }
+            }
+
+            function verificarTodosCampos() {
+                var camposDeTexto = document.querySelectorAll('input[type="text"]:not(#complemento):not([id="voucher"]), input[type="password"]');
+                var todosCamposPreenchidos = true;
+
+                camposDeTexto.forEach(function (campo, index, campos) {
+                    if (!verificarCampoPreenchido(campo)) {
+                        todosCamposPreenchidos = false;
+
+                        if (index < campos.length - 1 && campos[index + 1] !== document.activeElement) {
+                            campo.classList.remove('is-valid');
+                            campo.classList.add('is-invalid');
+                        }
+                    }
+                });
+
+                var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                var todosCheckboxesMarcados = true;
+
+                checkboxes.forEach(function (checkbox) {
+                    if (!verificarCheckbox(checkbox)) {
+                        todosCheckboxesMarcados = false;
+                    }
+                });
+
+                return todosCamposPreenchidos && todosCheckboxesMarcados;
+            }
+
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(function (checkbox) {
+                checkbox.addEventListener('change', function () {
+                    verificarTodosCampos();
+                });
+            });
+
+            var camposDeTexto = document.querySelectorAll('input[type="text"]:not(#complemento):not([id="voucher"]), input[type="password"], input[type="date"], input[type="number"], input[type="email"]');
+            camposDeTexto.forEach(function (campo, index, campos) {
+                campo.addEventListener('input', function () {
+                    verificarCampoPreenchido(campo);
+
+                    if (campo.value.trim() === '' && index < campos.length - 1 && campos[index + 1] !== document.activeElement) {
+                        campo.classList.remove('is-valid');
+                        campo.classList.add('is-invalid');
+                    }
+                });
+
+                campo.addEventListener('blur', function () {
+                    verificarCampoPreenchido(campo);
+                });
+            });
+
+            //////////// SENHA ////////////
+            const senhaInput = document.getElementById('senha');
+            const senhaConfirmacaoInput = document.getElementById('senha_confirmacao');
+            const senhaRequisitosError = document.getElementById('senhaRequisitosError');
+            const senhaConfirmacaoError = document.getElementById('senhaConfirmacaoError');
+
+            senhaInput.addEventListener('blur', validarSenha);
+            senhaConfirmacaoInput.addEventListener('blur', validarSenha);
+
+            function validarSenha() {
+                const senha = senhaInput.value;
+                const senhaConfirmacao = senhaConfirmacaoInput.value;
+                const senhaValida = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{7,12}$/.test(senha);
+
+                if (senha && senhaConfirmacao) {
+                    senhaRequisitosError.style.display = senhaValida ? 'none' : 'block';
+                    senhaConfirmacaoError.style.display = senha === senhaConfirmacao ? 'none' : 'block';
+                } else {
+                    senhaRequisitosError.style.display = 'none';
+                    senhaConfirmacaoError.style.display = 'none';
+                }
+            }
+
+            //////////////////////// ENDEREÇO ///////////////////////////////
             function limpa_formulário_cep() {
                 document.getElementById('rua').value = ("");
                 document.getElementById('bairro').value = ("");
@@ -816,170 +883,11 @@
                     cepInput.classList.add('is-invalid');
                 }
             });
-            const inputNumero = document.getElementById('numero');
-            inputNumero.addEventListener('input', function () {
-                this.value = this.value.replace(/[^0-9]/g, '');
-            });
 
-            function verificarCampoPreenchido(input) {
-                if (input.value.trim() === '') {
-                    input.classList.remove('is-valid');
-                    input.classList.add('is-invalid');
-                    return false;
-                } else {
-                    input.classList.remove('is-invalid');
-                    input.classList.add('is-valid');
-                    return true;
-                }
-            }
 
-            function verificarCheckbox(checkbox) {
-                if (!checkbox.checked) {
-                    checkbox.classList.remove('is-valid');
-                    checkbox.classList.add('is-invalid');
-                    var invalidFeedback = checkbox.nextElementSibling.nextElementSibling;
-                    invalidFeedback.style.display = 'block';
-                    return false;
-                } else {
-                    checkbox.classList.remove('is-invalid');
-                    checkbox.classList.add('is-valid');
-                    var invalidFeedback = checkbox.nextElementSibling.nextElementSibling;
-                    invalidFeedback.style.display = 'none';
-                    return true;
-                }
-            }
-
-            function verificarTodosCampos() {
-                var camposDeTexto = document.querySelectorAll('input[type="text"]:not(#complemento):not([id="voucher"]), input[type="password"]');
-                var todosCamposPreenchidos = true;
-
-                camposDeTexto.forEach(function (campo, index, campos) {
-                    if (!verificarCampoPreenchido(campo)) {
-                        todosCamposPreenchidos = false;
-
-                        if (index < campos.length - 1 && campos[index + 1] !== document.activeElement) {
-                            campo.classList.remove('is-valid');
-                            campo.classList.add('is-invalid');
-                        }
-                    }
-                });
-
-                var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                var todosCheckboxesMarcados = true;
-
-                checkboxes.forEach(function (checkbox) {
-                    if (!verificarCheckbox(checkbox)) {
-                        todosCheckboxesMarcados = false;
-                    }
-                });
-
-                return todosCamposPreenchidos && todosCheckboxesMarcados;
-            }
-
-            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(function (checkbox) {
-                checkbox.addEventListener('change', function () {
-                    verificarTodosCampos();
-                });
-            });
-
-            var camposDeTexto = document.querySelectorAll('input[type="text"]:not(#complemento):not([id="voucher"]), input[type="password"], input[type="date"]');
-            camposDeTexto.forEach(function (campo, index, campos) {
-                campo.addEventListener('input', function () {
-                    verificarCampoPreenchido(campo);
-
-                    if (campo.value.trim() === '' && index < campos.length - 1 && campos[index + 1] !== document.activeElement) {
-                        campo.classList.remove('is-valid');
-                        campo.classList.add('is-invalid');
-                    }
-                });
-
-                campo.addEventListener('blur', function () {
-                    verificarCampoPreenchido(campo);
-                });
-            });
-
-            function exibirMensagemFeedback(elemento, mensagem) {
-                var feedbackElement = elemento.nextElementSibling;
-                feedbackElement.textContent = mensagem;
-                feedbackElement.classList.add('invalid-feedback');
-            }
-
-            function limparMensagemFeedback(elemento) {
-                var feedbackElement = elemento.nextElementSibling;
-                feedbackElement.textContent = '';
-                feedbackElement.classList.remove('invalid-feedback');
-            }
-
-            function compararSenhaConfirmacao(senha, confirmacao) {
-                return senha === confirmacao;
-            }
-
-            function compararSenhaConfirmacao(senha, confirmacao) {
-                return senha === confirmacao;
-            }
-
-            var senhaInput = document.getElementById("senha");
-            var confirmacaoSenhaInput = document.getElementById("confirmaSenha");
-
-            senhaInput.addEventListener("input", function () {
-                var senha = senhaInput.value;
-                var confirmacao = confirmacaoSenhaInput.value;
-
-                if (senha.trim() === '') {
-
-                    exibirMensagemFeedback(senhaInput, "Campo obrigatório.");
-                } else if (validarSenha(senha)) {
-
-                    limparMensagemFeedback(senhaInput);
-                } else {
-
-                    exibirMensagemFeedback(senhaInput, "A senha deve ter de 8 a 12 caracteres, ter letra maiúscula, minúscula e número.");
-                }
-
-                if (compararSenhaConfirmacao(senha, confirmacao)) {
-
-                    limparMensagemFeedback(confirmacaoSenhaInput);
-                } else {
-
-                    exibirMensagemFeedback(confirmacaoSenhaInput, "A confirmação de senha não coincide com a senha.");
-                }
-            });
-
-            // // Evento de escuta para o botão "Cadastro"
-            // document.getElementById("cadastroButton").addEventListener("click", function () {
-            //     var cadastro = document.getElementById("cadastro");
-            //     if (cadastro.style.display === "none" || cadastro.style.display === "") {
-            //         cadastro.style.display = "block";
-            //     } else {
-            //         cadastro.style.display = "none";
-            //     }
-            // });
-
-            // // Evento de escuta para o botão "Endereço"
-            // document.getElementById("enderecoButton").addEventListener("click", function () {
-            //     var endereco = document.getElementById("endereco");
-            //     if (endereco.style.display === "none" || endereco.style.display === "") {
-            //         endereco.style.display = "block";
-            //     } else {
-            //         endereco.style.display = "none";
-            //     }
-            // });
-
-            // // Evento de escuta para o botão "Pagamento"
-            // document.getElementById("pagamentoButton").addEventListener("click", function () {
-            //     var endereco = document.getElementById("pagamento");
-            //     if (endereco.style.display === "none" || endereco.style.display === "") {
-            //         endereco.style.display = "block";
-            //     } else {
-            //         endereco.style.display = "none";
-            //     }
-            // });
-
+            //////////////////////// PAGAMENTO ////////////////////////
             const toggleCreditButton = document.getElementById('toggleCreditButton');
             const creditDiv = document.getElementById('credit');
-            // const toggleDebitButton = document.getElementById('toggleDebitButton');
-            // const debitoDiv = document.getElementById('debito');
 
             toggleCreditButton.addEventListener('click', () => {
                 if (creditDiv.style.display === 'block' || creditDiv.style.display === '') {
@@ -988,17 +896,6 @@
                     creditDiv.style.display = 'block';
                 }
             });
-
-            // toggleDebitButton.addEventListener('click', () => {
-            //     // Verifica se a div com o ID 'credit' está visível
-            //     if (debitoDiv.style.display === 'block' || debitoDiv.style.display === '') {
-            //         // Se estiver visível, oculta a div
-            //         debitoDiv.style.display = 'none';
-            //     } else {
-            //         // Se estiver oculta, exibe a div
-            //         debitoDiv.style.display = 'block';
-            //     }
-            // });
 
             //    SOMA DOS PLANOS PARA O VALOR TOTAL
             function calcularValorTotal() {
@@ -1014,9 +911,9 @@
 
                 for (var i = 0; i < opcaoRadios.length; i++) {
                     if (opcaoRadios[i].checked) {
-                        if (opcaoRadios[i].value === "individual") {
+                        if (opcaoRadios[i].value === "um") {
                             valorTotal = taxaAdesaoIndividual + mensalidadeIndividual;
-                        } else if (opcaoRadios[i].value === "familiar") {
+                        } else if (opcaoRadios[i].value === "dois") {
                             valorTotal = taxaAdesaoFamiliar + mensalidadeFamiliar;
                         }
                     }

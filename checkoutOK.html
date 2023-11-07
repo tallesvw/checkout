@@ -213,46 +213,44 @@
                                     type="text" class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
-
-                            <div class="mb-3"><label class="form-label">CPF*</label><input placeholder="000.000.000-00"
-                                    required="" type="text" id="cpf" name="ST_CGC_SAC" class="form-control"
-                                    maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                                <div class="invalid-feedback">Campo obrigatório</div>
-                            </div>
-                            <div class="mb-3"><label class="form-label">Data de nascimento*</label><input
-                                    placeholder="Data de nascimento" required type="date" name="DT_NASCIMENTO_SAC"
-                                    id="dataNascimento" format="date" class="form-control text-muted" maxlength="8">
-                                <div class="invalid-feedback">Campo obrigatório</div>
-                            </div>
                             <div class="mb-3"><label class="form-label">E-mail*</label><input
                                     placeholder="Guilherme@gmail.com" required="" type="email" id="email"
                                     name="ST_EMAIL_SAC" class="form-control" value="">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
-
                             <div class="mb-3"><label class="form-label">Telefone*</label><input
                                     placeholder="(11) 99999-9999" required="" type="text" id="telefone"
                                     name="ST_CELULAR_SAC" class="form-control" value=""
                                     oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
+                            <div class="mb-3"><label class="form-label">CPF*</label><input placeholder="000.000.000-00"
+                                    required="" type="text" id="cpf" name="ST_CGC_SAC" class="form-control"
+                                    maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                <div class="invalid-feedback">Campo obrigatório</div>
 
+                            </div>
+                            <div class="mb-3"><label class="form-label">Data de nascimento*</label><input
+                                    placeholder="Data de nascimento" required type="date" name="DT_NASCIMENTO_SAC"
+                                    id="dataNascimento" format="date" class="form-control text-muted" maxlength="8">
+                                <div class="invalid-feedback">Campo obrigatório</div>
+                            </div>
                             <div class="mb-3">
                                 <label class="form-label">Senha*</label>
                                 <input placeholder="Digite sua senha" required="" type="password" id="senha"
-                                    name="senha" class="form-control" value="" maxlength="12">  
+                                    name="senha" class="form-control" value="" maxlength="12">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                                 <div class="invalid-feedback" id="senhaRequisitosError" style="display: none">
                                     A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula e um número.
                                 </div>
                             </div>
-
                             <div class="mb-3"><label class="form-label">Confirmar Senha*</label>
-                                <input placeholder="Confirme sua senha" required="" type="password" id="senha_confirmacao" name="senha_confirmacao" class="form-control" value="" maxlength="12"> 
+                                <input placeholder="Confirme sua senha" required="" type="password"
+                                    id="senha_confirmacao" name="senha_confirmacao" class="form-control" value=""
+                                    maxlength="12">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                                 <div class="invalid-feedback" id="senhaConfirmacaoError">As senhas não coincidem</div>
                             </div>
-
                             <div class="mb-1">
                                 <div class="form-check">
                                     <input required="" type="checkbox" id="Maior18" class="form-check-input">
@@ -260,7 +258,6 @@
                                     <div class="text-start invalid-feedback" id="errorMessage">Campo obrigatório
                                     </div>
                                 </div>
-
                             </div>
                             <div class="mb-1">
                                 <div class="form-check">
@@ -623,7 +620,6 @@
         </div>
         <script>
             // API SUPERLOGICA CHECKOUT
-
             async function fazerChamadaAPI() {
                 var urlencoded = new URLSearchParams();
                 urlencoded.append("idplano", "");
@@ -897,10 +893,9 @@
                 }
             });
 
-            //    SOMA DOS PLANOS PARA O VALOR TOTAL
+            // SOMA DOS PLANOS PARA O VALOR TOTAL
             function calcularValorTotal() {
-
-                var opcaoRadios = document.querySelectorAll('input[name="opcao"]');
+                var idplanoRadios = document.querySelectorAll('input[name="idplano"]');
                 var valorTotalElement = document.getElementById('valorTotal');
 
                 var taxaAdesaoIndividual = 30.00;
@@ -909,22 +904,22 @@
                 var mensalidadeFamiliar = 39.90;
                 var valorTotal = 0;
 
-                for (var i = 0; i < opcaoRadios.length; i++) {
-                    if (opcaoRadios[i].checked) {
-                        if (opcaoRadios[i].value === "um") {
+                for (var i = 0; i < idplanoRadios.length; i++) {
+                    if (idplanoRadios[i].checked) {
+                        if (idplanoRadios[i].value === "um") {
                             valorTotal = taxaAdesaoIndividual + mensalidadeIndividual;
-                        } else if (opcaoRadios[i].value === "dois") {
+                        } else if (idplanoRadios[i].value === "dois") {
                             valorTotal = taxaAdesaoFamiliar + mensalidadeFamiliar;
                         }
                     }
                 }
 
-                valorTotalElement.textContent = '' + valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                valorTotalElement.textContent = valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             }
 
-            var opcaoRadios = document.querySelectorAll('input[name="opcao"]');
-            for (var i = 0; i < opcaoRadios.length; i++) {
-                opcaoRadios[i].addEventListener('change', calcularValorTotal);
+            var idplanoRadios = document.querySelectorAll('input[name="idplano"]');
+            for (var i = 0; i < idplanoRadios.length; i++) {
+                idplanoRadios[i].addEventListener('change', calcularValorTotal);
             }
 
             calcularValorTotal();

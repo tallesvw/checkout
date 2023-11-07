@@ -221,7 +221,7 @@
                             <div class="mb-3"><label class="form-label">Telefone*</label><input
                                     placeholder="(11) 99999-9999" required="" type="text" id="telefone"
                                     name="ST_CELULAR_SAC" class="form-control" value=""
-                                    oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="11">
                                 <div class="invalid-feedback">Campo obrigatório</div>
                             </div>
                             <div class="mb-3"><label class="form-label">CPF*</label><input placeholder="000.000.000-00"
@@ -261,7 +261,8 @@
                             </div>
                             <div class="mb-1">
                                 <div class="form-check">
-                                    <input required="" type="checkbox" id="termos" class="form-check-input">
+                                    <input required="" type="checkbox" name="aceite_contrato" id="termos"
+                                        class="form-check-input">
                                     <label for="termos" class="form-check-label">Li e aceito os <a type="link"
                                             class="underline text-link-terms">
                                             <strong>termos e condições</strong>
@@ -575,7 +576,7 @@
                                             </div>
                                         </div>
                                         <div class="d-grid pt-3">
-                                            <button type="submit" id="solicitar" name="aceite_contrato"
+                                            <button type="submit" id="solicitar" name="botao"
                                                 class="d-flex justify-content-center btn btn-secondary btn-lg"
                                                 style="background-color: #ffda00; color: #000; border: none;">Solicitar
                                                 Plano</button>
@@ -621,6 +622,7 @@
         <script>
             // API SUPERLOGICA CHECKOUT
             async function fazerChamadaAPI() {
+
                 var urlencoded = new URLSearchParams();
                 urlencoded.append("idplano", "");
                 urlencoded.append("ST_NOME_SAC", "");
@@ -660,21 +662,19 @@
                     redirect: 'follow'
                 };
 
-                try {
-                    const response = await fetch(apiUrl, requestOptions);
-
-                    if (!response.ok) {
-                        throw new Error(`Erro na requisição à API: ${response.status} - ${response.statusText}`);
+                document.getElementById('solicitar').addEventListener('click', async function () {
+                    try {
+                        const formData = new FormData(event.target);
+                        const urlencoded = new URLSearchParams(formData);
+                        const response = await fazerChamadaAPI(urlencoded);
+                        
+                    } catch (error) {
+                        console.error('Erro na chamada à API:', error);
+                        throw error;
                     }
+                });
 
-                    const data = await response.json();
-                    return data;
-                } catch (error) {
-                    console.error('Erro na chamada à API:', error);
-                    throw error;
-                }
             };
-
             //////////////////////////////////////////////////////////////////////////////////
 
             //////////////////////// CADASTRO ////////////////////////

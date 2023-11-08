@@ -394,7 +394,7 @@
                             </h5>
                             <div class="px-0.5 ps-4 my-3 row">
                                 <div class="d-flex align-items-center">
-                                    <input type="radio" name="idplano" id="um" value="um" class="me-2">
+                                    <input type="radio" name="idplano" id="um" value="u" class="me-2">
                                     <div class="px-0.5 ps-4 my-0.2 row">
                                         <div class="ps-1 col-sm-8 col-8">
                                             <h1 class="text-muted" style="font-size: 16px;">Taxa de adesão</h1>
@@ -419,7 +419,7 @@
                             <h5 id="familiar" class="text-muted m-0" style="font-size: 17px;">Plano Familiar</h5>
                             <div class="px-1 ps-4 my-3 row">
                                 <div class="d-flex align-items-center">
-                                    <input type="radio" name="idplano" id="dois" value="dois" class="me-2">
+                                    <input type="radio" name="idplano" id="dois" value="" class="me-2">
                                     <div class="px-0.5 ps-4 my-0.2 row">
                                         <div class="ps-1 col-sm-8 col-8">
                                             <h5 class="text-muted" style="font-size: 16px;">Taxa de adesão
@@ -506,7 +506,7 @@
                                                 style="opacity: 1; "></a>
                                         <div class="mb-3">
                                             <label class="form-label">Número do cartão*</label>
-                                            <input placeholder="0000 0000 0000 0000" required="" id="numero-cartao"
+                                            <input placeholder="0000 0000 0000 0000" required="" id="numeroCartao"
                                                 name="ST_CARTAO_SAC" type="text" class="form-control" value="">
                                             <div class="invalid-feedback">Campo obrigatório
                                             </div>
@@ -575,8 +575,6 @@
                                             <div class="invalid-feedback">Campo obrigatório
                                             </div>
                                         </div>
-                                        <input type="hidden" autocomplete="off" name="ST_CARTAOBANDEIRA_SAC"
-                                            class="pjbank-cartao-bandeira">
                                         <div class="d-grid pt-3">
                                             <button type="submit" id="solicitar" name="botao"
                                                 class="d-flex justify-content-center btn btn-secondary btn-lg"
@@ -624,87 +622,95 @@
         </div>
         <script>
             // API SUPERLOGICA CHECKOUT
-            async function fazerChamadaAPI() {
-                var idplano = document.getElementById("idplano").value;
-                var ST_NOME_SAC = document.getElementById("ST_NOME_SAC").value;
-                var ST_CGC_SAC = document.getElementById("ST_CGC_SAC").value;
-                var ST_EMAIL_SAC = document.getElementById("ST_EMAIL_SAC").value;
-                var ST_TELEFONE_SAC = document.getElementById("ST_TELEFONE_SAC").value;
-                var FL_PAGAMENTOPREF_SAC = document.getElementById("FL_PAGAMENTOPREF_SAC").value;
-                var senha = document.getElementById("senha").value;
-                var senha_confirmacao = document.getElementById("senha_confirmacao").value;
-                var ST_CEP_SAC = document.getElementById("ST_CEP_SAC").value;
-                var ST_ENDERECO_SAC = document.getElementById("ST_ENDERECO_SAC").value;
-                var ST_NUMERO_SAC = document.getElementById("ST_NUMERO_SAC").value;
-                var ST_COMPLEMENTO_SAC = document.getElementById("ST_COMPLEMENTO_SAC").value;
-                var ST_BAIRRO_SAC = document.getElementById("ST_BAIRRO_SAC").value;
-                var ST_CIDADE_SAC = document.getElementById("ST_CIDADE_SAC").value;
-                var ST_ESTADO_SAC = document.getElementById("ST_ESTADO_SAC").value;
-                var cupom = document.getElementById("cupom").value;
-                var ST_CARTAO_SAC = document.getElementById("ST_CARTAO_SAC").value;
-                var ST_MESVALIDADE_SAC = document.getElementById("ST_MESVALIDADE_SAC").value;
-                var ST_ANOVALIDADE_SAC = document.getElementById("ST_ANOVALIDADE_SAC").value;
-                var ST_SEGURANCACARTAO_SAC = document.getElementById("ST_SEGURANCACARTAO_SAC").value;
-                var ST_CARTAOBANDEIRA_SAC = document.getElementById("ST_CARTAOBANDEIRA_SAC").value;
-                var ST_NOMECARTAO_SAC = document.getElementById("ST_NOMECARTAO_SAC").value;
-                var aceite_contrato = document.getElementById("aceite_contrato").value;
+            var nome = document.getElementById("nome").value;
+            var nome = document.getElementById("nome").value;
+            var email = document.getElementById("email").value;
+            var telefone = document.getElementById("telefone").value;
+            var cpf = document.getElementById("cpf").value;
+            var dataNascimento = document.getElementById("dataNascimento").value;
+            var senha = document.getElementById("senha").value;
+            var senhaConfirmacao = document.getElementById("senha_confirmacao").value;
+            var aceiteContrato = document.getElementById("termos").checked;
+            var cep = document.getElementById("cep").value;
+            var rua = document.getElementById("rua").value;
+            var bairro = document.getElementById("bairro").value;
+            var cidade = document.getElementById("cidade").value;
+            var uf = document.getElementById("uf").value;
+            var numero = document.getElementById("numero").value;
+            var complemento = document.getElementById("complemento").value;
+            var voucher = document.getElementById("voucher").value;
+            var numeroCartao = document.getElementById("numero-cartao").value;
+            var nomeTitular = document.getElementById("nomeTitular").value;
+            var mesCartao = document.getElementById("mesCartao").value;
+            var anoCartao = document.getElementById("anoCartao").value;
+            var cvvCartao = document.getElementById("cvvCartao").value;
+            var cpfCartao = document.getElementById("cpfCartao").value;
 
+            var urlencoded = new URLSearchParams();
+            urlencoded.append("idplano", "");
+            urlencoded.append("ST_NOME_SAC", nome);
+            urlencoded.append("ST_EMAIL_SAC", email);
+            urlencoded.append("FL_PAGAMENTOPREF_SAC", "3");
+            urlencoded.append("senha", senha);
+            urlencoded.append("senha_confirmacao", senha_confirmacao);
+            urlencoded.append("ST_CGC_SAC", cpf);
+            urlencoded.append("ST_RG_SAC", "000000000");
+            urlencoded.append("ST_INSCMUNICIPAL_SAC", "");
+            urlencoded.append("ST_DDD_SAC", "31");
+            urlencoded.append("ST_TELEFONE_SAC", telefone);
+            urlencoded.append("ST_FAX_SAC", "");
+            urlencoded.append("ST_PAIS_SAC", "Brasil");
+            urlencoded.append("ST_CEP_SAC", cep);
+            urlencoded.append("ST_ENDERECO_SAC", rua);
+            urlencoded.append("ST_NUMERO_SAC", numero);
+            urlencoded.append("ST_COMPLEMENTO_SAC", complemento);
+            urlencoded.append("ST_BAIRRO_SAC", bairro);
+            urlencoded.append("ST_CIDADE_SAC", cidade);
+            urlencoded.append("ST_ESTADO_SAC", uf);
+            urlencoded.append("FL_MESMOEND_SAC", "1");
+            urlencoded.append("ST_CEPENTREGA_SAC", "");
+            urlencoded.append("ST_ENDERECOENTREGA_SAC", "");
+            urlencoded.append("ST_NUMEROENTREGA_SAC", "");
+            urlencoded.append("ST_COMPLEMENTOENTREGA_SAC", "");
+            urlencoded.append("ST_BAIRROENTREGA_SAC", "");
+            urlencoded.append("ST_CIDADEENTREGA_SAC", "");
+            urlencoded.append("ST_ESTADOENTREGA_SAC", "");
+            urlencoded.append("ST_PONTOREFERENCIAENTREGA_SAC", "");
+            urlencoded.append("cupom", voucher);
+            urlencoded.append("ID_VENDEDOR_FOR", "");
+            urlencoded.append("ST_CARTAO_SAC", numeroCartao);
+            urlencoded.append("ST_MESVALIDADE_SAC", mesCartao);
+            urlencoded.append("ST_ANOVALIDADE_SAC", anoCartao);
+            urlencoded.append("ST_SEGURANCACARTAO_SAC", cvvCartao);
+            urlencoded.append("ST_CARTAOBANDEIRA_SAC", "visa");
+            urlencoded.append("ST_NOMECARTAO_SAC", nomeTitular);
+            urlencoded.append("ST_BANCO_SAC", "");
+            urlencoded.append("ST_AGENCIA_SAC", "");
+            urlencoded.append("ST_CONTABANCARIA_SAC", "");
+            urlencoded.append("QUANT_PARCELAS_ADESAO", "");
+            urlencoded.append("trial", "");
+            urlencoded.append("aceite_contrato", "1");
+            
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+            myHeaders.append("app_token", "ce7edf03-fa59-4c31-b378-5f6683a5c26f");
+            myHeaders.append("access_token", "f9c649af-72cc-4413-98f8-767a883bee59");
 
-                var urlencoded = new URLSearchParams();
-                urlencoded.append("idplano", idplano);
-                urlencoded.append("ST_NOME_SAC", ST_NOME_SAC);
-                urlencoded.append("ST_CGC_SAC", ST_CGC_SAC);
-                urlencoded.append("ST_EMAIL_SAC", ST_EMAIL_SAC);
-                urlencoded.append("ST_TELEFONE_SAC", ST_TELEFONE_SAC);
-                urlencoded.append("FL_PAGAMENTOPREF_SAC", FL_PAGAMENTOPREF_SAC);
-                urlencoded.append("senha", senha);
-                urlencoded.append("senha_confirmacao", senha_confirmacao);
-                urlencoded.append("ST_CEP_SAC", ST_CEP_SAC);
-                urlencoded.append("ST_ENDERECO_SAC", ST_ENDERECO_SAC);
-                urlencoded.append("ST_NUMERO_SAC", ST_NUMERO_SAC);
-                urlencoded.append("ST_COMPLEMENTO_SAC", ST_COMPLEMENTO_SAC);
-                urlencoded.append("ST_BAIRRO_SAC", ST_BAIRRO_SAC);
-                urlencoded.append("ST_CIDADE_SAC", ST_CIDADE_SAC);
-                urlencoded.append("ST_ESTADO_SAC", ST_ESTADO_SAC);
-                urlencoded.append("cupom", cupom);
-                urlencoded.append("ST_CARTAO_SAC", ST_CARTAO_SAC);
-                urlencoded.append("ST_MESVALIDADE_SAC", ST_MESVALIDADE_SAC);
-                urlencoded.append("ST_ANOVALIDADE_SAC", ST_ANOVALIDADE_SAC);
-                urlencoded.append("ST_SEGURANCACARTAO_SAC", ST_SEGURANCACARTAO_SAC);
-                urlencoded.append("ST_CARTAOBANDEIRA_SAC", ST_CARTAOBANDEIRA_SAC);
-                urlencoded.append("ST_NOMECARTAO_SAC", ST_NOMECARTAO_SAC);
-                urlencoded.append("aceite_contrato", aceite_contrato);
-
-                var myHeaders = new Headers();
-                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-                myHeaders.append("app_token", "ce7edf03-fa59-4c31-b378-5f6683a5c26f");
-                myHeaders.append("access_token", "f9c649af-72cc-4413-98f8-767a883bee59");
-
-                const apiUrl = 'https://api.superlogica.net/v2/financeiro/checkout';
-
-                var requestOptions = {
-                    method: 'POST',
-                    headers: myHeaders,
-                    body: urlencoded,
-                    redirect: 'follow'
-                };
-
-
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: urlencoded,
+                redirect: 'follow'
             };
 
-            fetch(apiUrl, requestOptions)
+            fetch("https://api.superlogica.net/v2/financeiro/checkout", requestOptions)
                 .then(response => response.json())
-                .then(data => {
-                    
-                    console.log("Resposta da API:", data);
-                    alert("Plano solicitado com sucesso!");
-                })
-                .catch(error => {
-                   
-                    console.error("Erro na chamada da API:", error);
-                    alert("Ocorreu um erro ao solicitar o plano. Tente novamente mais tarde.");
-                });
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
 
+            function consumoApi() {
+
+            }
 
 
             //////////////////////////////////////////////////////////////////////////////////

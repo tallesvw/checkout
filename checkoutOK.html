@@ -453,7 +453,7 @@
 
 
                             <!-- CARTAO DE CREDITO -->
-                            <div class="accordion-card accordion">
+                            <div class="accordion-card accordion" for="FL_PAGAMENTOPREF_SAC-3">
                                 <div class="mb-3 accordion-item ">
                                     <h2 class="payment-accordion accordion-header">
                                         <button id="toggleCreditButton" type="button" aria-expanded="false"
@@ -575,10 +575,13 @@
                                             <div class="invalid-feedback">Campo obrigatório
                                             </div>
                                         </div>
+                                        <input type="hidden" autocomplete="off" name="ST_CARTAOBANDEIRA_SAC"
+                                            class="pjbank-cartao-bandeira">
                                         <div class="d-grid pt-3">
                                             <button type="submit" id="solicitar" name="botao"
                                                 class="d-flex justify-content-center btn btn-secondary btn-lg"
-                                                style="background-color: #ffda00; color: #000; border: none;">Solicitar
+                                                style="background-color: #ffda00; color: #000; border: none;"
+                                                onclick="fazerChamadaAPI()">Solicitar
                                                 Plano</button>
                                             <br>
                                         </div>
@@ -622,31 +625,55 @@
         <script>
             // API SUPERLOGICA CHECKOUT
             async function fazerChamadaAPI() {
+                var idplano = document.getElementById("idplano").value;
+                var ST_NOME_SAC = document.getElementById("ST_NOME_SAC").value;
+                var ST_CGC_SAC = document.getElementById("ST_CGC_SAC").value;
+                var ST_EMAIL_SAC = document.getElementById("ST_EMAIL_SAC").value;
+                var ST_TELEFONE_SAC = document.getElementById("ST_TELEFONE_SAC").value;
+                var FL_PAGAMENTOPREF_SAC = document.getElementById("FL_PAGAMENTOPREF_SAC").value;
+                var senha = document.getElementById("senha").value;
+                var senha_confirmacao = document.getElementById("senha_confirmacao").value;
+                var ST_CEP_SAC = document.getElementById("ST_CEP_SAC").value;
+                var ST_ENDERECO_SAC = document.getElementById("ST_ENDERECO_SAC").value;
+                var ST_NUMERO_SAC = document.getElementById("ST_NUMERO_SAC").value;
+                var ST_COMPLEMENTO_SAC = document.getElementById("ST_COMPLEMENTO_SAC").value;
+                var ST_BAIRRO_SAC = document.getElementById("ST_BAIRRO_SAC").value;
+                var ST_CIDADE_SAC = document.getElementById("ST_CIDADE_SAC").value;
+                var ST_ESTADO_SAC = document.getElementById("ST_ESTADO_SAC").value;
+                var cupom = document.getElementById("cupom").value;
+                var ST_CARTAO_SAC = document.getElementById("ST_CARTAO_SAC").value;
+                var ST_MESVALIDADE_SAC = document.getElementById("ST_MESVALIDADE_SAC").value;
+                var ST_ANOVALIDADE_SAC = document.getElementById("ST_ANOVALIDADE_SAC").value;
+                var ST_SEGURANCACARTAO_SAC = document.getElementById("ST_SEGURANCACARTAO_SAC").value;
+                var ST_CARTAOBANDEIRA_SAC = document.getElementById("ST_CARTAOBANDEIRA_SAC").value;
+                var ST_NOMECARTAO_SAC = document.getElementById("ST_NOMECARTAO_SAC").value;
+                var aceite_contrato = document.getElementById("aceite_contrato").value;
+
 
                 var urlencoded = new URLSearchParams();
-                urlencoded.append("idplano", "");
-                urlencoded.append("ST_NOME_SAC", "");
-                urlencoded.append("ST_CGC_SAC", "");
-                urlencoded.append("ST_EMAIL_SAC", "");
-                urlencoded.append("ST_TELEFONE_SAC", "");
-                urlencoded.append("FL_PAGAMENTOPREF_SAC", "");
-                urlencoded.append("senha", "");
-                urlencoded.append("senha_confirmacao", "");
-                urlencoded.append("ST_CEP_SAC", "");
-                urlencoded.append("ST_ENDERECO_SAC", "");
-                urlencoded.append("ST_NUMERO_SAC", "");
-                urlencoded.append("ST_COMPLEMENTO_SAC", "");
-                urlencoded.append("ST_BAIRRO_SAC", "");
-                urlencoded.append("ST_CIDADE_SAC", "");
-                urlencoded.append("ST_ESTADO_SAC", "");
-                urlencoded.append("cupom", "");
-                urlencoded.append("ST_CARTAO_SAC", "");
-                urlencoded.append("ST_MESVALIDADE_SAC", "");
-                urlencoded.append("ST_ANOVALIDADE_SAC", "");
-                urlencoded.append("ST_SEGURANCACARTAO_SAC", "");
-                urlencoded.append("ST_CARTAOBANDEIRA_SAC", "");
-                urlencoded.append("ST_NOMECARTAO_SAC", "");
-                urlencoded.append("aceite_contrato", "");
+                urlencoded.append("idplano", idplano);
+                urlencoded.append("ST_NOME_SAC", ST_NOME_SAC);
+                urlencoded.append("ST_CGC_SAC", ST_CGC_SAC);
+                urlencoded.append("ST_EMAIL_SAC", ST_EMAIL_SAC);
+                urlencoded.append("ST_TELEFONE_SAC", ST_TELEFONE_SAC);
+                urlencoded.append("FL_PAGAMENTOPREF_SAC", FL_PAGAMENTOPREF_SAC);
+                urlencoded.append("senha", senha);
+                urlencoded.append("senha_confirmacao", senha_confirmacao);
+                urlencoded.append("ST_CEP_SAC", ST_CEP_SAC);
+                urlencoded.append("ST_ENDERECO_SAC", ST_ENDERECO_SAC);
+                urlencoded.append("ST_NUMERO_SAC", ST_NUMERO_SAC);
+                urlencoded.append("ST_COMPLEMENTO_SAC", ST_COMPLEMENTO_SAC);
+                urlencoded.append("ST_BAIRRO_SAC", ST_BAIRRO_SAC);
+                urlencoded.append("ST_CIDADE_SAC", ST_CIDADE_SAC);
+                urlencoded.append("ST_ESTADO_SAC", ST_ESTADO_SAC);
+                urlencoded.append("cupom", cupom);
+                urlencoded.append("ST_CARTAO_SAC", ST_CARTAO_SAC);
+                urlencoded.append("ST_MESVALIDADE_SAC", ST_MESVALIDADE_SAC);
+                urlencoded.append("ST_ANOVALIDADE_SAC", ST_ANOVALIDADE_SAC);
+                urlencoded.append("ST_SEGURANCACARTAO_SAC", ST_SEGURANCACARTAO_SAC);
+                urlencoded.append("ST_CARTAOBANDEIRA_SAC", ST_CARTAOBANDEIRA_SAC);
+                urlencoded.append("ST_NOMECARTAO_SAC", ST_NOMECARTAO_SAC);
+                urlencoded.append("aceite_contrato", aceite_contrato);
 
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -662,19 +689,24 @@
                     redirect: 'follow'
                 };
 
-                document.getElementById('solicitar').addEventListener('click', async function () {
-                    try {
-                        const formData = new FormData(event.target);
-                        const urlencoded = new URLSearchParams(formData);
-                        const response = await fazerChamadaAPI(urlencoded);
-                        
-                    } catch (error) {
-                        console.error('Erro na chamada à API:', error);
-                        throw error;
-                    }
-                });
 
             };
+
+            fetch(apiUrl, requestOptions)
+                .then(response => response.json())
+                .then(data => {
+                    
+                    console.log("Resposta da API:", data);
+                    alert("Plano solicitado com sucesso!");
+                })
+                .catch(error => {
+                   
+                    console.error("Erro na chamada da API:", error);
+                    alert("Ocorreu um erro ao solicitar o plano. Tente novamente mais tarde.");
+                });
+
+
+
             //////////////////////////////////////////////////////////////////////////////////
 
             //////////////////////// CADASTRO ////////////////////////

@@ -621,99 +621,46 @@
         </div>
         </div>
         <script>
-            // API SUPERLOGICA CHECKOUT
-            function consumoApi() {
-            var nome = document.getElementById("nome").value;
-            var nome = document.getElementById("nome").value;
-            var email = document.getElementById("email").value;
-            var telefone = document.getElementById("telefone").value;
-            var cpf = document.getElementById("cpf").value;
-            var dataNascimento = document.getElementById("dataNascimento").value;
-            var senha = document.getElementById("senha").value;
-            var senhaConfirmacao = document.getElementById("senha_confirmacao").value;
-            var aceiteContrato = document.getElementById("termos").checked;
-            var cep = document.getElementById("cep").value;
-            var rua = document.getElementById("rua").value;
-            var bairro = document.getElementById("bairro").value;
-            var cidade = document.getElementById("cidade").value;
-            var uf = document.getElementById("uf").value;
-            var numero = document.getElementById("numero").value;
-            var complemento = document.getElementById("complemento").value;
-            var voucher = document.getElementById("voucher").value;
-            var numeroCartao = document.getElementById("numero-cartao").value;
-            var nomeTitular = document.getElementById("nomeTitular").value;
-            var mesCartao = document.getElementById("mesCartao").value;
-            var anoCartao = document.getElementById("anoCartao").value;
-            var cvvCartao = document.getElementById("cvvCartao").value;
-            var cpfCartao = document.getElementById("cpfCartao").value;
+            //////////////////////// CADASTRO ////////////////////////
+            function validarCampo(campo) {
 
-            var urlencoded = new URLSearchParams();
-            urlencoded.append("idplano", "");
-            urlencoded.append("ST_NOME_SAC", nome);
-            urlencoded.append("ST_EMAIL_SAC", email);
-            urlencoded.append("FL_PAGAMENTOPREF_SAC", "3");
-            urlencoded.append("senha", senha);
-            urlencoded.append("senha_confirmacao", senha_confirmacao);
-            urlencoded.append("ST_CGC_SAC", cpf);
-            urlencoded.append("ST_RG_SAC", "000000000");
-            urlencoded.append("ST_INSCMUNICIPAL_SAC", "");
-            urlencoded.append("ST_DDD_SAC", "31");
-            urlencoded.append("ST_TELEFONE_SAC", telefone);
-            urlencoded.append("ST_FAX_SAC", "");
-            urlencoded.append("ST_PAIS_SAC", "Brasil");
-            urlencoded.append("ST_CEP_SAC", cep);
-            urlencoded.append("ST_ENDERECO_SAC", rua);
-            urlencoded.append("ST_NUMERO_SAC", numero);
-            urlencoded.append("ST_COMPLEMENTO_SAC", complemento);
-            urlencoded.append("ST_BAIRRO_SAC", bairro);
-            urlencoded.append("ST_CIDADE_SAC", cidade);
-            urlencoded.append("ST_ESTADO_SAC", uf);
-            urlencoded.append("FL_MESMOEND_SAC", "1");
-            urlencoded.append("ST_CEPENTREGA_SAC", "");
-            urlencoded.append("ST_ENDERECOENTREGA_SAC", "");
-            urlencoded.append("ST_NUMEROENTREGA_SAC", "");
-            urlencoded.append("ST_COMPLEMENTOENTREGA_SAC", "");
-            urlencoded.append("ST_BAIRROENTREGA_SAC", "");
-            urlencoded.append("ST_CIDADEENTREGA_SAC", "");
-            urlencoded.append("ST_ESTADOENTREGA_SAC", "");
-            urlencoded.append("ST_PONTOREFERENCIAENTREGA_SAC", "");
-            urlencoded.append("cupom", voucher);
-            urlencoded.append("ID_VENDEDOR_FOR", "");
-            urlencoded.append("ST_CARTAO_SAC", numeroCartao);
-            urlencoded.append("ST_MESVALIDADE_SAC", mesCartao);
-            urlencoded.append("ST_ANOVALIDADE_SAC", anoCartao);
-            urlencoded.append("ST_SEGURANCACARTAO_SAC", cvvCartao);
-            urlencoded.append("ST_CARTAOBANDEIRA_SAC", "visa");
-            urlencoded.append("ST_NOMECARTAO_SAC", nomeTitular);
-            urlencoded.append("ST_BANCO_SAC", "");
-            urlencoded.append("ST_AGENCIA_SAC", "");
-            urlencoded.append("ST_CONTABANCARIA_SAC", "");
-            urlencoded.append("QUANT_PARCELAS_ADESAO", "");
-            urlencoded.append("trial", "");
-            urlencoded.append("aceite_contrato", "1");
-            
-            var myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-            myHeaders.append("app_token", "ce7edf03-fa59-4c31-b378-5f6683a5c26f");
-            myHeaders.append("access_token", "f9c649af-72cc-4413-98f8-767a883bee59");
-
-            var requestOptions = {
-                method: 'POST',
-                headers: myHeaders,
-                body: urlencoded,
-                redirect: 'follow'
-            };
-
-            fetch("https://api.superlogica.net/v2/financeiro/checkout", requestOptions)
-                .then(response => response.json())
-                .then(result => console.log(result))
-                .catch(error => console.log('error', error));
+                if (campo.type === "checkbox") {
+                    if (!campo.checked) {
+                        exibirFeedbackInvalido(campo);
+                    } else {
+                        marcarComoValido(campo);
+                    }
+                } else {
+                    if (campo.value === "") {
+                        exibirFeedbackInvalido(campo);
+                    } else {
+                        marcarComoValido(campo);
+                    }
+                }
+            }
+            function exibirFeedbackInvalido(campo) {
+                var feedback = campo.nextElementSibling;
+                feedback.style.display = "block";
+                campo.classList.remove("is-valid");
+            }
+            function marcarComoValido(campo) {
+                var feedback = campo.nextElementSibling;
+                if (campo.type !== "checkbox") {
+                    feedback.style.display = "none";
+                }
+                campo.classList.add("is-valid");
             }
 
+            document.addEventListener("DOMContentLoaded", function () {
+                var campos = ["nome", "email", "telefone", "cpf", "dataNascimento", "senha", "senha_confirmacao", "Maior18", "termos", "termosSmsEmailTel"];
+                for (var i = 0; i < campos.length; i++) {
+                    var campo = document.getElementById(campos[i]);
+                    campo.addEventListener("blur", function () {
+                        validarCampo(this);
+                    });
+                }
+            });
 
-            //////////////////////////////////////////////////////////////////////////////////
-
-            //////////////////////// CADASTRO ////////////////////////
             var dataNascimento = document.getElementById("dataNascimento");
 
             var dataAtual = new Date();
@@ -722,83 +669,6 @@
             dataNascimento.setAttribute("min", "1923-01-01");
             dataNascimento.max = anoAtual + "-12-31";
 
-            function verificarCampoPreenchido(input) {
-                if (input.value.trim() === '') {
-                    input.classList.remove('is-valid');
-                    input.classList.add('is-invalid');
-                    return false;
-                } else {
-                    input.classList.remove('is-invalid');
-                    input.classList.add('is-valid');
-                    return true;
-                }
-            }
-
-            function verificarCheckbox(checkbox) {
-                if (!checkbox.checked) {
-                    checkbox.classList.remove('is-valid');
-                    checkbox.classList.add('is-invalid');
-                    var invalidFeedback = checkbox.nextElementSibling.nextElementSibling;
-                    invalidFeedback.style.display = 'block';
-                    return false;
-                } else {
-                    checkbox.classList.remove('is-invalid');
-                    checkbox.classList.add('is-valid');
-                    var invalidFeedback = checkbox.nextElementSibling.nextElementSibling;
-                    invalidFeedback.style.display = 'none';
-                    return true;
-                }
-            }
-
-            function verificarTodosCampos() {
-                var camposDeTexto = document.querySelectorAll('input[type="text"]:not(#complemento):not([id="voucher"]), input[type="password"]');
-                var todosCamposPreenchidos = true;
-
-                camposDeTexto.forEach(function (campo, index, campos) {
-                    if (!verificarCampoPreenchido(campo)) {
-                        todosCamposPreenchidos = false;
-
-                        if (index < campos.length - 1 && campos[index + 1] !== document.activeElement) {
-                            campo.classList.remove('is-valid');
-                            campo.classList.add('is-invalid');
-                        }
-                    }
-                });
-
-                var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                var todosCheckboxesMarcados = true;
-
-                checkboxes.forEach(function (checkbox) {
-                    if (!verificarCheckbox(checkbox)) {
-                        todosCheckboxesMarcados = false;
-                    }
-                });
-
-                return todosCamposPreenchidos && todosCheckboxesMarcados;
-            }
-
-            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(function (checkbox) {
-                checkbox.addEventListener('change', function () {
-                    verificarTodosCampos();
-                });
-            });
-
-            var camposDeTexto = document.querySelectorAll('input[type="text"]:not(#complemento):not([id="voucher"]), input[type="password"], input[type="date"], input[type="number"], input[type="email"]');
-            camposDeTexto.forEach(function (campo, index, campos) {
-                campo.addEventListener('input', function () {
-                    verificarCampoPreenchido(campo);
-
-                    if (campo.value.trim() === '' && index < campos.length - 1 && campos[index + 1] !== document.activeElement) {
-                        campo.classList.remove('is-valid');
-                        campo.classList.add('is-invalid');
-                    }
-                });
-
-                campo.addEventListener('blur', function () {
-                    verificarCampoPreenchido(campo);
-                });
-            });
 
             //////////// SENHA ////////////
             const senhaInput = document.getElementById('senha');
@@ -824,6 +694,89 @@
             }
 
             //////////////////////// ENDEREÇO ///////////////////////////////
+            function validarCampoEndereco(campo) {
+
+                if (campo.type === "") {
+                    if (!campo.checked) {
+                        exibirFeedbackInvalido(campo);
+                    } else {
+                        marcarComoValido(campo);
+                    }
+                }
+            }
+            function exibirFeedbackInvalido(campo) {
+                var feedback = campo.nextElementSibling;
+                feedback.style.display = "block";
+                campo.classList.remove("is-valid");
+            }
+            function marcarComoValido(campo) {
+                var feedback = campo.nextElementSibling;
+                feedback.style.display = "none";
+                campo.classList.add("is-valid");
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                var campos = ["cep", "rua", "bairro", "cidade", "uf", "numero"];
+                for (var i = 0; i < campos.length; i++) {
+                    var campo = document.getElementById(campos[i]);
+                    campo.addEventListener("blur", function () {
+                        validarCampo(this);
+                    });
+                }
+            });
+
+            function validarCamposObrigatorios() {
+                var camposCadastro = [
+                    'nome', 'email', 'telefone', 'cpf', 'dataNascimento',
+                ];
+
+                var camposPreenchidosCadastro = camposCadastro.filter(function (campo) {
+                    return document.getElementById(campo).value.trim() !== '';
+                });
+
+                var camposEndereco = [
+                    'cep', 'rua', 'bairro', 'cidade', 'uf', 'numero', 'complemento'
+                ];
+
+                if (camposPreenchidosCadastro.length > 0) {
+                    habilitarCamposEndereco(true);
+                } else {
+                    habilitarCamposEndereco(false);
+                }
+            }
+
+            function habilitarCamposEndereco(habilitar) {
+                var camposEndereco = [
+                    'cep', 'rua', 'bairro', 'cidade', 'uf', 'numero', 'complemento'
+                ];
+
+                camposEndereco.forEach(function (campo) {
+                    document.getElementById(campo).disabled = !habilitar;
+                });
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                var camposCadastro = [
+                    'nome', 'email', 'telefone', 'cpf', 'dataNascimento',
+                ];
+
+                for (var i = 0; i < camposCadastro.length; i++) {
+                    var campoCadastro = document.getElementById(camposCadastro[i]);
+                    campoCadastro.addEventListener("blur", validarCamposObrigatorios);
+                }
+
+                var camposEndereco = [
+                    'cep', 'rua', 'bairro', 'cidade', 'uf', 'numero', 'complemento'
+                ];
+
+                for (var i = 0; i < camposEndereco.length; i++) {
+                    var campoEndereco = document.getElementById(camposEndereco[i]);
+                    campoEndereco.addEventListener("focus", function () {
+                        validarCamposObrigatorios();
+                    });
+                }
+            });
+
             function limpa_formulário_cep() {
                 document.getElementById('rua').value = ("");
                 document.getElementById('bairro').value = ("");
@@ -837,12 +790,16 @@
                     document.getElementById('bairro').value = (conteudo.bairro);
                     document.getElementById('cidade').value = (conteudo.localidade);
                     document.getElementById('uf').value = (conteudo.uf);
-                }
-                else {
+
+                    document.getElementById('rua').classList.add('is-valid');
+                    document.getElementById('bairro').classList.add('is-valid');
+                    document.getElementById('cidade').classList.add('is-valid');
+                    document.getElementById('uf').classList.add('is-valid');
+                } else {
                     limpa_formulário_cep();
                 }
             }
-
+// ESTOU TRABALHANDO NESTA PARTE DO CODIGO, TEM CODIGO DUPLICADO CEP NAO TIRA A MENSAGEM DE OBRIGATORIO
             function pesquisacep(valor) {
                 var cep = valor.replace(/\D/g, '');
                 var cepPrefix = cep.substring(0, 2);
@@ -869,7 +826,6 @@
                             limpa_formulário_cep();
                         }
                     } else {
-
                         document.getElementById('cepInput').classList.add('invalid-feedback');
                         document.getElementById('cepInput').textContent = "Formato de CEP inválido. O CEP deve conter 8 dígitos numéricos.";
                         limpa_formulário_cep();
@@ -909,7 +865,7 @@
                         })
                         .catch((error) => console.error('Erro ao consultar o CEP:', error));
                 } else {
-                    cepError.textContent = 'CEP inválido. Deve conter exatamente 8 dígitos numéricos e não deve conter letras.';
+                    cepError.textContent = 'CEP inválido. Deve conter 8 dígitos.';
 
                     cepInput.classList.remove('is-valid');
                     cepInput.classList.add('is-invalid');
@@ -974,3 +930,88 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+<script>// function verificarCampoPreenchido(input) {
+    //     if (input.value.trim() === '') {
+    //         input.classList.remove('is-valid');
+    //         input.classList.add('is-invalid');
+    //         return false;
+    //     } else {
+    //         input.classList.remove('is-invalid');
+    //         input.classList.add('is-valid');
+    //         return true;
+    //     }
+    // }
+
+    // function verificarCheckbox(checkbox) {
+    //     if (!checkbox.checked) {
+    //         checkbox.classList.remove('is-valid');
+    //         checkbox.classList.add('is-invalid');
+    //         var invalidFeedback = checkbox.nextElementSibling.nextElementSibling;
+    //         invalidFeedback.style.display = 'block';
+    //         return false;
+    //     } else {
+    //         checkbox.classList.remove('is-invalid');
+    //         checkbox.classList.add('is-valid');
+    //         var invalidFeedback = checkbox.nextElementSibling.nextElementSibling;
+    //         invalidFeedback.style.display = 'none';
+    //         return true;
+    //     }
+    // }
+
+    // function verificarTodosCampos() {
+    //     var campos = ["nome", "email", "telefone", "cpf", "dataNascimento", "senha", "senha_confirmacao", "Maior18", "termos", "termosSmsEmailTel"];
+    //     // var camposDeTexto = document.querySelectorAll('input[type="text"]:not(#complemento):not([id="voucher"]), input[type="password"]');
+    //     var todosCamposPreenchidos = true;
+
+    //     campos.forEach(function (campo, index, campos) {
+    //         if (!verificarCampoPreenchido(campo)) {
+    //             todosCamposPreenchidos = false;
+
+    //             if (index < campos.length - 1 && campos[index + 1] !== document.activeElement) {
+    //                 campo.classList.remove('is-valid');
+    //                 campo.classList.add('is-invalid');
+    //             }
+    //         }
+    //     });
+
+    //     var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    //     var todosCheckboxesMarcados = true;
+
+    //     checkboxes.forEach(function (checkbox) {
+    //         if (!verificarCheckbox(checkbox)) {
+    //             todosCheckboxesMarcados = false;
+    //         }
+    //     });
+
+    //     return todosCamposPreenchidos && todosCheckboxesMarcados;
+    // }
+
+    // var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    // checkboxes.forEach(function (checkbox) {
+    //     checkbox.addEventListener('change', function () {
+    //         verificarTodosCampos();
+    //     });
+    // });
+
+    // var camposDeTexto = document.querySelectorAll('input[type="text"]:not(#complemento):not([id="voucher"]), input[type="password"], input[type="date"], input[type="number"], input[type="email"]');
+    // camposDeTexto.forEach(function (campo, index, campos) {
+    //     campo.addEventListener('input', function () {
+    //         verificarCampoPreenchido(campo);
+
+    //         if (campo.value.trim() === '' && index < campos.length - 1 && campos[index + 1] !== document.activeElement) {
+    //             campo.classList.remove('is-valid');
+    //             campo.classList.add('is-invalid');
+    //         }
+    //     });
+
+    //     campo.addEventListener('blur', function () {
+    //         verificarCampoPreenchido(campo);
+    //     });
+    // });</script>

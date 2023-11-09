@@ -579,7 +579,7 @@
                                             <button type="submit" id="solicitar" name="botao"
                                                 class="d-flex justify-content-center btn btn-secondary btn-lg"
                                                 style="background-color: #ffda00; color: #000; border: none;"
-                                                onclick="fazerChamadaAPI()">Solicitar
+                                                onclick="consumoApi()">Solicitar
                                                 Plano</button>
                                             <br>
                                         </div>
@@ -622,6 +622,7 @@
         </div>
         <script>
             // API SUPERLOGICA CHECKOUT
+            function consumoApi() {
             var nome = document.getElementById("nome").value;
             var nome = document.getElementById("nome").value;
             var email = document.getElementById("email").value;
@@ -707,9 +708,6 @@
                 .then(response => response.json())
                 .then(result => console.log(result))
                 .catch(error => console.log('error', error));
-
-            function consumoApi() {
-
             }
 
 

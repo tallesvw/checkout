@@ -394,7 +394,7 @@
                             </h5>
                             <div class="px-0.5 ps-4 my-3 row">
                                 <div class="d-flex align-items-center">
-                                    <input type="radio" name="idplano" id="um" value="u" class="me-2">
+                                    <input type="radio" required name="idplano" id="um" value="u" class="me-2">
                                     <div class="px-0.5 ps-4 my-0.2 row">
                                         <div class="ps-1 col-sm-8 col-8">
                                             <h1 class="text-muted" style="font-size: 16px;">Taxa de adesão</h1>
@@ -419,7 +419,7 @@
                             <h5 id="familiar" class="text-muted m-0" style="font-size: 17px;">Plano Familiar</h5>
                             <div class="px-1 ps-4 my-3 row">
                                 <div class="d-flex align-items-center">
-                                    <input type="radio" name="idplano" id="dois" value="" class="me-2">
+                                    <input type="radio" required name="idplano" id="dois" value="" class="me-2">
                                     <div class="px-0.5 ps-4 my-0.2 row">
                                         <div class="ps-1 col-sm-8 col-8">
                                             <h5 class="text-muted" style="font-size: 16px;">Taxa de adesão
@@ -738,11 +738,14 @@
                     'cep', 'rua', 'bairro', 'cidade', 'uf', 'numero', 'complemento'
                 ];
 
-                if (camposPreenchidosCadastro.length > 0) {
-                    habilitarCamposEndereco(true);
-                } else {
-                    habilitarCamposEndereco(false);
-                }
+                var camposPreenchidosEndereco = camposEndereco.filter(function (campo) {
+                    return document.getElementById(campo).value.trim() !== '';
+                });
+
+                var camposPreenchidos = camposPreenchidosCadastro.length > 0 || camposPreenchidosEndereco.length > 0;
+
+                habilitarCamposEndereco(camposPreenchidos);
+                habilitarCamposPagamento(camposPreenchidos);
             }
 
             function habilitarCamposEndereco(habilitar) {
@@ -751,6 +754,16 @@
                 ];
 
                 camposEndereco.forEach(function (campo) {
+                    document.getElementById(campo).disabled = !habilitar;
+                });
+            }
+
+            function habilitarCamposPagamento(habilitar) {
+                var camposPagamento = [
+                    'um', 'dois', 'numeroCartao', 'nomeTitular', 'mesCartao', 'anoCartao', 'cvvCartao', 'cpfCartao'
+                ];
+
+                camposPagamento.forEach(function (campo) {
                     document.getElementById(campo).disabled = !habilitar;
                 });
             }
@@ -777,6 +790,7 @@
                 }
             });
 
+
             function limpa_formulário_cep() {
                 document.getElementById('rua').value = ("");
                 document.getElementById('bairro').value = ("");
@@ -799,7 +813,7 @@
                     limpa_formulário_cep();
                 }
             }
-// ESTOU TRABALHANDO NESTA PARTE DO CODIGO, TEM CODIGO DUPLICADO CEP NAO TIRA A MENSAGEM DE OBRIGATORIO
+            // ESTOU TRABALHANDO NESTA PARTE DO CODIGO, TEM CODIGO DUPLICADO CEP NAO TIRA A MENSAGEM DE OBRIGATORIO
             function pesquisacep(valor) {
                 var cep = valor.replace(/\D/g, '');
                 var cepPrefix = cep.substring(0, 2);
